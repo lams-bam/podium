@@ -1,0 +1,15 @@
+# Node-RED exports (if you sync flows separately)
+flows_cred.json
+
+# Environment/secrets
+.env
+*.env
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+```
