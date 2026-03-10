@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lead T1 (2m - Receipt) v4 — Email Variation Preview</title>
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+			background: #1a1a2e;
+			color: #e0e0e0;
+			min-height: 100vh;
+		}
+
+		.header {
+			padding: 24px 24px 0;
+		}
+		.header-meta {
+			font-size: 13px;
+			color: #8888aa;
+			margin-bottom: 4px;
+		}
+		.header h1 {
+			font-size: 22px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 4px;
+		}
+		.header-sub {
+			font-size: 13px;
+			color: #8888aa;
+			margin-bottom: 20px;
+		}
+
+		/* Tabs */
+		.tabs {
+			display: flex;
+			gap: 0;
+			padding: 0 24px;
+			overflow-x: auto;
+			border-bottom: 1px solid #2a2a4a;
+		}
+		.tab-btn {
+			padding: 10px 16px;
+			font-size: 13px;
+			font-weight: 400;
+			color: #8888aa;
+			background: transparent;
+			border: none;
+			border-bottom: 2px solid transparent;
+			cursor: pointer;
+			white-space: nowrap;
+			transition: all 0.15s;
+			font-family: inherit;
+		}
+		.tab-btn.active {
+			font-weight: 700;
+			color: #fff;
+			border-bottom-color: #6366f1;
+		}
+		.tab-btn:hover:not(.active) {
+			color: #bbb;
+		}
+		.tab-label {
+			display: block;
+			font-size: 10px;
+			margin-top: 2px;
+			opacity: 0.7;
+		}
+
+		/* Layout */
+		.content {
+			display: flex;
+			gap: 24px;
+			padding: 24px;
+			flex-wrap: wrap;
+		}
+
+		/* Sidebar */
+		.sidebar {
+			flex: 0 0 280px;
+			min-width: 240px;
+		}
+		.card {
+			background: #16213e;
+			border: 1px solid #2a2a4a;
+			border-radius: 8px;
+			padding: 16px;
+			margin-bottom: 16px;
+		}
+		.card-label {
+			font-size: 10px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #6366f1;
+			margin-bottom: 8px;
+			font-weight: 700;
+		}
+		.condition-tag {
+			margin-bottom: 4px;
+			padding: 3px 8px;
+			background: #1a1a2e;
+			border-radius: 4px;
+			font-family: monospace;
+			font-size: 11px;
+			color: #ccc;
+			line-height: 18px;
+		}
+		.card-title {
+			font-size: 14px;
+			color: #fff;
+			font-weight: 600;
+			margin-bottom: 8px;
+		}
+		.card-detail {
+			font-size: 12px;
+			color: #aaa;
+			line-height: 18px;
+		}
+		.card-subject {
+			font-size: 14px;
+			color: #fff;
+			font-weight: 600;
+		}
+		.cta-badge {
+			display: inline-block;
+			padding: 2px 8px;
+			border-radius: 3px;
+			font-size: 11px;
+			font-weight: 700;
+		}
+		.cta-note-ok {
+			font-size: 11px;
+			padding: 4px 8px;
+			background: #1a2e1a;
+			border: 1px solid #2a4a2a;
+			border-radius: 4px;
+			color: #6fdd6f;
+			margin-bottom: 12px;
+		}
+		.cta-note-warn {
+			font-size: 11px;
+			padding: 4px 8px;
+			background: #2e1a1a;
+			border: 1px solid #4a2a2a;
+			border-radius: 4px;
+			color: #f87171;
+			margin-bottom: 12px;
+		}
+		.cta-source {
+			font-size: 11px;
+			color: #888;
+			margin-top: 4px;
+		}
+		.label-muted { color: #aaa; }
+
+		/* Preview pane */
+		.preview-pane {
+			flex: 1;
+			min-width: 0;
+		}
+		.preview-wrapper {
+			background: #16213e;
+			border: 1px solid #2a2a4a;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+		.preview-chrome {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 10px 16px;
+			background: #0f1629;
+			border-bottom: 1px solid #2a2a4a;
+		}
+		.chrome-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+		}
+		.chrome-dot.red { background: #ff5f57; }
+		.chrome-dot.yellow { background: #febc2e; }
+		.chrome-dot.green { background: #28c840; }
+		.chrome-label {
+			font-size: 12px;
+			color: #666;
+			margin-left: 12px;
+		}
+		.preview-subject-bar {
+			padding: 12px 16px;
+			border-bottom: 1px solid #2a2a4a;
+			background: #111827;
+		}
+		.preview-subject-label {
+			font-size: 11px;
+			color: #6366f1;
+			margin-bottom: 2px;
+		}
+		.preview-subject-text {
+			font-size: 15px;
+			color: #fff;
+			font-weight: 600;
+		}
+		.preview-from {
+			font-size: 11px;
+			color: #666;
+			margin-top: 4px;
+		}
+		.preview-body {
+			max-height: 700px;
+			overflow-y: auto;
+		}
+
+		/* Email render styles */
+		.email-outer {
+			background: #f1f1f1;
+			padding: 20px 0;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.email-table {
+			width: 600px;
+			margin: 0 auto;
+			border-collapse: collapse;
+			background: #fff;
+		}
+		.email-header-td {
+			padding: 20px 30px;
+			text-align: center;
+			background: #fff;
+		}
+		.email-logo-placeholder {
+			display: inline-block;
+			padding: 10px 20px;
+			background: rgba(255,255,255,0.85);
+			border-radius: 4px;
+			font-size: 11px;
+			color: #999;
+			font-style: italic;
+		}
+		.email-body-td {
+			padding: 40px 30px 15px;
+			color: #000;
+			font-size: 14px;
+			line-height: 21px;
+		}
+		.email-body-td p {
+			margin: 0 0 14px;
+			font-size: 14px;
+			line-height: 21px;
+		}
+		.email-body-td a {
+			text-decoration: underline;
+			color: #2255cc;
+		}
+		.email-cta-td {
+			padding: 5px 30px;
+		}
+		.email-cta-wrap {
+			text-align: center;
+			margin: 10px auto;
+			width: 310px;
+		}
+		.email-cta-btn {
+			font-size: 16px;
+			font-family: Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			text-decoration: none;
+			padding: 14px 20px;
+			border-radius: 5px;
+			display: inline-block;
+		}
+		.email-contact-td {
+			padding: 5px 30px 0;
+			font-size: 14px;
+			color: #000;
+		}
+		.email-contact-td a {
+			text-decoration: none;
+			color: #000;
+		}
+		.email-sig-td {
+			padding: 10px 30px 30px;
+			font-size: 14px;
+			color: #000;
+		}
+		.email-footer {
+			width: 600px;
+			margin: 0 auto;
+			border-collapse: collapse;
+			background: #f1f1f1;
+		}
+		.email-footer td {
+			padding: 25px 15px;
+			text-align: center;
+			font-size: 12px;
+			color: #555;
+			line-height: 14.4px;
+		}
+		.email-footer a {
+			color: #555;
+			text-decoration: none;
+		}
+
+		/* Responsive */
+		@media (max-width: 900px) {
+			.content { flex-direction: column; }
+			.sidebar { flex: none; width: 100%; }
+			.email-table, .email-footer { width: 100% !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="header-meta">Campaign 11360649 · Template 14940158</div>
+		<h1>Lead T1 (2m - Receipt) v4</h1>
+		<div class="header-sub">Triggered Email · Workflow 458161 · 5 content variations</div>
+	</div>
+
+	<div class="tabs" id="tabs"></div>
+
+	<div class="content">
+		<div class="sidebar" id="sidebar"></div>
+		<div class="preview-pane" id="preview"></div>
+	</div>
+
+	<script>
+	const variations = [
+		{
+			id: 1,
+			label: "App School",
+			school: "The University of Texas at Arlington",
+			schoolShort: "UTA",
+			programName: "UTA Global Career Accelerator",
+			genericProgramName: "The Global Career Accelerator",
+			conditions: ['v_schoolType = "App School"'],
+			buttonColor: "#F58025",
+			buttonTextColor: "#FFFFFF",
+			paEmail: "advisor@careeraccelerator.uta.edu",
+			paPhone: "(682) 297-7732",
+			schoolAddress: "210 University Hall, Arlington, TX 76019, US",
+			subject: "Time to Complete Your Enrollment",
+			prospectiveTerm: "Summer 2026",
+			ctaText: "Enroll Now",
+			ctaNote: "CTA button via Email - CTA - Start New Application v2 (stage: Reserved a Seat)",
+			inlineText: "Complete Your Enrollment",
+			inlineHasLink: true,
+			inlineLinkNote: "\u2192 logic-start_continue app link \u2192 v_startNewAppLink",
+			inlineDuration: "2 minutes",
+			inlinePrefix: "When ready, please ",
+			logo: "utarlington.png",
+			sigText: "Global Career Accelerator Team"
+		},
+		{
+			id: 2,
+			label: "No App + Student + Registration",
+			school: "Concordia University Irvine",
+			schoolShort: "CUI",
+			programName: "CUI Global Tech Experience",
+			genericProgramName: "The Global Tech Experience",
+			conditions: ['v_schoolType = "No App School"', 'v_registrationMethod = "Student Self Registers"', 'v_liveLabSelectionType = "School Registration System"'],
+			buttonColor: "#004C23",
+			buttonTextColor: "#ffffff",
+			paEmail: "coordinator@bootcamp.cui.edu",
+			paPhone: "(949) 468-3190",
+			schoolAddress: "1530 Concordia West, Irvine, CA 92612-3203",
+			subject: "Last Step: Complete Registration",
+			prospectiveTerm: "Summer 2026",
+			ctaText: "Complete Registration",
+			ctaNote: "CTA button via Email - CTA - Complete Registration Link (stage: Reserved a Seat)",
+			inlineText: "Complete Your Registration",
+			inlineHasLink: false,
+			inlineLinkNote: "\u26A0\uFE0F No hyperlink \u2014 plain text only in body",
+			inlineDuration: null,
+			inlinePrefix: "When ready, please ",
+			logo: "cui.png",
+			sigText: "Global Tech Team"
+		},
+		{
+			id: 3,
+			label: "No App + Student + Podium",
+			school: "Hawaii Pacific University",
+			schoolShort: "HPU",
+			programName: "HPU Global Career Accelerator",
+			genericProgramName: "The Global Career Accelerator",
+			conditions: ['v_schoolType = "No App School"', 'v_registrationMethod = "Student Self Registers"', 'v_liveLabSelectionType = "Podium Form"'],
+			buttonColor: "#007298",
+			buttonTextColor: "#ffffff",
+			paEmail: "advisor@globaltech.hpu.edu",
+			paPhone: "(808) 518-6222",
+			schoolAddress: "1 Aloha Tower Drive, Honolulu, HI 96813",
+			subject: "Time to Select Your Program Details",
+			prospectiveTerm: "Summer 2026",
+			ctaText: "Select Program Details",
+			ctaNote: "CTA button via Email - CTA - Select Livelab v2 (stage: Reserved a Seat)",
+			inlineText: "Select Your Program Details",
+			inlineHasLink: true,
+			inlineLinkNote: "\u2192 v_llForm (Podium form)",
+			inlineDuration: "1 minute",
+			inlinePrefix: "When ready, ",
+			logo: "hpu.png",
+			sigText: "Global Career Accelerator Team"
+		},
+		{
+			id: 4,
+			label: "No App + Non-Student",
+			school: "Salisbury University",
+			schoolShort: "Salisbury",
+			programName: "Salisbury Global Career Accelerator",
+			genericProgramName: "The Global Career Accelerator",
+			conditions: ['v_schoolType = "No App School"', 'v_registrationMethod = "School Initiated"', 'v_liveLabSelectionType = "Podium Form"'],
+			buttonColor: "#8A0000",
+			buttonTextColor: "#ffffff",
+			paEmail: "advisor@globaltech.salisbury.edu",
+			paPhone: "(410) 541-1033",
+			schoolAddress: "1101 Camden Avenue Salisbury, MD 21801",
+			subject: "Last Step: Select Your Program Details!",
+			prospectiveTerm: "Summer 2026",
+			ctaText: "Select Program Details",
+			ctaNote: "CTA button via Email - CTA - Select Livelab v2 (stage: Reserved a Seat)",
+			inlineText: "Select Your Program Details",
+			inlineHasLink: true,
+			inlineLinkNote: "\u2192 v_llForm (Podium form)",
+			inlineDuration: "2 minutes",
+			inlinePrefix: "When ready, your last step is to ",
+			logo: "salisbury.png",
+			sigText: "Global Career Accelerator Team"
+		},
+		{
+			id: 5,
+			label: "Fallback (empty schoolType)",
+			school: "(No school type set)",
+			schoolShort: "N/A",
+			programName: "Global Career Accelerator",
+			genericProgramName: "The Global Career Accelerator",
+			conditions: ["v_schoolType is empty/falsy"],
+			buttonColor: "#000000",
+			buttonTextColor: "#ffffff",
+			paEmail: "advisor@globaltech.org",
+			paPhone: "(512) 271-4874",
+			schoolAddress: "1512 South Congress, Austin, TX 78704",
+			subject: "Your first step to the Global Career Accelerator",
+			prospectiveTerm: "upcoming",
+			ctaText: "Enroll Now",
+			ctaNote: "CTA falls through to Email - CTA - Reserve a Seat - Finish Enrollment \u2192 v_microsite",
+			inlineText: null,
+			inlineHasLink: false,
+			inlineLinkNote: "\u26A0\uFE0F No inline CTA renders \u2014 all ifMatchesRegexStr blocks fail",
+			inlineDuration: null,
+			inlinePrefix: "",
+			logo: null,
+			sigText: "Global Career Accelerator Team"
+		}
+	];
+
+	let activeTab = 0;
+
+	function renderTabs() {
+		const container = document.getElementById("tabs");
+		container.innerHTML = variations.map((v, i) =>
+			`<button class="tab-btn ${i === activeTab ? 'active' : ''}" onclick="switchTab(${i})">
+				V${v.id}<span class="tab-label">${v.schoolShort}</span>
+			</button>`
+		).join("");
+	}
+
+	function renderSidebar(v) {
+		const noteClass = v.inlineHasLink ? "cta-note-ok" : "cta-note-warn";
+		const inlineDisplay = v.inlineText
+			? `"${v.inlineText}" ${v.inlineHasLink ? "(linked)" : "(no link)"}`
+			: `<span style="color:#f87171">None rendered</span>`;
+
+		document.getElementById("sidebar").innerHTML = `
+			<div class="card">
+				<div class="card-label">Conditions</div>
+				${v.conditions.map(c => `<div class="condition-tag">${c}</div>`).join("")}
+			</div>
+			<div class="card">
+				<div class="card-label">Example School</div>
+				<div class="card-title">${v.school}</div>
+				<div class="card-detail">
+					<div>Program: ${v.programName}</div>
+					<div>Email: ${v.paEmail}</div>
+					<div>Phone: ${v.paPhone}</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-label">Subject Line</div>
+				<div class="card-subject">${v.subject}</div>
+			</div>
+			<div class="card">
+				<div class="card-label">Sender</div>
+				<div class="card-detail" style="line-height:20px">
+					<div><strong class="label-muted">From:</strong> ${v.programName}</div>
+					<div><strong class="label-muted">Reply-To:</strong> ${v.paEmail}</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-label">CTA Details</div>
+				<div style="font-size:12px;color:#ccc;line-height:20px">
+					<div style="margin-bottom:8px">
+						<strong class="label-muted">Inline CTA:</strong><br/>
+						${inlineDisplay}
+					</div>
+					<div class="${noteClass}">${v.inlineLinkNote}</div>
+					<div style="margin-bottom:4px">
+						<strong class="label-muted">Button:</strong>
+						<span class="cta-badge" style="background:${v.buttonColor};color:${v.buttonTextColor}">${v.ctaText} \u27A4</span>
+					</div>
+					<div class="cta-source">${v.ctaNote}</div>
+				</div>
+			</div>
+		`;
+	}
+
+	function renderPreview(v) {
+		let inlineCTAHtml = "";
+		if (v.inlineText) {
+			if (v.inlineHasLink) {
+				inlineCTAHtml = `<p>${v.inlinePrefix}<strong><a href="#">${v.inlineText}</a></strong>${v.inlineDuration ? ` \u2014 it will only take ${v.inlineDuration}.` : "."}</p>`;
+			} else {
+				inlineCTAHtml = `<p>${v.inlinePrefix}${v.inlineText}.</p>`;
+			}
+		}
+
+		const logoHtml = v.logo
+			? `<span class="email-logo-placeholder">[Partner Header: ${v.logo}]</span>`
+			: `<span class="email-logo-placeholder">[No partner header \u2014 fallback]</span>`;
+
+		const footerContent = v.id !== 5
+			? `<span>${v.school}</span><br/>
+			   <span>${v.genericProgramName}</span><br/>
+			   <span>${v.schoolAddress}</span><br/>
+			   <span>${v.paPhone} | <a href="#">${v.paEmail}</a></span>`
+			: "";
+
+		document.getElementById("preview").innerHTML = `
+			<div class="preview-wrapper">
+				<div class="preview-chrome">
+					<div class="chrome-dot red"></div>
+					<div class="chrome-dot yellow"></div>
+					<div class="chrome-dot green"></div>
+					<span class="chrome-label">Variation ${v.id} \u2014 ${v.label}</span>
+				</div>
+				<div class="preview-subject-bar">
+					<div class="preview-subject-label">Subject</div>
+					<div class="preview-subject-text">${v.subject}</div>
+					<div class="preview-from">From: ${v.programName} &lt;${v.paEmail}&gt;</div>
+				</div>
+				<div class="preview-body">
+					<div class="email-outer">
+						<table class="email-table">
+							<tr><td class="email-header-td">${logoHtml}</td></tr>
+							<tr><td class="email-body-td">
+								<p>Alex,</p>
+								<p>Nice work! You have <strong>started your enrollment</strong> for the ${v.prospectiveTerm} ${v.programName}.</p>
+								<p>95% of program alumni said the program benefited their career. Since ${v.genericProgramName} is 100% online, you can join from anywhere, home or campus.</p>
+								${inlineCTAHtml}
+							</td></tr>
+							<tr><td class="email-cta-td">
+								<div class="email-cta-wrap">
+									<a href="#" class="email-cta-btn" style="background-color:${v.buttonColor};color:${v.buttonTextColor}">&nbsp;&nbsp;${v.ctaText} \u27A4&nbsp;&nbsp;</a>
+								</div>
+							</td></tr>
+							<tr><td class="email-contact-td">
+								If you have any questions, don\u2019t hesitate to reach out. You can reply to this email or call/text us at <strong><a href="#">${v.paPhone}</a></strong>.
+							</td></tr>
+							<tr><td class="email-sig-td">${v.sigText}</td></tr>
+						</table>
+						<table class="email-footer"><tr><td>${footerContent}</td></tr></table>
+					</div>
+				</div>
+			</div>
+		`;
+	}
+
+	function switchTab(i) {
+		activeTab = i;
+		renderTabs();
+		renderSidebar(variations[i]);
+		renderPreview(variations[i]);
+	}
+
+	// Init
+	switchTab(0);
+	</script>
+</body>
+</html>
