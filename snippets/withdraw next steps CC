@@ -1,0 +1,71 @@
+{{{ snippet "universal-variables" }}}
+
+{{~#ifMatchesRegexStr v_stage "Application Approved" ~}}
+{{~else~}}
+  {{~#ifMatchesRegexStr university "University of Arizona" ~}}{{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Florida International.*" ~}}
+    wbravo@fiu.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "University of Missouri" ~}}
+    khuskin@missouri.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Michigan State.*" ~}}
+    judgebe@msu.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Arizona State University" ~}}
+    goglobal@asu.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "University of South Florida" ~}}
+    cferreyros@usf.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Florida Atlantic.*" ~}}
+    spack2014@fau.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Texas A&M.*" ~}}
+    michayla@exchange.tamu.edu
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Central Michigan University" ~}}{{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "University of Illinois at Chicago" ~}}
+    {{~#ifMatchesRegexStr v_stage "Program Enrolled" ~}}
+      sao@uic.edu
+    {{~/ifMatchesRegexStr~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "University of Nevada, Las Vegas" ~}}{{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Texas State University" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university ".*University of Vermont" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Johnson.*Wales" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Harvard.*" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Missouri State.*" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "Virginia Commonwealth.*" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "West Virginia University" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university "University of Tennessee" ~}}
+  {{~/ifMatchesRegexStr~}}
+
+  {{~#ifMatchesRegexStr university ".*Rio Grande Valley" ~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr~}}

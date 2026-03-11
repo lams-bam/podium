@@ -1,0 +1,104 @@
+{{#ifMatchesRegexStr stage ".*(Disqualified).*"}}
+{{else}}
+    {{#ifMatchesRegexStr stage "Prospective.*"}}
+            <a href="{{{v_microsite}}}/?{{{ snippet "utm_master" }}}"><b>Learn more about the {{v_programName}}</b></a>
+    {{else}}
+        {{#ifMatchesRegexStr stage "Interested"}}
+                <a href="{{{v_startNewAppLink}}}"><b>Enroll Now</b></a>
+        {{else}}
+            {{#ifMatchesRegexStr stage "Application Submitted"}}
+                {{#ifMatchesRegexStr v_schoolType "App School"}}
+                    {{#ifMatchesRegexStr templateId "16888240"}}Reply to this email and we will update our records. {{/ifMatchesRegexStr}}You will receive a confirmation with additional steps once the records have been updated.
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                {{#ifMatchesRegexStr stage "Registered in System"}}
+                    {{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+                        <b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>
+                    {{/ifMatchesRegexStr}}
+                {{else}}
+                    
+                    {{#ifMatchesRegexStr stage "Reserved a Seat"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                             <b><a href="{{{v_startNewAppLink}}}">Complete Application (2 min).</a></b>
+                         {{else}}
+                            {{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+                                <b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>
+                            {{else}}
+                                <b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.
+                            {{/ifMatchesRegexStr}}
+                         {{/ifMatchesRegexStr}}
+                     {{/ifMatchesRegexStr}}
+                     {{#ifMatchesRegexStr stage "Application Started"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            <b><a href="{{{v_continueApplicationLink}}}">Complete Application (2 min)</a></b>.
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "Application Approved"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            Your next step is to hit commit on your application.
+                            <p><b><a href="{{{v_continueApplicationLink}}}">Confirm Now (2 min)</a></b>.
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+
+                    {{#ifMatchesRegexStr stage "Application Completed"}}
+                        {{#ifMatchesRegexStr v_registrationMethod "(No Registration|School Initiated)"}}
+                            {{#assign "e_appCompletedScenario"}}1{{/assign}}
+                        {{/ifMatchesRegexStr}}
+                        {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers - School Directed"}}
+                            {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                        {{/ifMatchesRegexStr}}
+                        {{#and (eq v_registrationMethod "Student Self Registers") (gt (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                            {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                        {{/and}}
+                        {{#and (eq v_registrationMethod "Student Self Registers") (lte (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                            {{#assign "e_appCompletedScenario"}}2{{/assign}}
+                        {{/and}}
+                        
+                        {{#unless e_appCompletedScenario}}<b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>{{/unless}}
+                        {{#ifEq e_appCompletedScenario "1"}}<b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>{{/ifEq}}
+                        {{#ifEq e_appCompletedScenario "2"}}<b><a href="{{{v_registrationLink}}}">Register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.{{/ifEq}}
+                        {{#ifEq e_appCompletedScenario "3"}}Be on the lookout for an email with instructions and course codes to complete your registration. After registering, we'll send you a confirmation.<br/><br/>{{#ifMatchesRegexStr university ".*San Diego State University.*"}}Your next step is to{{else}}In the meantime, you can{{/ifMatchesRegexStr}} <a href="{{{v_llForm}}}">Select Your LiveLab Time</a> now to get your preferred time.{{/ifEq}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "LiveLab Selected"}}
+                        {{#ifMatchesRegexStr v_registrationMethod "(No Registration|School Initiated)"}}
+                            {{#assign "e_appCompletedScenario"}}1{{/assign}}
+                        {{/ifMatchesRegexStr}}
+                        {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers - School Directed"}}
+                            {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                        {{/ifMatchesRegexStr}}
+                        {{#and (eq v_registrationMethod "Student Self Registers") (gt (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                            {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                        {{/and}}
+                        {{#and (eq v_registrationMethod "Student Self Registers") (lte (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                            {{#assign "e_appCompletedScenario"}}2{{/assign}}
+                        {{/and}}
+
+                        {{#unless e_appCompletedScenario}}<b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>{{/unless}}
+                        {{#ifEq e_appCompletedScenario "1"}}<b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b>{{/ifEq}}
+                        {{#ifEq e_appCompletedScenario "2"}}Register for {{{ snippet "field-courseCodes" }}} in <a href="{{{v_registrationLink}}}">{{v_schoolSystemNameRegistration}}</a>.{{/ifEq}}
+                        {{#ifEq e_appCompletedScenario "3"}}Once registration is open, you'll be notified to register for {{{ snippet "field-courseCodes" }}} in {{v_schoolSystemNameRegistration}}<br/><br/>{{#ifMatchesRegexStr university ".*San Diego State University.*"}}Your next step is to{{else}}In the meantime, you can{{/ifMatchesRegexStr}} <a href="{{{v_llForm}}}">Select Your LiveLab Time</a>.{{/ifEq}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "LiveLab Submitted"}}
+                        {{#and (eq v_registrationMethod "Student Self Registers") (lte (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                            {{#unless registeredInSystem}}
+                            Register for {{{ snippet "field-courseCodes" }}} in <a href="{{{v_registrationLink}}}">{{v_schoolSystemNameRegistration}}</a>.
+                            {{/unless}}
+                        {{/and}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "Registration Hold"}}
+                    You currently have a registration {{{ snippet "logic-replace-regHold" }}} work to remove any registration holds/errors.
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "Application Withdrawn"}}
+                    It looks like you have withdrawn your Application, we'll want to work to get a new application started, reply here and I'll send you detailed next steps. 
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "Withdrawn from System"}}
+                    It looks like your courses have been dropped from the registration system, {{#ifMatchesRegexStr v_registrationMethod ".*Student Self Registers .*"}}you will need to re-register for {{{ snippet "field-courseCodes" }}} in [Registration System]{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_registrationMethod "School Initiated"}}please confirm here you would like to be re-registered and we'll work to get you re-enrolled.{{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr stage "Program Enrolled"}}
+                    It looks like you are fully enrolled in the program, great work. Keep an eye out for emails from <a href="mailto:coach@globaltech.org">coach@globaltech.org</a> with important updates—be sure to add us to your contacts.
+                    {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

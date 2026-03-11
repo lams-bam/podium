@@ -1,0 +1,1 @@
+{{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{#ifContains withdrawSteps_StandardCustomStages stage}}{{#ifContainsStr withdrawSteps_Setup "Contact"}}{{#if withdrawSteps_ContactEmail}}{{withdrawSteps_ContactEmail}}{{/if}}{{/ifContainsStr}}{{/ifContains}}{{/catalog}}
