@@ -1,0 +1,67 @@
+{{#assign "appApproveCopy"}}To complete your withdrawal, you will need to decline the program by logging back into the application here {{v_continueApplicationLink}}.{{/assign}}
+<div>{{#ifMatchesRegexStr university ".*(University of Arizona|Arizona State University|Florida International|University of Missouri|Michigan State|South Dakota State|University of South Florida|Florida Atlantic|Johnson & Wales|Texas A&M).*"}}
+
+    {{#ifMatchesRegexStr university "University of Arizona"}}
+        {{#ifMatchesRegexStr v_stage "Application Approved"}}
+            {{appApproveCopy}}
+        {{else}}
+            <b>Follow these steps to withdraw your application:</b>
+                <br><br>
+                1. Submit this form: <a href="https://international.arizona.edu/study-abroad-withdrawal-form">https://international.arizona.edu/study-abroad-withdrawal-form</a>
+            </div>
+            <div>
+                2. Email <a href="mailto:studyabroad@arizona.edu">studyabroad@arizona.edu</a> to notify them of your withdrawal&nbsp;
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Florida International.*"}}
+        {{#ifMatchesRegexStr v_stage "Application Approved"}}
+            {{appApproveCopy}}
+        {{else}}
+            To ensure your <a href="{{{v_continueApplicationLink}}}">application</a> is properly withdrawn from our system, please work with my colleague Wendy Bravo (CC'd onto this message).
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "University of Missouri"}}To ensure your <a href="{{{v_continueApplicationLink}}}">application</a> is properly withdrawn from our system, please work with my colleague Kate Huskin (CC'd onto this message).
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Michigan State.*"}}To ensure your application</a> is properly withdrawn from our system, please withdraw the course codes from <a href="{{{v_registrationLink}}}">{{ v_schoolSystemNameRegistration }}</a> if you have already registered, and please contact my colleague Beth Judge (CC'd onto this message).
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "University of South Florida"}}To ensure your&nbsp;<a href="{{{v_continueApplicationLink}}}">application</a> is properly withdrawn from our system, please contact my colleague Rene Sanchez (CC'd onto this message).
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "South Dakota State University"}}
+        Please reach out to study abroad (sdsu.educationabroad@sdstate.edu) to withdraw.
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Florida Atlantic.*"}}
+        {{#ifMatchesRegexStr v_stage "Application Approved"}}
+            {{appApproveCopy}}
+        {{else}}
+            To ensure your&nbsp;<a href="{{{v_continueApplicationLink}}}">application</a> is properly withdrawn from our system, please work with my colleague, Stephanie Pack (CC'd onto this message).
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Texas A&M.*"}}
+        {{#ifMatchesRegexStr v_stage "Application Approved"}}
+            {{appApproveCopy}}
+        {{else}}
+            To ensure you're application is withdrawn, <a href="{{{v_continueApplicationLink}}}">log into your application in ViaTRM</a>, withdraw your application, and work with my colleague, Michayla Robles (CC'd onto this message).
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Arizona State University"}}
+        {{#ifMatchesRegexStr v_stage "Application Approved"}}
+            {{appApproveCopy}}
+        {{else}}
+            It is your responsibility to complete the withdrawal process with the Global Education Office (GEO). I&rsquo;ve copied the Global Education Office (<a href="mailto:goglobal@asu.edu" rel="noopener noreferrer" tabindex="0" data-token-index="1">goglobal@asu.edu</a>) on this email. Please work directly with the GEO to process your withdrawal.
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Johnson.*Wales.*"}}<b>Follow these steps to withdraw your application:</b><br></br>1. Log back into your&nbsp;<a href="{{{v_continueApplicationLink}}}">application</a> and self withdraw<br>2. Email Study Abroad at <a href="mailto:studyabroad@jwu.edu" rel="noopener noreferrer" tabindex="0" data-token-index="1">studyabroad@jwu.edu</a> and let them know you wish to withdraw</div>
+    <div><br>
+    {{/ifMatchesRegexStr}}
+{{else}}
+    {{#ifMatchesRegexStr university "Harvard University"}}<div>Thanks for letting us know. I just flagged your application to be withdrawn from our system.</div>
+    {{else}}
+        {{#ifMatchesRegexStr v_stage "Program Enrolled"}}
+        <div>To ensure you're successfully withdrawn from the {{ v_programName }}, please drop the course codes in <a href="{{{v_registrationLink}}}">{{ v_schoolSystemNameRegistration }}</a>.</div>
+        <br>{{else}}
+        <div>Thanks for letting us know. I just flagged your application to be withdrawn from our system.</div>
+        <br>
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+</div>
