@@ -1,0 +1,2 @@
+<p style="text-align: center;"> The Global Career Accelerator<br>
+<a href="mailto:coach@globaltech.org" rel="noopener" style="color:#000000; text-decoration-line: none;" target="_blank" title="coach@globaltech.org">events@globalcareeraccelerator.org</a><br><a href="{{#ifEq messageTypeId 142657}}{{unsubscribeMessageTypeUrl}}{{else}}{{unsubscribeUrl}}{{/ifEq}}" rel="noopener" style="color:#000000; text-decoration-line: none;" target="_blank" title="coach@globaltech.org">Unsubscribe</a></p>
