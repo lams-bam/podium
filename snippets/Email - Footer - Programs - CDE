@@ -1,0 +1,38 @@
+<p style="text-align: center;">
+  {{{ snippet "Program - CDE - Name" }}}<br>
+  {{v_schoolAddress}}<br>
+
+  Call:
+  <a
+    href="tel:{{{ snippet "Program - CDE - Phone Number" }}}"
+    rel="noopener"
+    style="text-decoration-line: none; color: inherit;"
+    target="_blank"
+    title="tel:{{{ snippet "Program - CDE - Phone Number" }}}">
+    {{{ snippet "Program - CDE - Phone Number" }}}
+  </a>
+  |
+
+  Text:
+  <a
+    href="tel:+18556840070"
+    rel="noopener"
+    style="text-decoration-line: none; color: inherit;"
+    target="_blank"
+    title="{{{ snippet "Program - CDE - Text Number" }}}">
+    {{{ snippet "Program - CDE - Text Number" }}}
+  </a>
+  |
+
+  Email:
+  <a
+    href="mailto:{{{ snippet "Program - CDE - Email" }}}?subject=Questions&amp;body=Hi%20I%20have%20questions."
+    rel="noopener"
+    style="text-decoration-line: none; color: inherit;"
+    target="_blank"
+    title="{{defaultIfEmpty coachEmail (snippet "Program - CDE - Email")}}">
+    {{defaultIfEmpty coachEmail (snippet "Program - CDE - Email")}}
+  </a>
+</p>
+
+<br>&nbsp;<br>

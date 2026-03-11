@@ -1,0 +1,44 @@
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+       style="background-image:url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+  <tr>
+    <td align="center" style="padding:30px;">
+
+      <!-- Inner container (600px, matches logo) -->
+      <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="600">
+
+        <!-- Horizontal divider -->
+        <tr>
+          <td style="font-size:1px;line-height:1px;border-top:1px solid #bbb;">
+            &nbsp;
+          </td>
+        </tr>
+
+        <!-- Spacer -->
+        <tr>
+          <td height="20" style="font-size:1px;line-height:1px;">
+            &nbsp;
+          </td>
+        </tr>
+
+        <!-- Logo row -->
+        <tr>
+          <td align="center">
+
+            <a href="{{{ snippet "Product - GCA - Program Login Students" }}}"
+               target="_blank"
+               style="text-decoration:none; display:inline-block;">
+              <img
+                src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/podium-program-logos/Podium-Network-cobrand.png"
+                alt="{{{ snippet "Program - GCA - Name" }}}"
+                width="600"
+                style="display:block;margin:0 auto;max-width:600px;height:auto;border:0;" />
+            </a>
+
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>

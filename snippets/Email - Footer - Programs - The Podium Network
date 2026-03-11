@@ -1,0 +1,27 @@
+<p style="text-align: center;">
+  The Podium Network<br>
+  {{v_schoolAddress}}<br>
+
+
+
+  Text:
+  <a
+    href="tel:+{{{ snippet "Program - GCA - Text Number" }}}"
+    style="text-decoration:none;color:inherit;"
+    title="Text {{ snippet "Program - GCA - Text Number" }}"
+  >
+    {{{ snippet "Program - GCA - Text Number" }}}
+  </a>
+  |
+
+  Email:
+  <a
+    href="mailto:{{{ snippet "Program - GCA - Email" }}}?subject=Questions&amp;body=Hi%20I%20have%20questions."
+    style="text-decoration:none;color:inherit;"
+    title="{{defaultIfEmpty coachEmail (snippet "Program - GCA - Email")}}"
+  >
+    {{defaultIfEmpty coachEmail (snippet "Program - GCA - Email")}}
+  </a>
+</p>
+
+<br>&nbsp;<br>
