@@ -1,0 +1,2 @@
+Hi {{ defaultIfEmpty nameFirst "there" }}, I was excited to see your application for the {{v_programName}}! Your next step is to select your program details so we can get you fully set up. You can adjust later if needed! Here is the link.
+{{{v_llForm}}}

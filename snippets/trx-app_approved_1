@@ -1,0 +1,9 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Congrats{{#if nameFirst}}, {{nameFirst}}{{/if}}. You have been accepted to the {{{v_programName}}}. You are one step closer to adding {{#ifMatchesRegexStr university "University of Michigan"}}in-the-field{{else}}real-world{{/ifMatchesRegexStr}} experience to your resume. 
+
+You should have received an email with a link to {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}select your LiveLab time. I have included the link below as well.
+{{else}}commit to the program. I have included the link below as well.{{/ifMatchesRegexStr}}
+
+You should do this soon as there is limited space. If you have any questions at all, please call this number to speak with your advisor.
+
+{{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}{{{v_llForm}}}{{else}}{{{continueApplicationLink}}}{{/ifMatchesRegexStr}}

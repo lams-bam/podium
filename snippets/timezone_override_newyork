@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr timeZone ".*New.*York"}}{{dateMath v_deadlineAppCommit "-1h" format="h:mm a"}}{{else}}{{dateFormat v_deadlineAppCommit format="h:mm a" tz=timeZone}}{{/ifMatchesRegexStr}}

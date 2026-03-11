@@ -1,0 +1,3 @@
+{{{ snippet "skip-deadlineApplicationCommit_Within 7 Days" }}}{{nameFirst}}, you only have one more step to secure your place in {{v_genericProgramName}} for the upcoming {{v_prospectiveTerm}} term. Simply, visit the link below {{#ifMatchesRegexStr university "University of North Texas"}}and Submit Payment.{{else}}and hit “Commit”.{{/ifMatchesRegexStr}}
+- {{ownerNameFirst}}
+{{{replace v_continueApplicationLink "&amp;" "&"}}}

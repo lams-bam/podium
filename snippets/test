@@ -1,0 +1,6 @@
+{{#assign "v_registrationLink_wip"}}
+    {{#ifMatchesRegexStr university "(The University of Texas at Austin|Pacific Lutheran University)"}}
+
+    {{else}}{{#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|}}{{{enrollment.registrationLink}}}{{/catalog}}
+    {{/ifMatchesRegexStr}}
+{{/assign}}

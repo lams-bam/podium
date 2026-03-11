@@ -1,0 +1,5 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{#ifMatchesRegexStr v_appProcessCommit "Manual"}}You have successfully committed to{{else}}You have been approved for{{/ifMatchesRegexStr}} the {{{v_programName}}}!
+
+[Next Step] Your next step is to register{{#ifEq university "New York University"}}.{{else}} in {{{v_schoolSystemNameRegistration}}} for {{{ snippet "logic-course_code" }}}{{/ifEq}}.
+{{{v_registrationLink}}}

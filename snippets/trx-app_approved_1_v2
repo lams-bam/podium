@@ -1,0 +1,6 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Congrats! You have been accepted into the {{{v_programName}}}! Space is limited so commit your spot as soon as possible using the link below.
+
+If you still have questions you can call this number to speak to your advisor.
+
+{{{replace v_continueApplicationLink "&amp;" "&"}}}

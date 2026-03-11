@@ -1,0 +1,14 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{#ifMatchesRegexStr v_schoolType "App School"}}{{#ifMatchesRegexStr v_appProcessCommit "Manual"}}You have successfully committed to{{else}}You have been approved for{{/ifMatchesRegexStr}} the {{{v_programName}}}. We're excited to have you join us this upcoming term.
+
+[Next Step]
+You should have received an email with a link to complete your enrollment.
+{{else}}{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}You have successfully committed to the {{{v_programName}}}. We're excited to have you join us this upcoming term.
+
+[Next Step]
+You should have received an email with a link to  complete your enrollment.{{else}}Thanks for committing! We're excited to have you join us this upcoming term.
+
+[Last Step] Your next step is to register in {{{v_schoolSystemNameSetup}}} for {{{ snippet "field-courseCodes" }}}. 
+{{{v_registrationLink}}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

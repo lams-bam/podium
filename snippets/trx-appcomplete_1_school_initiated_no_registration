@@ -1,0 +1,6 @@
+ {{#ifMatchesRegexStr university ".*(Denison).*"}}{{#assign "e_notGuaranteed"}}true{{/assign}}{{/ifMatchesRegexStr}}{{{ snippet "SMS - GTX Prepend" }}}
+{{#if e_notGuaranteed}}You have submitted your application for the Denison Global Career Accelerator. Your application will be reviewed. We will send you a follow up email with next steps if you have been accepted.{{else}}{{#ifMatchesRegexStr v_appProcessCommit "Manual"}}You have successfully committed to{{else}}You have been approved for{{/ifMatchesRegexStr}} the {{{v_programName}}}!
+
+Select your program details now.
+
+{{{v_llForm}}}{{/if}}

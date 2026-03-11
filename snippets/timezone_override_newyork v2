@@ -1,0 +1,11 @@
+{{#assign "v_tzOffset"}}-5h{{/assign}}
+{{#ifEq timeZone "America/New_York"}}
+{{#assign "v_deadlineAppCommit"}}{{dateMath v_deadlineAppCommit v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineAppStart"}}{{dateMath v_deadlineAppStart v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineAppStartExt"}}{{dateMath v_deadlineAppStartExt v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineApplicationSubmit"}}{{dateMath v_deadlineApplicationSubmit v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineRegistrationClose"}}{{dateMath v_deadlineRegistrationClose v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineRas"}}{{dateMath v_deadlineRas v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineProgramRegHoldResolution"}}{{dateMath v_deadlineProgramRegHoldResolution v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{#assign "v_deadlineLiveLabSelection"}}{{dateMath v_deadlineLiveLabSelection v_tzOffset format="yyyy-MM-dd HH:mm:ss Z"}}{{/assign}}
+{{/ifEq}}

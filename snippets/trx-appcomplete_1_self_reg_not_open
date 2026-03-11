@@ -1,0 +1,8 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{#ifMatchesRegexStr v_schoolType "App School"}}{{#ifMatchesRegexStr v_appProcessCommit "Manual"}}You have successfully committed to{{else}}You have been approved for{{/ifMatchesRegexStr}} the {{{v_programName}}}. We'll follow up once you are able to complete your registration.{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}{{#unless liveLabSelected}}
+
+[Next Step]
+Here is a link to select your program details.
+
+{{{v_llForm}}}{{/unless}}
+{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
