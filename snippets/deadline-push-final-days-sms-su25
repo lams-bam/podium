@@ -1,0 +1,83 @@
+{{#ifMatchesRegexStr university "The University of Texas at Arlington"}}
+  {{defaultIfEmpty nameFirst "Hello"}}, reaching out to remind you that there are only a few days left to finalize your summer enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! If eligible, there are sponsorships available to help cover tuition costs. Our program advisors can help you understand your eligibility when you enroll.
+
+  Here's why this program matters: only 29 % of college students graduate with real career experience—this virtual program gives you that experience plus {{v_programCreditCount}} credits. Don't miss out—check your email or use the link below to finalize enrollment.
+
+{{else~}}
+
+  {{#ifMatchesRegexStr university "Appalachian State University"}}
+    {{defaultIfEmpty nameFirst "Hello"}}, reminder: only a few days left to enroll in the {{defaultIfEmpty v_programName "Global Career Accelerator"}}. The program offers App State students real-world experience with top employers—plus 6 credits for a special summer-only cost of $1,800! This is the most affordable 6-credit option at App State that also offers real resume-building projects employers value. As your program advisor, I can help you secure your spot before the deadline. You can start by using the link below or in your inbox.
+
+  {{else~}}
+
+    {{#ifMatchesRegexStr university "University of Oregon"}}
+      {{defaultIfEmpty nameFirst "Hello"}}, I noticed you haven't finished your enrollment for the summer {{defaultIfEmpty v_programName "Global Career Accelerator"}} yet and I don't want you to miss out—enrollment closes this Sunday. This program is perfect for getting valuable career experience while earning {{v_programCreditCount}} credits at the same standard cost of tuition as any other course.  
+
+If you have any questions, feel free to respond here or call. You can use the link below or in your inbox to complete your enrollment.
+
+    {{else~}}
+
+      {{#ifMatchesRegexStr university "University of California, Riverside"}}
+       {{defaultIfEmpty nameFirst "Hello"}}, Reminder that enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes this Sunday and I noticed you haven't completed all necessary steps to join for summer. 
+
+Students pay UC Riverside's low in-state tuition rate and it also fits into the tuition cap offering if you enroll for summer. This program is the perfect addition to gain valuable career experience while also earning {{v_programCreditCount}} credits.
+
+If you have any questions, feel free to respond here or call. You can use the link below or in your inbox to complete your enrollment.
+
+      {{else~}}
+
+        {{#ifMatchesRegexStr university "Texas State University"}}
+          {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+        {{else~}}
+
+          {{#ifMatchesRegexStr university "University of South Florida"}}
+            {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+          {{else~}}
+
+            {{#ifMatchesRegexStr university "University of Arizona"}}
+              {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+            {{else~}}
+
+              {{#ifMatchesRegexStr university "University of North Texas"}}
+                {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+              {{else~}}
+
+                {{#ifMatchesRegexStr university "George Mason University"}}
+                  {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+                {{else~}}
+
+                  {{#ifMatchesRegexStr university "University of Memphis"}}
+                    {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+                  {{else~}}
+
+                    {{#ifMatchesRegexStr university "The University of Texas at Austin"}}
+                      {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+                    {{else~}}
+
+                      {{#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                        {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! Less than one-third of students secure opportunities that give experience. In the program you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you beat the Friday deadline. You can start by using the link below or in your inbox.
+
+                      {{else}}
+                        {{defaultIfEmpty nameFirst "Hello"}}, the deadline is approaching for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}—ONLY 3 DAYS LEFT! In this program, you'll earn real-world experience, college credit, and certifications this summer—all online. I can help you beat the Friday deadline. Use the link below or in your inbox to get started.
+
+                      {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                  {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+              {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+          {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+      {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+  {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{{ snippet "SMS - Signature - General - Next Steps Link" }}}

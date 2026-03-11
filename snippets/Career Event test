@@ -1,0 +1,18 @@
+{{#catalog "CareerVirtualEvents" eventId as |cve|}}
+{{#if cve.eventName}}{{#assign "v_eventName"}}{{cve.eventName}}{{/assign}}{{/if}}
+{{#if cve.urlEventWebinar}}{{#assign "v_urlEventWebinar"}}{{cve.urlEventWebinar}}{{/assign}}{{/if}}
+{{#if cve.urlCoverPhoto}}{{#assign "v_urlCoverPhoto"}}{{cve.urlCoverPhoto}}{{/assign}}{{/if}}
+{{#if cve.eventStartDateTime}}{{#assign "v_eventStartDateTime"}}{{cve.eventStartDateTime}}{{/assign}}{{/if}}
+{{#if cve.eventEndDateTime}}{{#assign "v_eventEndDateTime"}}{{cve.eventEndDateTime}}{{/assign}}{{/if}}
+{{#if cve.urlEventRecording}}{{#assign "v_urlEventRecording"}}{{cve.urlEventRecording}}{{/assign}}{{/if}}
+{{#if cve.passCode}}{{#assign "v_eventRecordingPassCode"}}{{cve.passCode}}{{/assign}}{{/if}}
+    {{#catalog "Companies" lookup_company as |comp|}}
+    {{#if comp.name}}{{#assign "v_eventsCompanyName"}}{{comp.name}}{{/assign}}{{/if}}
+    {{/catalog}}
+{{/catalog}}
+{{#if timeZone}}{{else}}{{#assign "timeZone"}}America/Chicago{{/assign}}{{/if}}
+
+{{#catalog "CareerVirtualEvents" as |cve|}}
+    {{#assign "v_urlEventDetails"}}{{{ snippet "url - career events - view more events" }}}events/{{id_Event}}{{/assign}}
+{{/catalog}}
+{{#if v_genericProgramName}}{{else}}{{#assign "v_genericProgramName"}}The Global Career Accelerator{{/assign}}{{/if}}

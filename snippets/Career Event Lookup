@@ -1,0 +1,72 @@
+{{#if eventId}}
+    {{#catalog "CareerVirtualEvents" eventId as |cve|}}
+    {{#if cve.eventName}}{{#assign "v_eventName"}}{{cve.eventName}}{{/assign}}{{/if}}
+    {{#if cve.urlEventWebinar}}{{#assign "v_urlEventWebinar"}}{{cve.urlEventWebinar}}{{/assign}}{{/if}}
+    {{#if cve.urlCoverPhoto}}{{#assign "v_urlCoverPhoto"}}{{cve.urlCoverPhoto}}{{/assign}}{{/if}}
+    {{#if cve.eventStartDateTime}}{{#assign "v_eventStartDateTime"}}{{cve.eventStartDateTime}}{{/assign}}{{/if}}
+    {{#if cve.eventEndDateTime}}{{#assign "v_eventEndDateTime"}}{{cve.eventEndDateTime}}{{/assign}}{{/if}}
+    {{#if cve.urlEventRecording}}{{#assign "v_urlEventRecording"}}{{cve.urlEventRecording}}{{/assign}}{{/if}}
+    {{#if cve.eventSubmissionDeadlineDateTime}}{{#assign "v_submissionDeadline"}}{{cve.eventSubmissionDeadlineDateTime}}{{/assign}}{{/if}}
+    {{#if cve.passCode}}{{#assign "v_eventRecordingPassCode"}}{{cve.passCode}}{{/assign}}{{/if}}
+        {{#catalog "Companies" lookup_company as |comp|}}
+        {{#if comp.name}}{{#assign "v_eventsCompanyName"}}{{comp.name}}{{/assign}}{{/if}}
+        {{/catalog}}
+    {{/catalog}}
+    {{#catalog "ETCWinners" eventId as |win|}}
+        {{#if win.winner_1_name}}{{#assign "v_etcW1Name"}}{{win.winner_1_name}}{{/assign}}{{/if}}
+        {{#if win.winner_1_school}}{{#assign "v_etcW1School"}}{{win.winner_1_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_2_name}}{{#assign "v_etcW2Name"}}{{win.winner_2_name}}{{/assign}}{{/if}}
+        {{#if win.winner_2_school}}{{#assign "v_etcW2School"}}{{win.winner_2_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_3_name}}{{#assign "v_etcW3Name"}}{{win.winner_3_name}}{{/assign}}{{/if}}
+        {{#if win.winner_3_school}}{{#assign "v_etcW3School"}}{{win.winner_3_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_4_name}}{{#assign "v_etcW4Name"}}{{win.winner_4_name}}{{/assign}}{{/if}}
+        {{#if win.winner_4_school}}{{#assign "v_etcW4School"}}{{win.winner_4_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_5_name}}{{#assign "v_etcW5Name"}}{{win.winner_5_name}}{{/assign}}{{/if}}
+        {{#if win.winner_5_school}}{{#assign "v_etcW5School"}}{{win.winner_5_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_6_name}}{{#assign "v_etcW6Name"}}{{win.winner_6_name}}{{/assign}}{{/if}}
+        {{#if win.winner_6_school}}{{#assign "v_etcW6School"}}{{win.winner_6_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_7_name}}{{#assign "v_etcW7Name"}}{{win.winner_7_name}}{{/assign}}{{/if}}
+        {{#if win.winner_7_school}}{{#assign "v_etcW7School"}}{{win.winner_7_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_8_name}}{{#assign "v_etcW8Name"}}{{win.winner_8_name}}{{/assign}}{{/if}}
+        {{#if win.winner_8_school}}{{#assign "v_etcW8School"}}{{win.winner_8_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_9_name}}{{#assign "v_etcW9Name"}}{{win.winner_9_name}}{{/assign}}{{/if}}
+        {{#if win.winner_9_school}}{{#assign "v_etcW9School"}}{{win.winner_9_school}}{{/assign}}{{/if}}
+        
+        {{#if win.winner_10_name}}{{#assign "v_etcW10Name"}}{{win.winner_10_name}}{{/assign}}{{/if}}
+        {{#if win.winner_10_school}}{{#assign "v_etcW10School"}}{{win.winner_10_school}}{{/assign}}{{/if}}
+        
+        {{#if win.eventCompany}}{{#assign "v_etcCompany"}}{{win.eventCompany}}{{/assign}}{{/if}}
+        {{#if win.hostUniversity}}{{#assign "v_host"}}{{win.hostUniversity}}{{/assign}}{{/if}}
+
+        {{/catalog}}
+    {{#if timeZone}}{{else}}{{#assign "timeZone"}}America/Chicago{{/assign}}{{/if}}
+    {{#assign "v_urlEventDetails"}}{{{ snippet "url - career events - view more events" }}}events/{{eventId}}{{/assign}}
+    {{#if v_genericProgramName}}{{else}}{{#assign "v_genericProgramName"}}The Global Career Accelerator{{/assign}}{{/if}}
+    {{else}}
+        {{#if v_eventID}}
+            {{#catalog "CareerVirtualEvents" v_eventID as |cve|}}
+                {{#if cve.eventName}}{{#assign "v_eventName"}}{{cve.eventName}}{{/assign}}{{/if}}
+                {{#if cve.urlEventWebinar}}{{#assign "v_urlEventWebinar"}}{{cve.urlEventWebinar}}{{/assign}}{{/if}}
+                {{#if cve.urlCoverPhoto}}{{#assign "v_urlCoverPhoto"}}{{cve.urlCoverPhoto}}{{/assign}}{{/if}}
+                {{#if cve.eventStartDateTime}}{{#assign "v_eventStartDateTime"}}{{cve.eventStartDateTime}}{{/assign}}{{/if}}
+                {{#if cve.eventEndDateTime}}{{#assign "v_eventEndDateTime"}}{{cve.eventEndDateTime}}{{/assign}}{{/if}}
+                {{#if cve.urlEventRecording}}{{#assign "v_urlEventRecording"}}{{cve.urlEventRecording}}{{/assign}}{{/if}}
+                {{#if cve.eventSubmissionDeadlineDateTime}}{{#assign "v_submissionDeadline"}}{{cve.eventSubmissionDeadlineDateTime}}{{/assign}}{{/if}}
+                {{#if cve.passCode}}{{#assign "v_eventRecordingPassCode"}}{{cve.passCode}}{{/assign}}{{/if}}
+                    {{#catalog "Companies" lookup_company as |comp|}}
+                    {{#if comp.name}}{{#assign "v_eventsCompanyName"}}{{comp.name}}{{/assign}}{{/if}}
+                    {{/catalog}}
+                {{/catalog}}
+            {{#if timeZone}}{{else}}{{#assign "timeZone"}}America/Chicago{{/assign}}{{/if}}
+            {{#assign "v_urlEventDetails"}}{{{ snippet "url - career events - view more events" }}}events/{{v_eventID}}{{/assign}}
+            {{#if v_genericProgramName}}{{else}}{{#assign "v_genericProgramName"}}The Global Career Accelerator{{/assign}}{{/if}}
+        {{/if}}
+{{/if}}

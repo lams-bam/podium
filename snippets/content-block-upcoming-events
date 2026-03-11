@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .cta-container {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+    .column {
+      padding: 10px;
+    }
+    .left-column {
+      width: 15%;
+      background-color: #f4f4f4;
+        color: #000;
+    }
+    .right-column {
+      width: 85%;
+      background-color: #f4f4f4;
+      color: #000;
+    }
+    .image {
+        width: 100%;
+        margin-top: 15px;
+
+    }
+    
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #f4f4f4;
+        padding: 18px 20px;
+        border-bottom: 1px solid #cccccc;
+              color: #000;
+    }
+
+    /* Mobile styles */
+    @media only screen and (max-width: 600px) {
+      .row {
+        flex-direction: column;
+      }
+      .left-column {
+        width: 90%;
+        padding: 0px 20px 0px 20px!important;
+
+      }
+      .image {
+        width: 20%!important;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+     .right-column {
+        text-align: center;
+        padding: 0px 20px 0px 20px!important;
+        width: 90%;
+    }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cta-container">
+      <div class="title">Attend Our Upcoming Event!</div>
+      
+    <div class="row">
+      <div class="column left-column">
+        <!-- Content for the left column -->
+        <img class="image" src="https://library.iterable.com/3196/20921/3a9bb3435ae04f0baf81a7af9a832231-elemental2.jpg" />
+      </div>
+      <div class="column right-column">
+        <!-- Content for the right column -->
+        <h3>Elemental Impact: There's a Seat for You</h3>
+        <p style="font-weight: bold;">October 15th at 1PM</p>
+        <p>Are you looking to make a meaningful impact with your career? Discover how your unique skills can help tackle some of the world's most pressing challenges.</p>
+                <p style="font-weight: bold;">RSVP NOW ➤</p>
+
+      </div>
+    </div>
+  </div>
+
+</body>

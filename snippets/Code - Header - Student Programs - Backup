@@ -1,0 +1,79 @@
+{{!-- Registration stage check (from Opportunities) --}}
+{{~#assign "d_llStage"~}}
+    {{~#each allOpportunities~}}
+    	{{~#ifEq id opportunityId~}}
+    		{{~#assign "d_llStage"~}}{{~#ifMatchesRegexStr stage "^Program Enrolled$"~}}false{{~/ifMatchesRegexStr~}}{{~/assign~}}
+    	{{~/ifEq~}}
+    {{~/each~}}
+{{~/assign~}}
+
+{{!-- Track name & Assignment name (fallback via Track Catalog -> Program Enrollment) --}}
+{{~#assign "v_nameTrack"~}}
+    {{~#each allProgramEnrollments~}}
+    	{{~#ifEq id programEnrollmentId~}}
+    		{{~#catalog "Track" lookup_trackCatalog as |track|~}}
+    			{{~#assign "v_nameTrack"~}}{{track.name}}{{~/assign~}}
+    		{{~/catalog~}}
+    	{{~/ifEq~}}
+    {{~/each~}}
+{{~/assign~}}
+
+{{!-- Assignment Name (match exact same setup as Track Name) --}}
+{{~#assign "v_assignmentName"~}}
+    {{~#each allProgramEnrollments~}}
+    	{{~#ifEq id programEnrollmentId~}}
+    		{{~#catalog "Track" lookup_trackCatalog as |track|~}}
+    			{{~#if track.assignmentName~}}
+    				{{~#assign "v_assignmentName"~}}{{track.assignmentName}}{{~/assign~}}
+    			{{~/if~}}
+    		{{~/catalog~}}
+    	{{~/ifEq~}}
+    {{~/each~}}
+{{~/assign~}}
+
+{{!-- First LiveLab datetime (from Course Connections) --}}
+{{~#assign "e_firstLiveLabDateTime"~}}
+    {{~#each allCourseConnections~}}
+    	{{~#ifEq id courseConnectionId~}}
+    		{{~#assign "e_firstLiveLabDateTime"~}}{{firstLiveLabDateTime}}{{~/assign~}}
+    	{{~/ifEq~}}
+    {{~/each~}}
+{{~/assign~}}
+
+{{!-- Defaults (avoid blanks) --}}
+{{~#assign "e_courseName"~}}{{~/assign~}}
+{{~#assign "e_nameTrack"~}}{{~/assign~}}
+{{~#assign "e_hqPartURL"~}}{{~/assign~}}
+
+{{!-- LiveLab catalog lookups --}}
+{{~#each allCourseConnections~}}
+	{{~#ifEq id courseConnectionId~}}
+		{{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+			{{~#if livelab.courseName~}}
+				{{~#assign "e_courseName"~}}{{livelab.courseName}}{{~/assign~}}
+			{{~/if~}}
+			{{~#if livelab.programTrackName~}}
+				{{~#assign "e_nameTrack"~}}{{livelab.programTrackName}}{{~/assign~}}
+			{{~/if~}}
+			{{~#if livelab.hqPartURL~}}
+				{{~#assign "e_hqPartURL"~}}{{livelab.hqPartURL}}{{~/assign~}}
+			{{~/if~}}
+		{{~/catalog~}}
+	{{~/ifEq~}}
+{{~/each~}}
+
+{{!-- Final track fallback: if LiveLab track missing, use Track Catalog value --}}
+{{~#unless e_nameTrack~}}
+	{{~#assign "e_nameTrack"~}}{{v_nameTrack}}{{~/assign~}}
+{{~/unless~}}
+
+{{~#unless e_nameTrack~}}
+	{{~#assign "e_nameTrack"~}}Your Track{{~/assign~}}
+{{~/unless~}}
+
+{{!-- Final HQ URL with fallback --}}
+{{~#assign "e_url"~}}{{~#if e_hqPartURL~}}{{e_hqPartURL}}{{~else~}}https://hq.globaltech.org{{~/if~}}{{~/assign~}}
+
+{{!-- ✅ Grades URL (append /grades) --}}
+{{~#assign "e_gradesURL"~}}{{e_url}}/grades{{~/assign~}}
+{{{ snippet "is_late_start" }}}
