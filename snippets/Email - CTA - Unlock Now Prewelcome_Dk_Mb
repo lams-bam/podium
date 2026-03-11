@@ -1,0 +1,24 @@
+{{#assign "s_link"}}{{#if cta_url}}{{cta_url}}{{else}}{{{ snippet "logic - welcome URL selector careerbase first_v2" }}}{{/if}}{{/assign}}
+{{#assign "s_ctaCopy"}}{{#if cta_copy}}{{cta_copy}}{{else}}Log In{{/if}}{{/assign}}
+<div class="mobile_hide" style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{s_link}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+  <a href="{{s_link}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">{{{s_ctaCopy}}} ➔</span></a>
+      <!--[if mso]>
+    </center>
+  </v:roundrect>
+<![endif]-->
+</div>
+<div class="desktop_hide"style="align:center;min-width:100%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center;mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height:0;overflow:hidden"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{s_link}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+  <a href="{{s_link}}" style="min-width:100%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">{{{s_ctaCopy}}} ➔</span></a>
+      <!--[if mso]>
+    </center>
+  </v:roundrect>
+<![endif]-->
+</div>

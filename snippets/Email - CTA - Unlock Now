@@ -1,0 +1,11 @@
+<div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.untapped.io/app/global-career-accelerator?{{{ snippet "utm_master" }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+  <a href="https://www.untapped.io/app/global-career-accelerator?{{{ snippet "utm_master" }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Unlock now ➔</span></a>
+      <!--[if mso]>
+    </center>
+  </v:roundrect>
+<![endif]-->
+</div>
