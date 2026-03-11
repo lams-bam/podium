@@ -1,0 +1,8 @@
+{{!-- Set is_live_session_not_livelab flag based on university --}}
+{{#assign "is_live_session_not_livelab"}}false{{/assign}}
+
+{{#if (or
+  (eq university "Appalachian State University")
+)}}
+  {{#assign "is_live_session_not_livelab"}}true{{/assign}}
+{{/if}}

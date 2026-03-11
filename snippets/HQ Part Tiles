@@ -1,0 +1,26 @@
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%; max-width:600px;">
+  <tr>
+    <td style="width:150px; vertical-align:middle;">
+        <a href="{{{ snippet "logic - welcome URL selector careerbase first_v2" }}}">
+      {{#and (eq allProgramEnrollments.lookup_trackCatalog "Digital Marketing")}}
+        <img src="https://library.iterable.com/3196/20921/c5547140186b4909a734b0a83d324850-dm1-hq-part-tile.png" width="150" style="display:block;">
+      {{else}}{{#or (eq allProgramEnrollments.lookup_trackCatalog "Coding for Data")}}
+        <img src="https://library.iterable.com/3196/20921/e0062e842d08457cbf9ea468e1fc0120-dc1-hq-part-tile.png" width="150" style="display:block;">
+      {{else}}{{#or (eq allProgramEnrollments.lookup_trackCatalog "Data Analytics")}}
+        <img src="https://library.iterable.com/3196/20921/5b045dd4d5c042c19b860d86a02254c3-da1-hq-part-tile.png" width="150" style="display:block;">
+      {{else}}{{#or (eq allProgramEnrollments.lookup_trackCatalog "Web Development")}}
+        <img src="https://library.iterable.com/3196/20921/140e775b6f8f49af9e13cd7ee6da9c7a-wd1-hq-part-tile.png" width="150" style="display:block;">
+      {{else}}{{#or (eq allProgramEnrollments.lookup_trackCatalog "Career Rotation")}}
+        <img src="https://library.iterable.com/3196/20921/28c432142ea14d1caac63490e7d099b0-rt1-hq-part-tile.png" width="150" style="display:block;">
+      {{else}}
+        <img src="https://library.iterable.com/3196/20921/28c432142ea14d1caac63490e7d099b0-rt1-hq-part-tile.png" width="150" style="display:block;">
+      {{/or}}{{/or}}{{/or}}{{/or}}{{/and}}</a>
+    </td>
+    <td style="padding-left:20px; vertical-align:middle;">
+      <p style="margin:0; font-family:Arial, sans-serif; font-size:14px; line-height:1.5;">
+        💡 <strong>Pro Tip:</strong> Take the HQ Tour when you first log in! Click the HH icon on the bottom-right corner of HQ for tips, tools, and chat with your dedicated support team.
+      </p>
+    </td>
+  </tr>
+</table>
+

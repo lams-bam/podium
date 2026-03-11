@@ -1,0 +1,8 @@
+{{!-- Set is_late_start flag based on university --}}
+{{#assign "is_late_start"}}false{{/assign}}
+
+{{#if (or
+  (eq university "N/A")
+)}}
+  {{#assign "is_late_start"}}true{{/assign}}
+{{/if}}
