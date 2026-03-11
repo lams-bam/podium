@@ -1,0 +1,70 @@
+<!-- Program Snapshot Callout -->
+<div style="background-color:#f7f7f7; border-radius:8px; padding:16px; margin:24px auto; max-width:480px; font-family: Arial, Helvetica, sans-serif; text-align:left; line-height:1.4;">
+  <div style="font-weight:700; margin-bottom:8px;">Your Program Snapshot:</div>
+
+  <p style="margin:0;">🎯 <strong>Track:</strong> Digital Marketing</p>
+  <p style="margin:0;">📅 <strong>LiveLab:</strong> Not Set</p>
+  <p style="margin:0 0 12px 0;">📚 <strong>Codes:</strong> Not Set</p>
+
+  <p style="margin:0;">
+    ⚪ Still choosing your program details? You can update them
+    <a href="https://www.podiumeducation.com" target="_blank" style="color:#0b61a4; text-decoration:underline;">here</a>.
+  </p>
+  <p style="margin:0;">💬 Need help choosing? Chat with an advisor.</p>
+</div>
+
+<br></br>
+<!-- Program Snapshot (inline summary) -->
+<div style="background-color:#f7f7f7; border-radius:8px; padding:14px 18px; margin:24px auto; max-width:520px; font-family: Arial, Helvetica, sans-serif; line-height:1.45; color:#222;">
+  <div style="font-weight:700; margin-bottom:6px;">Your Program Snapshot:</div>
+
+  <p style="margin:0;">
+    🎯 <strong>Track:</strong> Digital Marketing 
+    | 📅 <strong>LiveLab:</strong> Not Set 
+    | 📚 <strong>Codes:</strong> Not Set
+  </p>
+
+  <p style="margin:10px 0 0 0;">
+    ⚪ Still choosing your program details? 
+    <a href="https://www.podiumeducation.com" target="_blank" style="color:#0b61a4; text-decoration:underline;">Update here</a>.<p>
+    💬 Need help choosing? Chat with an advisor.
+  </p>
+</div>
+
+<br>
+<!-- Selected Program Details (Centered) -->
+<div style="background-color:#f7f7f7; border-radius:8px; padding:18px 20px; margin:24px auto; max-width:480px; font-family: Arial, Helvetica, sans-serif; color:#222; line-height:1.45; text-align:center;">
+
+  <div style="font-weight:700; margin-bottom:8px;">Your Selected Program Details:</div>
+
+  {{#if track}}
+    <p style="margin:0;">🎯 <strong>Track:</strong> {{track}}</p>
+  {{/if}}
+
+  {{#if liveLab}}
+    <p style="margin:0;">📅 <strong>LiveLab:</strong> {{liveLab}}</p>
+  {{/if}}
+
+  {{#if codes}}
+    <p style="margin:0;">📚 <strong>Course Codes:</strong> {{codes}}</p>
+  {{/if}}
+
+  {{#unless track}}
+    {{#unless liveLab}}
+      {{#unless codes}}
+        <p style="margin:0;">⚪ No selections yet. You can update them 
+          <a href="https://www.podiumeducation.com" target="_blank" style="color:#0b61a4; text-decoration:underline;">here</a>.
+        </p>
+      {{/unless}}
+    {{/unless}}
+  {{/unless}}
+
+</div>
+
+<br>
+<div style="background-color:#f7f7f7; border-radius:8px; padding:18px 20px; margin:24px auto; max-width:480px; font-family: Arial, Helvetica, sans-serif; color:#222; line-height:1.45; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.08);">
+  <div style="font-weight:700; margin-bottom:8px;">Your Selected Program Details:</div>
+  <p style="margin:0;">🎯 <strong>Track:</strong> Digital Marketing Track</p>
+</div>
+
+

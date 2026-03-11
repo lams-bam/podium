@@ -1,0 +1,24 @@
+{{#if applicationConfirmationFile}}
+{{#ifEq v_stage "Application Completed"}}
+    {{#ifMatchesRegexStr v_registrationMethod "(.*School Initiated|No Registration.*)"}}
+        {{#assign "e_selectPD"}}true{{/assign}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_registrationMethod ".*Student Self Reg.*"}}
+        {{~#ifGt (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz="UTC") (now format="yyyyMMdd" tz="UTC")~}}
+            {{#assign "e_selectPD"}}true{{/assign}}
+        {{/ifGt~}}
+    {{/ifMatchesRegexStr}}
+{{/ifEq}}
+
+{{#if selectedProgramDetails}}
+    {{#ifMatchesRegexStr v_applicationType ".*(Podi|Partner).*"}}
+
+<!-- Selected Program Details (Accent Line Style) -->
+<table align="center" style="margin:0px auto 0 auto; max-width:520px; text-align:center; font-family: Arial, Helvetica; font-size:14px;sans-serif; line-height:20px; color:#;"><tr><td align="center">
+    <div style="display:inline-block; width:40px; height:3px; background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#313547{{/if}}; margin-bottom:10px; border-radius:2px;text-align:center;"></div></td></tr>
+  <tr><td align="center" style="font-weight:700;">Your Program Details</td></tr>
+    <tr><td align="center">{{#ifMatchesRegexStr v_applicationType ".*Podi.*"}}{{#ifMatchesRegexStr v_stage ".*(Application Completed|Sent to Partner for Reg|Reg Permission Granted|Registered in System|Program Enrolled).*"}}
+        <a href="{{{applicationConfirmationFile}}}" style="color:#2255cc; text-decoration:underline;">View Application Agreement</a>{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}{{#or e_selectPD (eq v_stage "Sent to Partner for Reg") (eq v_stage "Registered in System") (eq v_stage "Program Enrolled") (eq v_stage "Application Submitted") (eq v_stage "Application Committed")}}{{#ifMatchesRegexStr v_applicationType ".*Podi.*"}} | {{else}}{{/ifMatchesRegexStr}}<a href="{{{v_llForm}}}" style="color:#2255cc; text-decoration:underline;margin:4px 0 0 0;">Change Program Details</a>{{/or}}</td></tr>
+</table>
+<br>{{/ifMatchesRegexStr}}{{/if}}
+{{/if}}

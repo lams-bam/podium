@@ -1,0 +1,9 @@
+
+<!-- Selected Program Details (Accent Line Style) -->
+<div style="margin:32px auto 0 auto; max-width:520px; text-align:center; font-family: Arial, Helvetica, sans-serif; line-height:1.5; color:#222;">
+  <div style="display:inline-block; width:40px; height:3px; background-color:#1a5632; margin-bottom:10px; border-radius:2px;"></div>
+  <div style="font-weight:700;">Your Selected Program Details</div>
+  <p style="margin:4px 0 0 0;">🎯 <strong>Track:</strong> Digital Marketing Track</p>
+</div>
+
+<br>

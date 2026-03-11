@@ -1,0 +1,130 @@
+{{!-- ===========================================
+  Program Details – Bulleted HTML List (Iterable)
+  Dynamic header + policy + optional appendix (v2)
+  Updated: Match email line-height (1.5)
+============================================== --}}
+
+{{!-- Normalize / alias input fields --}}
+{{#assign "tsm"}}
+  {{ defaultIfEmpty Track_Selection_Method__c 
+    (defaultIfEmpty trackSelectionMethod 
+    (defaultIfEmpty v_trackSelectionMethod "")) }}
+{{/assign}}
+
+{{#assign "ll"}}{{ defaultIfEmpty formLiveLabTime "" }}{{/assign}}
+{{#assign "credSel"}}{{ defaultIfEmpty creditSelection "" }}{{/assign}}
+{{#assign "credType"}}{{ defaultIfEmpty creditType "" }}{{/assign}}
+{{#assign "credAmt"}}
+  {{ defaultIfEmpty selectedCreditAmount (defaultIfEmpty creditAmount "") }}
+{{/assign}}
+
+{{#assign "appType"}}{{ defaultIfEmpty applicationType "" }}{{/assign}}
+{{#assign "policyFile"}}{{ defaultIfEmpty applicationConfirmationFile "" }}{{/assign}}
+{{#assign "llSelected"}}{{ defaultIfEmpty liveLabSelected "" }}{{/assign}}
+
+{{!-- Pull in reusable sub-snippets --}}
+{{#assign "trackValue"}}{{{ snippet "field-program" }}}{{/assign}}
+{{#assign "codesValue"}}{{{ snippet "logic-course_code" }}}{{/assign}}
+
+{{!-- Opportunity payload-only Course Codes (no PTO/PPO fallback) --}}
+{{#assign "oppCodes"}}
+  {{ defaultIfEmpty opportunityCourseCodes (defaultIfEmpty courseCodes "") }}
+{{/assign}}
+
+{{!-- Dynamic heading text --}}
+{{#assign "headingText"}}
+        Here's a recap of your selections:
+{{/assign}}
+
+{{!-- Build each row dynamically --}}
+{{#and (eq tsm "Student Selected") trackValue}}
+  {{#assign "rowTrack"}}
+    <li><strong>Track:</strong> {{ trackValue }}</li>
+  {{/assign}}
+{{/and}}
+
+{{#if ll}}
+  {{#assign "rowLL"}}
+    <li><strong>LiveLab Time:</strong> {{ replace ll "_" " " }}
+        {{#and (eq v_stage "Program Enrolled") (eq lastLiveLabSubmissionSource "Default LL Selection")}}
+            {{#ifMatchesRegexStr leadSource ".*Partner Direct Registration.*"}}
+            {{else}}
+            <ul>
+                <li>You can change your LiveLab time using the link below</li>
+            </ul>
+            {{/ifMatchesRegexStr}}
+        {{/and}}
+    </li>
+  {{/assign}}
+{{/if}}
+
+{{#assign "rowCredit"}}{{/assign}}
+{{#or credAmt credSel credType}}
+  {{#assign "rowCredit"}}
+    <li><strong>Credit:</strong>
+      {{#if credAmt}}{{ credAmt }}{{/if}}
+      {{#if credSel}}{{#if credAmt}} {{/if}}({{ credSel }}){{/if}}
+      {{!-- Only show Credit Type if Credit Selection is blank --}}
+      {{#if (and credType (eq (defaultIfEmpty credSel "") ""))}}
+        {{#if credAmt}} {{/if}}({{ credType }})
+      {{/if}}
+    </li>
+  {{/assign}}
+{{/or}}
+
+{{!-- Show Course Codes ONLY if the Opportunity payload has a value --}}
+{{#and oppCodes codesValue}}
+    {{#unless (and (eq statusApplication "Application Completed") (eq nextStep "Wait to Be Permissioned"))}}
+          {{#assign "rowCodes"}}
+            <li><strong>Course Code(s):</strong> {{ codesValue }}</li>
+          {{/assign}}
+     {{/unless}}
+{{/and}}
+
+{{!-- Policy row (fixed) --}}
+{{#if policyFile}}
+  {{#ifMatchesRegexStr appType ".*[Pp]odi.*"}}
+    {{#assign "rowPolicy"}}
+      <li>
+        <strong>Application Agreement:</strong>
+        <a href="{{{ policyFile }}}" style="color:#2255cc; text-decoration:underline;">Download here</a>
+      </li>
+    {{/assign}}
+  {{/ifMatchesRegexStr}}
+{{/if}}
+
+{{!-- Stage Program Enrolled --}}
+{{#ifEq v_stage "Program Enrolled"}}
+  {{#assign "rowStartDate"}}
+    <li>
+      <strong>Start Date:</strong> {{dateFormat v_llStartDate format="MMMM d, YYYY"}}
+    </li>
+  {{/assign}}
+{{/ifEq}}
+
+{{!-- Render recap block --}}
+{{#or rowTrack rowLL rowCredit rowCodes rowPolicy rowStartDate}}
+  <div style="margin:0; max-width:520px; text-align:left;
+              font-family:Arial, Helvetica, sans-serif;
+              font-size:{{#if overrideFontSize}}{{{overrideFontSize}}}{{else}}14{{/if}}px; line-height:1.5; color:#000;">
+    <strong>{{ headingText }}</strong>
+    <ul style="margin:6px 0 0 20px; padding-left:20px;">
+      {{#if v_llStartDate}}{{{rowStartDate}}}{{/if}}
+      {{{ rowTrack }}}
+      {{{ rowLL }}}
+      {{{ rowCredit }}}
+      {{{ rowCodes }}}
+      {{{ rowPolicy }}}
+    </ul>
+  </div>
+{{/or}}
+                                                                            
+{{!-- Put change-info OUTSIDE recap wrapper, match full email width --}}
+{{#and llSelected (not (eq v_stage "Program Enrolled"))}}
+  <br/>
+  <div style="margin:0; text-align:left;
+              font-family:Arial, Helvetica, sans-serif;
+              font-size:14px; line-height:1.5; color:#000;">
+    {{{ snippet "livelab_change_info_v2" }}}
+  </div>
+{{/and}}

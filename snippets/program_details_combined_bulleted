@@ -1,0 +1,43 @@
+{{!-- 1) Pull raw details --}}
+{{#assign "pd_raw"}}{{{ snippet "SHAINA SANDBOX - Salesforce Raw Data for Bullets Simulation" }}}{{/assign}}
+
+{{!-- 2) Null-safe; strip duplicate headers; normalize CRLF to spaces --}}
+{{#assign "pd0"}}{{ defaultIfEmpty pd_raw "" }}{{/assign}}
+{{#assign "pd1"}}{{ replace pd0 "Your Program Details:" "" }}{{/assign}}
+{{#assign "pd2"}}{{ replace pd1 "Your Program Details:" "" }}{{/assign}}
+{{#assign "pd"}}{{ replace pd2 "\\r\\n" " " regex=true }}{{/assign}}
+
+{{!-- 3) TOKENIZE labels so we can slice cleanly (no HTML injection) --}}
+{{#assign "tok1"}}{{ replace pd "\\s*Track:\\s*" "||TRACK||" regex=true }}{{/assign}}
+{{#assign "tok2"}}{{ replace tok1 "\\s*LiveLab:\\s*" "||LL||" regex=true }}{{/assign}}
+{{#assign "tok3"}}{{ replace tok2 "\\s*Codes:\\s*" "||CODES||" regex=true }}{{/assign}}
+{{#assign "tok"}}{{ replace tok3 "\\s*Credit:\\s*" "||CREDIT||" regex=true }}{{/assign}}
+
+{{!-- 4) Extract values BETWEEN tokens --}}
+{{!-- Track --}}
+{{#assign "track_a"}}{{ replace tok "^.*?\\|\\|TRACK\\|\\|" "" regex=true }}{{/assign}}
+{{#assign "track"}}{{ replace track_a "\\|\\|(LL|CODES|CREDIT)\\|\\|.*" "" regex=true }}{{/assign}}
+
+{{!-- LiveLab --}}
+{{#assign "ll_a"}}{{ replace tok "^.*?\\|\\|LL\\|\\|" "" regex=true }}{{/assign}}
+{{#assign "ll"}}{{ replace ll_a "\\|\\|(CODES|CREDIT)\\|\\|.*" "" regex=true }}{{/assign}}
+
+{{!-- Codes --}}
+{{#assign "codes_a"}}{{ replace tok "^.*?\\|\\|CODES\\|\\|" "" regex=true }}{{/assign}}
+{{#assign "codes"}}{{ replace codes_a "\\|\\|CREDIT\\|\\|.*" "" regex=true }}{{/assign}}
+
+{{!-- Credit (to end) --}}
+{{#assign "credit"}}{{ replace tok "^.*?\\|\\|CREDIT\\|\\|" "" regex=true }}{{/assign}}
+
+{{!-- 5) Render true bullets (only if any value present) --}}
+{{#if (or track ll codes credit)}}
+  <div style="margin:0; max-width:520px; text-align:left; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:20px; color:#000;">
+    <strong>Your Program Details:</strong>
+    <ul style="margin:6px 0 0 20px; padding-left:20px;">
+      {{#if track}}<li><strong>Track:</strong> {{ track }}</li>{{/if}}
+      {{#if ll}}<li><strong>LiveLab:</strong> {{ ll }}</li>{{/if}}
+      {{#if codes}}<li><strong>Codes:</strong> {{ codes }}</li>{{/if}}
+      {{#if credit}}<li><strong>Credit:</strong> {{ credit }}</li>{{/if}}
+    </ul>
+  </div>
+{{/if}}
