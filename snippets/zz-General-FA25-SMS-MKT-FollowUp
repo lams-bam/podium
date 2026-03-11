@@ -1,0 +1,11 @@
+Hi {{nameFirst}} - Carla from the {{defaultIfEmpty v_programName "Global Career Accelerator"}}!
+
+Just a quick FYI that fall enrollment is open for our fully remote program! Use this semester to earn {{v_programCreditCount}} credits and work with companies like OpenAI, the Grammys and Intel to get real-world career experience. This is the perfect boost before spring recruiting season starts. 
+
+Get started using the link below or in your inbox! 
+
+Carla Martin
+Program Director
+
+{{v_microsite}}?sid={{userId}}
+

@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr university "George Mason.*"}}{{#ifMatchesRegexStr stage ".*(Completed|LiveLab|Regist|Enrolled).*"}}Course Withdrawal{{else}}{{{ snippet "withdraw_steps-subject_line" }}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}

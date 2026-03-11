@@ -1,0 +1,5 @@
+<ol>
+    <li>Please submit this form:<br/><a href="{{withdrawSteps_Form}}">{{replace withdrawSteps_Form "https://" ""}}</a>{{#if withdrawSteps_Contact}}</li>
+    <li>Email the {{{withdrawSteps_Contact}}} to notify them of your withdrawal:<br/><a href="{{withdrawSteps_ContactEmail}}">{{withdrawSteps_ContactEmail}}</a>{{/if}}
+    </li>
+</ol>

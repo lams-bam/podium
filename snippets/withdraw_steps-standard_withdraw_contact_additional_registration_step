@@ -1,0 +1,3 @@
+{{#unless (eq v_university "George Mason University")}}
+Additionally, please drop the course codes in <a href="{{{v_registrationLink}}}">{{ v_schoolSystemNameRegistration }}</a>.
+{{/unless}}

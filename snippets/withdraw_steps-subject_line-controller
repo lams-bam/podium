@@ -1,0 +1,1 @@
+{{{ snippet "universal-variables" }}}{{{ snippet "universal-variables_withdrawal" }}}{{#ifMatchesRegexStr university "(George Mason).*"}}{{{ snippet "withdraw_steps-subject_line-school customizations" }}}{{else}}{{{ snippet "withdraw_steps-subject_line" }}}{{/ifMatchesRegexStr}}

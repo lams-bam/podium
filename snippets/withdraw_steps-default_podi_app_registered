@@ -1,0 +1,9 @@
+{{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}
+    {{#ifContainsStr withdrawSteps_StandardCustomStages "Registered in System" }}
+        {{#ifEq v_registrationMethod "No Registration"}}We will withdraw your application from the application platform{{else}}You must drop the courses in <a href="{{#ifMatchesRegexStr v_university ".*North Carolina Greensboro.*"}}https://ssb-landing.uncg.edu/{{else}}{{v_registrationLink}}{{/ifMatchesRegexStr}}">{{#ifMatchesRegexStr v_university ".*North Carolina Greensboro.*"}}UNCG Genie{{else}}{{ v_schoolSystemNameRegistration }}{{/ifMatchesRegexStr}}</a>{{#ifContains withdrawSteps_StandardCustomStages stage}}{{#if v_withdrawSteps_ContactEmail}} and please work with <a href="mailto:{{v_withdrawSteps_ContactEmail}}?subject=Withdrawing%20my%20application">{{v_withdrawSteps_Contact}}</a> (copied here){{/if}}{{/ifContains}}.
+        {{/ifEq}}
+    {{else}}You must drop the courses in <a href="{{#ifMatchesRegexStr v_university ".*North Carolina Greensboro.*"}}https://ssb-landing.uncg.edu/{{else}}{{v_registrationLink}}{{/ifMatchesRegexStr}}">{{#ifMatchesRegexStr v_university ".*North Carolina Greensboro.*"}}UNCG Genie{{else}}{{ v_schoolSystemNameRegistration }}{{/ifMatchesRegexStr}}</a>{{#ifContains withdrawSteps_StandardCustomStages stage}}{{#if v_withdrawSteps_ContactEmail}} and please work with <a href="mailto:{{v_withdrawSteps_ContactEmail}}?subject=Withdrawing%20my%20application">{{v_withdrawSteps_Contact}}</a> (copied here){{/if}}{{/ifContains}}.
+    {{/ifContainsStr }}
+ {{/catalog}}
+<br/><br/>
+Once we receive confirmation that is complete, you will formally be withdrawn on our end.

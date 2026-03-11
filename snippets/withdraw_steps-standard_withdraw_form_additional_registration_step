@@ -1,0 +1,8 @@
+<ol>
+    <li>Please submit this <a href="{{withdrawSteps_Form}}">form</a>
+    </li>
+    {{#if withdrawSteps_Contact}}<li>Email the <a href="mailto:{{withdrawSteps_ContactEmail}}?subject=Withdrawing%20my%20application">{{{withdrawSteps_Contact}}}</a> to notify them of your withdrawal:<br/>{{/if}}
+    </li>
+    <li>Drop the course codes in <a href="{{{v_registrationLink}}}">{{ v_schoolSystemNameRegistration }}</a>
+    </li>
+</ol>
