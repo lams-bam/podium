@@ -1,0 +1,9 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Hey {{defaultIfEmpty nameFirst "there"}}! Exciting news! Registration is fully open for the {{{v_programName}}}. I just sent you an email with the complete details.
+
+{{#ifMatchesRegexStr v_stage "(Application Completed|Reg Permission Granted)"}}You can register in {{{v_schoolSystemNameRegistration}}} for: {{{ snippet "logic-course_code" }}}
+
+{{{v_registrationLink}}}{{else}}Before registering, complete your enrollment using the link below!
+
+{{{v_continueApplicationLink}}}
+{{/ifMatchesRegexStr}}

@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}},
+Exciting news, the registration deadline for the {{{v_programName}}} has been extended to Wednesday, May 14 at 4:00pm ET.
+Complete your registration for the course codes below: {{{ snippet "logic-course_code" }}}
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{v_registrationLink}}}

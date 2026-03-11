@@ -1,0 +1,1 @@
+Hi {{ defaultIfEmpty nameFirst "there"}} - I noticed you haven't selected your LiveLab time. I just resent you the email, is there anything I can help you with?

@@ -1,0 +1,5 @@
+{{ defaultIfEmpty nameFirst "Hi there"}}! Great work starting your enrollment for The {{{v_programName}}}! Are you ready to add some great {{#ifMatchesRegexStr university "University of Michigan"}}in-the-field{{else}}real-world{{/ifMatchesRegexStr}} experience to your resume? Make sure to finish your application (~2 mins). 
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{#ifMatchesRegexStr v_applicationType "Podi App"}}{{{continueApplicationLinkSMS}}}{{else}}{{{continueApplicationLink}}}{{/ifMatchesRegexStr}}

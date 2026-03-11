@@ -1,0 +1,5 @@
+{{ defaultIfEmpty nameFirst "Hi there"}}! Great work starting on your enrollment for the {{{v_programName}}}! Are you ready to add some great {{#ifMatchesRegexStr university "University of Michigan"}}in-the-field{{else}}real-world{{/ifMatchesRegexStr}} experience to your résumé? Make sure to complete your enrollment (~2 mins). 
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{replace v_continueApplicationLink "&amp;" "&"}}}

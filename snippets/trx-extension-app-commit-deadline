@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}},
+Exciting news, the deadline for the {{{v_programName}}} has been extended to {{dateFormat deadline_applicationCommit format="MMMM d, YYYY" tz=timeZone}}.
+Hit "Commit" below to complete your enrollment here:
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{replace v_continueApplicationLink "&amp;" "&"}}}

@@ -1,0 +1,10 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{#ifMatchesRegexStr v_appProcessCommit "Manual"}}You have successfully committed to{{else}}You have been approved for{{/ifMatchesRegexStr}} the {{{v_programName}}}. We're excited to have you join us this upcoming term.
+
+[Next Step]
+{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}{{#ifMatchesRegexStr v_registrationMethod "Student Self Registers.*"}}Register in {{{v_schoolSystemNameRegistration}}} for {{{ snippet "field-courseCodes" }}}. 
+{{{v_registrationLink}}}{{else}}Select your LiveLab time.
+{{{v_llForm}}}{{/ifMatchesRegexStr}}{{else}}Register in {{{v_schoolSystemNameRegistration}}} for {{{ snippet "field-courseCodes" }}}. 
+{{{v_registrationLink}}}{{/ifMatchesRegexStr}}{{#ifEq leadSource "Form"}}{{else}}
+
+{{{ snippet "system - sms opt out logic" }}}{{/ifEq}}

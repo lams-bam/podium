@@ -1,0 +1,2 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{ defaultIfEmpty nameFirst "Hi there"}}, confirming that we just received your application. Our team will review your information and will let you know as soon as possible if you are accepted. Call or text this number with any questions.

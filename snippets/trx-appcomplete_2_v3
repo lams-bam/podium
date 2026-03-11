@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}} - 
+
+{{#ifMatchesRegexStr v_registrationMethod "Student Self Registers.*"}}I noticed you haven't completed your registration. Register for {{{ snippet "logic-course_code" }}} using the link below. {{#if registrationPermissionCode}}The permission code is {{{registrationPermissionCode}}}.{{/if}}
+
+{{{v_registrationLink}}}
+{{else}}I noticed you haven't selected your program details. I just resent you the email, is there anything I can help you with?{{/ifMatchesRegexStr}}

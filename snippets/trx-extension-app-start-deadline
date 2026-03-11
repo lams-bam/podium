@@ -1,0 +1,4 @@
+Hi {{ defaultIfEmpty nameFirst "there"}},
+Exciting news, the deadline for the {{{v_programName}}} has been extended to {{dateFormat deadline_applicationStart format="MMMM d, YYYY" tz=timeZone}}.
+Complete your enrollment here:
+{{#ifMatchesRegexStr stage ".*(Prospective|Interested|Reserved a Seat).*"}}{{#ifMatchesRegexStr v_applicationType "Podi App"}}{{{replace startNewApplicationLink "&amp;" "&"}}}{{else}}{{{replace startNewApplicationLink "&amp;" "&"}}}{{/ifMatchesRegexStr}}{{else}}{{#ifMatchesRegexStr v_applicationType "Podi App"}}{{{v_continueApplicationLinkSMS}}}{{else}}{{{replace v_continueApplicationLink "&amp;" "&"}}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
