@@ -1,0 +1,6 @@
+{{defaultIfEmpty nameFirst "Hello"}}, I just sent you an email, about the {{v_programName}}, a for-credit program that gives you real-world experience that you can add to your class schedule this upcoming term.
+
+Take a look or visit: 
+{{v_microsite}}?sid={{userId}}
+
+- {{v_paTitle}}

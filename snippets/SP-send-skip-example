@@ -1,0 +1,40 @@
+{{#if override_skip}}
+{{else}}
+    {{#assign "system_deadlineSkipActive"}}{{{ snippet "system - disable deadline send skip" }}}{{/assign}}
+    
+    {{#ifMatchesRegexStr system_deadlineSkipActive "[Ff]alse"}}
+        {{#if deadlineProgramRegistrationClose}}
+            {{#ifMatchesRegexStr email "disable.*podiumeducation.com"}}
+            {{else}}
+                {{#ifLte (dateFormat deadlineProgramRegistrationClose format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")}}
+                        {{sendSkip cause="deadline passed"}}
+                {{/ifLte}}
+            {{/ifMatchesRegexStr}}
+        {{else}}
+            {{#each allOpportunities}}
+                {{#ifEq Opportunityid id}}
+                    {{#ifLte (dateFormat deadlineProgramRegistrationClose format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")}}
+                        {{sendSkip cause="deadline passed"}}
+                    {{/ifLte}}
+                {{/ifEq}}
+            {{/each}}
+            {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers.*"}}
+                {{#ifMatchesRegexStr v_liveLabRequirement "Not Required Before Registration"}}
+                    {{#ifMatchesRegexStr v_stage ".*(Application Complete|LiveLab Submit).*"}}
+                        {{#assign "eval_regCloseDateSchoolParameters1"}}True{{/assign}}
+                    {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+            
+            {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers.*"}}
+                {{#ifMatchesRegexStr v_liveLabRequirement "Required Before Registration"}}
+                    {{#ifMatchesRegexStr v_stage "LiveLab Selected"}}
+                        {{#assign "eval_regCloseDateSchoolParameters2"}}True{{/assign}}
+                    {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+            
+            {{#or eval_regCloseDateSchoolParameters1 eval_regCloseDateSchoolParameters2}}{{else}}{{sendSkip cause="not applicable school"}}{{/or}}
+        {{/if}}
+    {{/ifMatchesRegexStr}}
+{{/if}}

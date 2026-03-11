@@ -1,0 +1,2 @@
+Hi {{nameFirst}}! You just received access to your program platform, {{{ snippet "Product - GCA - LMS Name" }}}. Check for an email from "{{{ snippet "Program - GCA - Name" }}}" to get started!
+– {{{v_coachNameFirst}}}, {{{ snippet "Product - GCA - Success Advisor" }}}

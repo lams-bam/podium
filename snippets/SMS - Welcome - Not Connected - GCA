@@ -1,0 +1,5 @@
+Hi {{defaultIfEmpty nameFirst "there"}}! I just tried giving you a call. I wanted to welcome you to The Global Career Accelerator and make sure you're all set for the first week! 
+
+Please give us a call back when you can. Your first step is checking your email for a message from coach@globaltech.org. Talk soon!
+
+— {{{v_coachNameFirst}}}

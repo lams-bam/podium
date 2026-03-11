@@ -1,0 +1,2 @@
+Hi {{nameFirst}}! You just received an email and access to [programName]. Check it out to get started!
+-{{v_coachNameFirst_inFlight}}

@@ -1,0 +1,9 @@
+{{#catalog "EnrollmentVirtualEvents" id_Event as |eve|}}
+{{#if eve.eventName}}{{#assign "v_eventName"}}{{eve.eventName}}{{/assign}}{{/if}}
+{{#if eve.urlEventWebinar}}{{#assign "v_urlEventWebinar"}}{{eve.urlEventWebinar}}{{/assign}}{{/if}}
+{{#if eve.urlCoverPhoto}}{{#assign "v_urlCoverPhoto"}}{{eve.urlCoverPhoto}}{{/assign}}{{/if}}
+{{#if eve.eventDescription}}{{#assign "v_eventDescription"}}{{eve.eventDescription}}{{/assign}}{{/if}}
+{{#if eve.event_start_date}}{{#assign "v_eventStartDateTime"}}{{eve.event_start_date}}{{/assign}}{{/if}}
+{{#if eve.event_end_date}}{{#assign "v_eventEndDateTime"}}{{eve.event_end_date}}{{/assign}}{{/if}}
+{{#if timeZone}}{{else}}{{#assign "timeZone"}}America/Chicago{{/assign}}{{/if}}
+{{/catalog}}

@@ -1,0 +1,2 @@
+Hi {{nameFirst}}! You just received access to your program platform, {{{ snippet "Product - CDE - LMS Name" }}}. Check for an email from "{{{ snippet "Program - CDE - Name" }}}" to get started!
+– {{{v_coachNameFirst}}}, {{{ snippet "Product - CDE - Success Advisor" }}}

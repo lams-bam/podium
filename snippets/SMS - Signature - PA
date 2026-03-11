@@ -1,0 +1,1 @@
+{{defaultIfEmpty ownerNameFirst "Nate"}}, {{defaultIfEmpty v_paTitle "Program Advisor"}}{{#ifMatchesRegexStr university "(Michigan State University|University At Albany)"}} supporting {{university}}{{/ifMatchesRegexStr}}

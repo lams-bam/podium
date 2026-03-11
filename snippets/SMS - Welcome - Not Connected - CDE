@@ -1,0 +1,5 @@
+Hi {{defaultIfEmpty nameFirst "there"}}! I just tried giving you a call. I wanted to welcome you to The Career Discovery Experience and make sure you're all set for the first week! 
+
+Check your email for a message from coach@globaltech.org to log in and get started as soon as possible. Super excited for you to join us this term!
+
+— {{{v_coachNameFirst}}}
