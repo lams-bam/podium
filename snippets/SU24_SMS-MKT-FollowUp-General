@@ -1,0 +1,7 @@
+{{defaultIfEmpty nameFirst "Hello"}}, I sent you an email, but I wanted to follow up to make sure you saw it.
+
+You have been invited to participate in the {{v_programName}}. As part of this fall's program, we have partnered with over 100 companies including Coinbase, Live Nation, and Twitch, to launch a special hiring network for students like you.
+
+I love helping students, and it's my job to ensure you are prepared for post-graduation success. Below is the link but feel free to let me know if you have any questions.
+
+{{v_microsite}}?sid={{userId}}

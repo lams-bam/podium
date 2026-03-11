@@ -1,0 +1,2 @@
+"Next"
+{{#each allCourseConnections}}{{#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+7d" format="yyyyMMdd" tz=timeZone)}}{{#ifGt (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone)}}next {{/ifGt}}{{/ifLte}}{{/each}}

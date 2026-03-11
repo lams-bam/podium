@@ -1,0 +1,24 @@
+{{~#if lookup_enrollmentProcessCatalog~}}
+    {{~#assign "lookup_enrollmentProcess"~}}{{lookup_enrollmentProcessCatalog}}{{~/assign~}}
+{{~/if~}}
+{{~#if coachNameFirst~}}
+    {{~#assign "v_coachNameFirst"~}}{{coachNameFirst}}{{~/assign~}}
+{{~/if~}}
+    {{~#if coachFirstName~}}
+        {{~#assign "v_coachNameFirst"~}}{{coachFirstName}}{{~/assign~}}
+    {{~/if~}}
+{{~#if coachNameLast~}}
+    {{~#assign "v_coachNameLast"~}}{{coachNameLast}}{{~/assign~}}
+{{~/if~}}
+{{~#if coachLastName~}}
+    {{~#assign "v_coachNameLast"~}}{{coachLastName}}{{~/assign~}}
+{{~/if~}}
+{{~#if firstLiveLabDateTime~}}
+    {{~#assign "FirstLiveLabDateTime"~}}{{{firstLiveLabDateTime}}}{{~/assign~}}
+{{~/if~}}
+{{~#if FirstLiveLabDateTime~}}
+    {{~#assign "firstLiveLabDateTime"~}}{{{firstLiveLabDateTime}}}{{~/assign~}}
+{{~/if~}}
+{{~#if programEnrollmentId~}}
+    {{~#assign "id_programEnrollment"~}}{{{programEnrollmentId}}}{{~/assign~}}
+{{~/if~}}

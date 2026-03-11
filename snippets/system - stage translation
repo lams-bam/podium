@@ -1,0 +1,13 @@
+{{~#ifMatchesRegexStr stage "Lead"~}}
+    {{~#ifMatchesRegexStr leadSource "Manual Entry"~}}
+        {{~#assign "v_stage"~}}Prospective Student{{~/assign~}}
+    {{~else}}
+        {{~#and (eq leadSource "Form") (or (eq leadSourceDetail "Get Started") (eq leadSourceDetail "Reserved a Seat") (eq leadSourceDetail "Enroll Now"))~}}
+            {{~#assign "v_stage"~}}Reserved a Seat{{~/assign~}}
+        {{else}}
+            {{~#and (eq leadSource "Form") (eq leadSourceDetail "Request for Information")~}}
+                {{~#assign "v_stage"~}}Interested{{~/assign~}}
+            {{/and}}
+        {{~/and~}}
+    {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr~}}

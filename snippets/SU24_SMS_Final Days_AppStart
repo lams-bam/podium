@@ -1,0 +1,7 @@
+{{defaultIfEmpty nameFirst "Hello"}}, Heads up, there are only a few days left to apply to participate in the {{v_programName}} this summer.
+
+You can start your application here:
+
+January 14 is the deadline to complete your application. Additional info is in your email inbox or simply reply here for help!
+
+{{v_microsite}}?sid={{userId}}
