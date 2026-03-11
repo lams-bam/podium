@@ -1,0 +1,4 @@
+{{~#ifMatchesRegexStr v_ptoStatus "(Pending|Active)"~}}
+{{~else~}}
+	{{~sendSkip cause="PTO NOT Pending or Active" ptoStatus=v_ptoStatus~}}
+{{~/ifMatchesRegexStr~}}

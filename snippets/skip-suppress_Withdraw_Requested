@@ -1,0 +1,5 @@
+{{~#if withdrawRequestStatus~}}
+	{{~#ifMatchesRegexStr withdrawRequestStatus "(Withdraw Requested|Attempted - Not Connected|Connected - Send Steps to Withdraw|Triggered - Send Steps to Withdraw|Withdraw Communication Date - Send Steps to Withdraw|Podium Sent Request to School|Withdraw Request Complete|Not Connected - Send Withdraw Steps)"~}}
+		{{~sendSkip cause="Student Has Eligible Withdraw Request" withdrawRequestStatus=withdrawRequestStatus~}}
+	{{~/ifMatchesRegexStr~}}
+{{~/if~}}

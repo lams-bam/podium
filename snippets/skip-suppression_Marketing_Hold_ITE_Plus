@@ -1,0 +1,9 @@
+{{~#ifEq v_marketingHoldReason "Cap Reached"~}}
+	{{~sendSkip cause="Partner Has Marketing Hold Paused Journeys - ITE Plus" marketingHoldReason=v_marketingHoldReason pausedJourneys=v_pausedJourneys~}}
+{{~else~}}
+	{{~#if v_pausedJourneys~}}
+		{{~#ifContainsStr v_pausedJourneys "ITE+"~}}
+			{{~sendSkip cause="Partner Has Marketing Hold Paused Journeys - ITE Plus" marketingHoldReason=v_marketingHoldReason pausedJourneys=v_pausedJourneys~}}
+		{{~/ifContainsStr~}}
+	{{~/if~}}
+{{~/ifEq~}}

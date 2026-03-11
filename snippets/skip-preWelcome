@@ -1,0 +1,6 @@
+{{#if override_skip}}{{else}}
+    {{#assign "system_deadlineSkipActive"}}{{{ snippet "system - disable deadline send skip" }}}{{/assign}}
+    {{#ifMatchesRegexStr system_deadlineSkipActive "True"}}{{#ifMatchesRegexStr email ".*podiumeducation.com"}}{{else}}
+    {{#each allCourseConnections}}{{#ifGte (dateFormat firstLLDateTime format="yyyyMMddHHmm" tz="UTC") (dateMath "now" "-1d" format="yyyyMMddHHmm" tz="UTC")}}{{#ifLte (dateFormat firstLLDateTime format="yyyyMMddHHmm" tz="UTC") (dateMath "now" "+2d" format="yyyyMMddHHmm" tz="UTC")}}{{sendSkip cause="too close to first LiveLab"}}{{/ifLte}}{{/ifGte}}{{/each}}
+    {{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
+{{/if}}

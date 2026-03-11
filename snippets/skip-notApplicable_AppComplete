@@ -1,0 +1,4 @@
+{{#if override_skip}}{{else}}
+    {{#ifMatchesRegexStr email ".*podiumeducation.com"}}{{else}}{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}{{else}}{{sendSkip cause="email not applicable - LL selection type not Podium"}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr university "Central Michigan University"}}{{sendSkip cause="not applicable"}}{{/ifMatchesRegexStr}}
+{{/if}}

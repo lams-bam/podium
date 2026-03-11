@@ -1,0 +1,5 @@
+{{~#if v_cAppCommitDeadline~}}
+	{{~#ifLte (dateFormat v_cAppCommitDeadline format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")~}}
+		{{~sendSkip cause="7 Days Before App Commit Deadline or Deadline Passed" cAppCommitDeadline=(dateFormat v_cAppCommitDeadline format="yyyy-MM-dd" tz="UTC") deadlineMinus7d=(dateMath v_cAppCommitDeadline "-7d" format="yyyy-MM-dd" tz="UTC") currentDateTime=(now format="yyyy-MM-dd HH:mm" tz="UTC")~}}
+	{{~/ifLte~}}
+{{~/if~}}

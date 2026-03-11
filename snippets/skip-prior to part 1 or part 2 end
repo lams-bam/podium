@@ -1,0 +1,22 @@
+{{~#each allCourseConnections as |cc|~}}
+    {{~#ifEq courseConnectionId id~}}
+	    {{~#assign "partSeq"~}}{{cc.partSequence}}{{~/assign~}}
+	    {{~#assign "lk_ll"~}}{{cc.lookup_livelabCatalog}}{{~/assign~}}
+    {{~/ifEq~}}
+{{~/each~}}
+
+{{~#catalog "LiveLab" lk_ll as |ll|~}}
+	{{~#ifEq partSeq "1"~}}
+		{{~#assign "endDate"~}}{{ll.part1EndDate}}{{~/assign~}}
+	{{~/ifEq~}}
+	{{~#ifEq partSeq "2"~}}
+		{{~#assign "endDate"~}}{{ll.part2EndDate}}{{~/assign~}}
+	{{~/ifEq~}}
+{{~/catalog~}}
+
+{{~#assign "endDateFormatted"~}}{{dateFormat endDate format="yyyyMMdd" tz="UTC"}}{{~/assign~}}
+{{~#assign "oneWeekFromNow"~}}{{dateMath "now" "+7d" format="yyyyMMdd" tz="UTC"}}{{~/assign~}}
+
+{{~#ifLte endDateFormatted oneWeekFromNow~}}
+    {{sendSkip cause="Within 1 week of part end date" endDate=endDateFormatted oneWeekFromNow=oneWeekFromNow partSequence=partSeq}}
+{{~/ifLte~}}

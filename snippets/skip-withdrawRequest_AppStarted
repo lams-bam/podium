@@ -1,0 +1,6 @@
+{{#if override_skip}}{{else}}
+    {{#assign "system_deadlineSkipActive"}}{{{ snippet "system - disable deadline send skip" }}}{{/assign}}
+    {{#ifMatchesRegexStr system_deadlineSkipActive "True"}}{{#ifMatchesRegexStr email ".*podiumeducation.com"}}{{else}}
+    {{#ifMatchesRegexStr v_applicationType "Podi App"}}{{sendSkip cause="not app school"}}{{else}}{{#ifMatchesRegexStr v_schoolType "App School" }}{{else}}{{sendSkip cause="not app school"}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
+{{/if}}
