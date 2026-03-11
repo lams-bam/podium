@@ -1,0 +1,11 @@
+{{!-- snippet: render - welcomeImage block handlebars Copy Edit --}}
+<div style="padding: 15px; text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+  <a href="{{{ snippet "Product - GCA - Program Login Students" }}}">
+    <img
+      width="100%"
+      src="{{welcomeImage}}"
+      alt="Track Welcome Image"
+      style="display:block; border:none; outline:none; text-decoration:none;"
+    />
+  </a>
+</div>
