@@ -1,0 +1,8 @@
+Hello {{ defaultIfEmpty nameFirst "there"}},
+A reminder that you still need to complete your application for the ASU Global Career Accelerator.
+
+https://studyabroad.asu.edu/index.cfm?FuseAction=Students.AngApply&Program_ID=11404
+
+If you have any questions, let me know!
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}

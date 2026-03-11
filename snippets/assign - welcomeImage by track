@@ -1,0 +1,19 @@
+{{#assign "welcomeImage"}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Digital Marketing.*"}}
+https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Digital%20Marketing%20Tile.png
+{{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Career Rotation.*"}}
+https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Career%20Rotation%20Tile.png
+{{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Coding for Data.*"}}
+https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Coding%20for%20Data%20Tile.png
+{{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Web Development.*"}}
+https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Web%20Development%20for%20Everyone%20Tile.png
+{{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Data Analytics.*"}}
+https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Data%20Analytics%20Tile.png
+{{/ifMatchesRegexStr}} 
+{{/assign}}
+
+

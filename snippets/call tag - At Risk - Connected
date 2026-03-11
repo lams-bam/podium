@@ -1,0 +1,5 @@
+Hi {{defaultIfEmpty nameFirst "there"}}, thanks for chatting today! I just sent you an email with steps to get back on track and support links. You can also schedule some time to speak with me here: {{{ownerCalendly}}}?sfid={{userId}}
+
+Need anything else? Text me directly at {{#ifEq programName "The Career Discovery Experience"}}{{{ snippet "Program - CDE - Text Number" }}}{{else}}{{{ snippet "Program - GCA - Text Number" }}}{{/ifEq}}, this is an automated message—replies here won't be seen.
+
+— {{{v_coachNameFirst}}}

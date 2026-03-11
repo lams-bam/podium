@@ -1,0 +1,7 @@
+Hi {{defaultIfEmpty nameFirst "there"}}! Here is a link to my calendar to set up time for us to talk more 
+
+{{{ownerCalendly}}}?sfid={{userId}}
+
+Talk soon!
+
+— {{{coachNameFirst}}}

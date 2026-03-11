@@ -1,0 +1,5 @@
+LiveLab is today at {{dateFormat v_firstLiveLabDate format="h:mm aaa (z)" tz=timeZone}}. Accidentally sent you the wrong time zone. 🙃
+- {{{v_cc_coachNameFirst}}}, Success Coach & {{{v_livelabInstructorNameFirst}}}, LiveLab Instructor
+
+See you soon!
+{{{v_ZoomRoom}}}
