@@ -1,0 +1,14 @@
+{{{ snippet "Universal-ITEPlus-Receipts" }}}
+{{~#if override_skip~}}
+{{~else~}}
+	{{~#ifMatchesRegexStr email ".*podiumeducation.com"~}}
+	{{~else~}}
+		{{{ snippet "skip-suppression_Marketing_Hold_ITE_Plus" }}}
+		{{{ snippet "skip-suppression_PTO_NOT_PendingOrActive" }}}
+		{{{ snippet "skip-suppress_Deadline_App_Start" }}}
+		{{{ snippet "skip-suppress_Deadline_App_Submit" }}}
+		{{{ snippet "skip-suppress_Deadline_App_Commit" }}}
+		{{{ snippet "skip-suppress_Deadline_Program_Reg_External" }}}
+		{{{ snippet "skip-suppress_Deadline_Program_Reg_Internal" }}}
+	{{~/ifMatchesRegexStr~}}
+{{~/if~}}

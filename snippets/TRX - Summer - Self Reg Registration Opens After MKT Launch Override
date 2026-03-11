@@ -1,0 +1,9 @@
+{{#each allOpportunities}}
+    {{#if active}}
+        {{#ifMatchesRegexStr prospectiveTerm ".*Summer.*"}}
+            {{#assign "e_program"}}{{program}}{{/assign}}
+            {{#if schoolCourseID}}{{#assign "schoolCourseID"}}{{schoolCourseID}}{{/assign}}{{/if}}
+            {{#if schoolCourseIDPart2}}{{#assign "schoolCourseIDPart2"}}{{schoolCourseIDPart2}}{{/assign}}{{/if}}
+        {{/ifMatchesRegexStr}}
+    {{/if}}
+{{/each}}

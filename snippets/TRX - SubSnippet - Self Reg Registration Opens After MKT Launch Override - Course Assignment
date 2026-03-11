@@ -1,0 +1,17 @@
+            {{#catalog "Enrollment" lookupEnrollmentProcessCatalog as |enrollment|}}
+                {{#assign "v_courseCodeDM1"}}{{enrollment.courseCodesDMPart1}}{{/assign}}
+                {{#if enrollment.courseCodesDMPart2}}{{#assign "v_courseCodeDM2"}}{{enrollment.courseCodesDMPart2}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDMProgram}}{{#assign "v_courseCodeDMProgram"}}{{enrollment.courseCodesDMProgram}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDAPart1}}{{#assign "v_courseCodeDA1"}}{{enrollment.courseCodesDAPart1}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDAPart2}}{{#assign "v_courseCodeDA2"}}{{enrollment.courseCodesDAPart2}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDAProgram}}{{#assign "v_courseCodeDAProgram"}}{{enrollment.courseCodesDAProgram}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDCPart1}}{{#assign "v_courseCodeDC1"}}{{enrollment.courseCodesDCPart1}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDCPart2}}{{#assign "v_courseCodeDC2"}}{{enrollment.courseCodesDCPart2}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesDCProgram}}{{#assign "v_courseCodeDCProgram"}}{{enrollment.courseCodesDCProgram}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesWDPart1}}{{#assign "v_courseCodeWD1"}}{{enrollment.courseCodesWDPart1}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesWDPart2}}{{#assign "v_courseCodeWD2"}}{{enrollment.courseCodesWDPart2}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesWDProgram}}{{#assign "v_courseCodeWDProgram"}}{{enrollment.courseCodesWDProgram}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesRTPart1}}{{#assign "v_courseCodeRT1"}}{{enrollment.courseCodesRTPart1}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesRTPart2}}{{#assign "v_courseCodeRT2"}}{{enrollment.courseCodesRTPart2}}{{/assign}}{{/if}}
+                {{#if enrollment.courseCodesRTProgram}}{{#assign "v_courseCodeRTProgram"}}{{enrollment.courseCodesRTProgram}}{{/assign}}{{/if}}
+            {{/catalog}}

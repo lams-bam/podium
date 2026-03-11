@@ -1,0 +1,10 @@
+{{~#catalog "Term" lookup_termCatalog as |cat_Term|~}}
+	{{~#assign "v_marketingHoldReason"~}}{{cat_Term.marketingHoldReason}}{{~/assign~}}
+	{{~#assign "v_pausedJourneys"~}}{{cat_Term.pausedJourneys}}{{~/assign~}}
+	{{~#assign "v_ptoStatus"~}}{{cat_Term.status}}{{~/assign~}}
+	{{~#assign "v_cAppStartDeadline"~}}{{cat_Term.date_cAppStartDeadline}}{{~/assign~}}
+	{{~#assign "v_cAppSubmitDeadline"~}}{{cat_Term.date_cAppSubmitDeadline}}{{~/assign~}}
+	{{~#assign "v_cAppCommitDeadline"~}}{{cat_Term.date_cAppCommitDeadline}}{{~/assign~}}
+	{{~#assign "v_programRegistrationCloses"~}}{{cat_Term.date_programRegistrationCloses}}{{~/assign~}}
+{{~/catalog~}}
+{{{ snippet "skip-suppress_Withdraw_Requested" }}}

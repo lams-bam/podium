@@ -1,0 +1,14 @@
+{{#ifMatchesRegexStr v_schoolType "App School"}}Hey {{ defaultIfEmpty nameFirst "there"}},
+Friendly reminder to complete your enrollment for the {{{v_programName}}} as soon as possible. Looking forward to you joining us — I'm confident you'll find this to be a transformational experience.
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{replace v_startNewAppLink "&amp;" "&"}}}
+{{else}}Hi, I just sent you an email with a link to select program details. Just pick a LiveLab that works best with your schedule. The sections fill up fast, so get your preferred time now. If you have any questions, I'm always here to help!
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{v_llForm}}}
+{{/ifMatchesRegexStr}}
+
+
