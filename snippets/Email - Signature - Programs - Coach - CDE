@@ -1,0 +1,83 @@
+
+
+<!-- =============================== -->
+<!-- EMAIL CONTENT                   -->
+<!-- =============================== -->
+
+<div style="font-family:Arial,Helvetica,sans-serif;">
+
+  <div style="margin:0 0 10px 0; font-size:14px; line-height:20px; color:#555555;">
+    —
+  </div>
+
+  <table
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    role="presentation"
+    width="100%"
+    align="left"
+    style="mso-table-lspace:0;mso-table-rspace:0;margin:0;padding:0;"
+  >
+    <tr>
+
+      <!-- LOGO -->
+      <td
+        valign="top"
+        align="left"
+        style="margin:0;padding:0 12px 0 0;width:112px;"
+      >
+        <img
+          src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/podium-program-logos/CDE-logo-circular_whitebg.png"
+          alt="Career Development Experience"
+          width="100"
+          style="display:block;margin:0;max-width:100px;height:auto;border:0;"
+        />
+      </td>
+
+      <!-- DETAILS -->
+      <td
+        valign="top"
+        align="left"
+        style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;mso-line-height-rule:exactly;color:#000000;"
+      >
+
+        <b>
+          {{{v_coachNameFirst}}}
+          {{{v_coachNameLast}}}
+        </b><br/>
+
+        {{{ snippet "Product - CDE - Success Advisor" }}}<br/>
+
+        <!-- EMAIL -->
+        <a
+          href="mailto:{{{ snippet "Program - CDE - Email" }}}"
+          style="text-decoration:none;color:inherit;"
+        >
+          {{{ snippet "Program - CDE - Email" }}}
+        </a><br/>
+
+        <!-- TEXT / CALL -->
+        <b>Text:</b>
+        <a
+          href="sms:{{{ snippet "Program - CDE - Text Number" }}}"
+          style="text-decoration:none;color:inherit;"
+        >
+          {{{ snippet "Program - CDE - Text Number" }}}
+        </a>
+
+        &nbsp;|&nbsp;
+
+        <b>Call:</b>
+        <a
+          href="tel:{{{ snippet "Program - CDE - Phone Number" }}}"
+          style="text-decoration:none;color:inherit;"
+        >
+          {{{ snippet "Program - CDE - Phone Number" }}}
+        </a>
+
+      </td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,33 @@
+<p style="line-height:20px">--
+<table>
+    <tr>
+        <td style="border-right: 2px solid #323548;padding-right:10px;">
+            <table>
+                <tr>
+                    <td style="padding-right:15px;">
+                        <b><span style="font-family: 'Georgia', serif; font-size: 18px; color:#323548;">{{defaultIfEmpty ownerPartnerSuccessNameFirst "Becky"}} {{defaultIfEmpty ownerPartnerSuccessNameLast "Richey"}}</span></b><br/>{{#ifContainsStr ownerPartnerSuccessNameFirst "Marshall" }}
+                            <span style="font-size:15px;">Director of Partner Success</span>{{else}}<span style="font-size:15px;">Senior Partner Success Manager</span>{{/ifContainsStr}}<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left:0px; font-size:14px;">{{#ifContainsStr ownerPartnerSuccessNameFirst "Marshall" }}
+                        <span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">call: </span>
+                        <a href="tel:+917-549-9003" style="color:#000;">(917) 549-9003</a><br>{{/ifContainsStr}}
+                        <span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">w:</span>
+                        <a href="https://www.podiumeducation.com/"style="color:#000;">podiumeducation.com</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td colspan="2" align="left" style="padding: 15px 15px;">
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/GCA-logo-horizontal-grey-outline.png" width="140" height=""  /><br/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</p>

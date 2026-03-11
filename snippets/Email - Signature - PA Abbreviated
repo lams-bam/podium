@@ -1,0 +1,5 @@
+<b>{{ defaultIfEmpty ownerNameFirst "Carla"}} {{ defaultIfEmpty ownerNameLast "Martin"}}</b><br/>
+{{#ifMatchesRegexStr university "University of North Carolina"}}Program Coordinator{{else}}{{defaultIfEmpty v_paTitle "Program Advisor"}}{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr university "(Michigan State University|University At Albany)"}} supporting {{university}}{{/ifMatchesRegexStr}}<br/>
+{{#ifMatchesRegexStr university "University of Missouri"}}Podium Education<br/>{{/ifMatchesRegexStr}}
+{{#ifMatchesRegexStr university "University of North Carolina"}}{{v_genericProgramName}}{{else}}{{{v_programName}}}{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr university "Indiana University Bloomington|University of North Carolina|Florida Gulf Coast|University of Nebraska-Lincoln|Metropolitan State University of Denver"}}{{else}}<br/>
+{{university}}{{/ifMatchesRegexStr}}

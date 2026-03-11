@@ -1,0 +1,108 @@
+<!-- ========================================================= -->
+<!-- TEMPORARY: STACKED SIGNATURES (BODY TYPO MATCH)            -->
+<!-- TODO: Replace with productLine logic when available        -->
+<!--   productLine = GCA -> show GCA signature only             -->
+<!--   productLine = CDE -> show CDE signature only             -->
+<!-- ========================================================= -->
+
+<div style="margin:0; padding:0; text-align:left; font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; color:#000000;">
+
+  <!-- ================= GCA SIGNATURE ================= -->
+  <div style="margin:0 0 24px 0; padding:0; text-align:left;">
+
+    <div style="margin:0 0 6px 0; font-size:14px; line-height:20px; color:#555555;">
+      <em>GCA signature (will show when productLine = GCA)</em>
+    </div>
+    <div style="margin:0 0 10px 0; font-size:14px; line-height:20px; color:#555555;">—</div>
+
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" align="left"
+           style="mso-table-lspace:0;mso-table-rspace:0;margin:0;padding:0;">
+      <tr>
+        <!-- LOGO -->
+        <td valign="top" align="left" style="margin:0;padding:0 12px 0 0;width:112px;">
+          <img
+            src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/vCard/GCA-Logo-white_background-circle-purple.png"
+            alt="Global Career Accelerator"
+            width="100"
+            style="display:block;margin:0;max-width:100px;height:auto;border:0;" />
+        </td>
+
+        <!-- DETAILS -->
+        <td valign="top" align="left"
+            style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;mso-line-height-rule:exactly;color:#000000;">
+          <b>
+            {{#if v_coachNameFirst_inFlight}}{{{v_coachNameFirst_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameFirst "Becky"}}}{{/if}}
+            {{#if v_coachNameLast_inFlight}}{{{v_coachNameLast_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameLast "Richey"}}}{{/if}}
+          </b><br/>
+          [successAdvisor]<br/>
+
+          <a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}"
+             style="text-decoration:none;color:inherit;">
+            {{defaultIfEmpty coachEmail "coach@globaltech.org"}}
+          </a><br/>
+
+          <b>Text:</b>
+          <a href="sms:[textNumber]" style="text-decoration:none;color:inherit;">
+            [textNumber]
+          </a>
+          &nbsp;|&nbsp;
+          <b>Call:</b>
+          <a href="tel:[phoneNumber]" style="text-decoration:none;color:inherit;">
+            {{defaultIfEmpty coachtelephonenumber "[phoneNumber]"}}
+          </a>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- ================= CDE SIGNATURE ================= -->
+  <div style="margin:0; padding:0; text-align:left;">
+
+    <div style="margin:0 0 6px 0; font-size:14px; line-height:20px; color:#555555;">
+      <em>CDE signature (will show when productLine = CDE)</em>
+    </div>
+    <div style="margin:0 0 10px 0; font-size:14px; line-height:20px; color:#555555;">—</div>
+
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" align="left"
+           style="mso-table-lspace:0;mso-table-rspace:0;margin:0;padding:0;">
+      <tr>
+        <!-- LOGO -->
+        <td valign="top" align="left" style="margin:0;padding:0 12px 0 0;width:112px;">
+          <img
+            src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/podium-program-logos/CDE-logo-circular_whitebg.png"
+            alt="Career Discovery Experience"
+            width="100"
+            style="display:block;margin:0;max-width:100px;height:auto;border:0;" />
+        </td>
+
+        <!-- DETAILS -->
+        <td valign="top" align="left"
+            style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:24px;mso-line-height-rule:exactly;color:#000000;">
+          <b>
+            {{#if v_coachNameFirst_inFlight}}{{{v_coachNameFirst_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameFirst "Becky"}}}{{/if}}
+            {{#if v_coachNameLast_inFlight}}{{{v_coachNameLast_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameLast "Richey"}}}{{/if}}
+          </b><br/>
+          [successAdvisor]<br/>
+
+          <a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}"
+             style="text-decoration:none;color:inherit;">
+            {{defaultIfEmpty coachEmail "coach@globaltech.org"}}
+          </a><br/>
+
+          <b>Text:</b>
+          <a href="sms:[textNumber]" style="text-decoration:none;color:inherit;">
+            [textNumber]
+          </a>
+          &nbsp;|&nbsp;
+          <b>Call:</b>
+          <a href="tel:[phoneNumber]" style="text-decoration:none;color:inherit;">
+            {{defaultIfEmpty coachtelephonenumber "[phoneNumber]"}}
+          </a>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

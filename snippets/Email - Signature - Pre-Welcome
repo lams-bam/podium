@@ -1,0 +1,8 @@
+<div style="{{{ snippet "Default CSS" }}};line-height:16px;">
+---<br/>
+{{allProgramEnrollments.[0].coachNameFirst}} {{allProgramEnrollments.[0].coachNameLast}}<br/>
+<b>Success Coach</b><br/>
+{{{v_genericProgramName}}}<br/>
+<a href="tel:{{#catalogCollection "GlobalTech" as | gtech |}}{{gtech.[0].phoneNumber}}{{/catalogCollection}}">{{#catalogCollection "GlobalTech" as | gtech |}}{{gtech.[0].phoneNumber}}{{/catalogCollection}}</a> | <a href="mailto:{{{ snippet "Address - Email - Coach" }}}">{{{ snippet "Address - Email - Coach" }}}</a><br/>
+<a href="https://go-onboarding-session.paperform.co">Schedule an onboarding session</a>
+</div>

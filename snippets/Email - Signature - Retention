@@ -1,0 +1,9 @@
+
+<p style="line-height:20px">--<br/><br/>
+<b>{{{ snippet "careerbase - from name full" }}}</b><br/>
+Program Coordinator<br/>
+<a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}" style="text-decoration: none; color: inherit;">{{defaultIfEmpty coachEmail "coach@globaltech.org"}}</a><br>Text: <a href="sms:+18556840070" style="text-decoration: none; color: inherit;"> +1 (855) 684-0070</a> | Call:
+<a href="tel:{{defaultIfEmpty coachtelephonenumber "(512) 271-4874"}}" style="text-decoration: none; color: inherit;">{{defaultIfEmpty coachtelephonenumber "(512) 271-4874"}}</a><br/><p></p>
+<img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Global%20Career%20Accelerator/GCA-logo-horizontal-grey%20%281%29.png" width="225" height=""  /><br/>
+
+</p>
