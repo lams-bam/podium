@@ -1,0 +1,10 @@
+{{{ snippet "universal-variables" }}}Hi {{defaultIfEmpty nameFirst "there"}}, it's {{ defaultIfEmpty ownerNameFirst "Carla" }} with the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! 
+
+Missed the deadline for the spring? No worries - {{lower (defaultIfEmpty v_activeSeason "summer")}} enrollment is now open! This is the perfect time to earn credit and get recruiter-ready experience.
+
+Check your email for full details or get started using the link below. Let me know if you have any questions - I'm here to ensure you get a spot this {{lower (defaultIfEmpty v_activeSeason "summer")}}!
+
+{{ defaultIfEmpty ownerNameFirst "Carla" }} {{ defaultIfEmpty ownerNameLast "Martin" }}
+Program Advisor
+
+{{v_microsite}}/reserve-a-seat?sid={{userId}}

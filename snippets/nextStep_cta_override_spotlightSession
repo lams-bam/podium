@@ -1,0 +1,45 @@
+{{#unless e_hideCTA}}
+{{#if cta_copy}}
+    {{#assign "cta_copy"}}{{{cta_copy}}}{{/assign}}
+{{else}}
+    {{#assign "cta_copy"}}{{#if nextStepCTA}}{{{nextStepCTA}}}{{else}}Contact Us{{/if}}{{/assign}}
+{{/if}}
+{{#if cta_url}}
+    {{{cta_url}}}
+{{else}}
+    {{#assign "cta_url"}}{{#if nextStepURL}}{{{nextStepURL}}}{{else}}mailto:{{paEmail}}?subject=My%20Next%20Step&body=Please%20let%20me%20know%20what%20my%20next%20step%20is.{{/if}}{{/assign}}
+{{/if}}
+{{#if cta_alignButton}}
+    {{cta_alignButton}}
+{{else}}
+    {{#assign "cta_alignButton"}}left{{/assign}}
+{{/if}}
+
+{{#if plainTextEmail}}
+<a rel="noopener" target="_blank" href="{{{cta_url}}}">{{{cta_copy}}} ➔</a>
+{{else}}
+<div style="margin: 0px; width: 310px; padding: 0px; text-align: {{cta_alignButton}};">
+  <a rel="noopener" target="_blank" href="{{{cta_url}}}"
+     style="background-color: {{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};
+            font-size: 16px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 14px 20px;
+            color: {{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};
+            border-radius: 5px;
+            display: inline-block;
+            mso-padding-alt: 0;">
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+    <![endif]-->
+    <span style="mso-text-raise: 15pt; font-size:16px; display:inline-block; letter-spacing:normal;">
+      &nbsp;&nbsp;{{{cta_copy}}} ➔&nbsp;&nbsp;
+    </span>
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%;">&nbsp;</i>
+    <![endif]-->
+  </a>
+</div>
+{{/if}}
+{{/unless}}

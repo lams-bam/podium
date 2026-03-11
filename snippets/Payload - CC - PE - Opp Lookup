@@ -1,0 +1,21 @@
+{{~#each allCourseConnections~}}
+	{{#ifEq courseConnectionId id}}
+		{{#assign "e_peLookup"}}{{id_programEnrollment}}{{/assign}}
+	{{/ifEq}}
+{{/each}}
+{{~#each allProgramEnrollments~}}
+	{{#ifEq e_peLookup id}}
+		{{#assign "e_oppLookup"}}{{id_opportunity}}{{/assign}}
+	{{/ifEq}}
+{{/each}}
+{{~#each allOpportunities~}}
+	{{#ifEq e_oppLookup id}}
+		{{#if withdrawRequestStatus}}
+		    {{#assign "e_withdrawRequestStatus"}}{{withdrawRequestStatus}}{{/assign}}
+			{{#ifMatchesRegexStr e_withdrawRequestStatus ".*(EMPTY|Connected - Saved|Connected - On Fence).*"}}
+			{{else}}
+				{{sendSkip cause="withdraw request status not eligible"}}
+			{{/ifMatchesRegexStr}}
+		{{/if}}
+	{{/ifEq}}
+{{/each}}

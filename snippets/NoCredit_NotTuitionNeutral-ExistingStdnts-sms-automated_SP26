@@ -1,0 +1,9 @@
+{{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hi"}}, just sent you an email. Enrollment is now open for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} for the {{lower (defaultIfEmpty v_activeSeason "spring")}}!
+
+This 100% virtual and flexible program gives you recruiter-ready experience with companies like OpenAI, Intel, and The Grammys. Use the link below or check out your email for more info. If you have questions, reach out here or via email to our team.
+
+Carla Martin
+Program Director
+
+{{v_microsite}}?sid={{userId}}
+

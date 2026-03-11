@@ -1,0 +1,6 @@
+{{defaultIfEmpty nameFirst "Hello"}}, final reminder that today is the last day to complete your application and enroll in the {{v_programName}} -- you have until midnight tonight!  
+
+This is a great opportunity to get experience on your resume and accelerate your future career. 
+    
+You can submit your application using your unique link below. It will only take you 3 minutes to lock-in a great summer.
+{{{ snippet "field-MKT - CTA Link" }}}
