@@ -1,0 +1,9 @@
+{{defaultIfEmpty nameFirst "Hello"}}, I just sent you an email but I wanted to follow up to make sure you saw it.
+
+This fall, there is no additional cost to participate in the {{v_programName}} for full-time residential and out-of state students.
+
+This fall's program will include partnerships with over 100 companies including Coinbase, Live Nation, and Twitch, to launch an exclusive hiring network for students like you.
+
+If you have wanted to participate in the past, but cost was an issue, we have you covered! Below is the link but feel free to let me know if you have any questions.
+
+{{v_microsite}}?sid={{userId}}
