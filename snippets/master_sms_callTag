@@ -1,0 +1,30 @@
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-send_advisor"~}}
+    {{{ snippet "calltag-send_advisor" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-send_cost-finaid"~}}
+    {{{ snippet "calltag-send_cost-finaid" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-send_general"~}}
+    {{{ snippet "calltag-send_general" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-send_next_step"~}}
+    {{{ snippet "calltag-send_next_step" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm_ras"~}}
+    {{{ snippet "calltag-lvm_ras" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm_appstart"~}}
+    {{{ snippet "calltag-lvm_appstart" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm_appapproved"~}}
+    {{{ snippet "calltag-lvm_appapproved" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm_completed"~}}
+    {{{ snippet "calltag-lvm_completed" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm-regpermgranted"~}}
+    {{{ snippet "calltag-lvm_regpermgranted" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_calltag_sms_messageid "calltag-lvm-registeredinsystem"~}}
+    {{{ snippet "calltag-lvm_registeredinsystem" }}}
+{{~/ifMatchesRegexStr~}}

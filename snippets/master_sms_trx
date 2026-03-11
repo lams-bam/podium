@@ -1,0 +1,112 @@
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-programEnrolled"~}}
+    {{{ snippet "SU25_TRX_Program_Enrolled_SMS" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appcComplete_schoolInitiated_noReg"~}}
+    {{{ snippet "trx-appcomplete_1_school_initiated_no_registration" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appcComplete_regOpenStudentSelfReg"~}}
+    {{{ snippet "trx-appcomplete_1_self_reg_open_reg" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appcComplete_regClosedStudentSelfReg"~}}
+    {{{ snippet "trx-appcomplete_1_self_reg_not_open" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appcomplete2"~}}
+    {{{ snippet "skip-notApplicable_AppComplete" }}}{{{ snippet "trx-appcomplete_2_v3" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-app_approved_1"~}}
+    {{{ snippet "trx-app_approved_1_v2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-app_approved_2"~}}
+    {{{ snippet "trx-app_approved_2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-ll_selected_1"~}}
+    {{{ snippet "trx-ll_selected" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-ll_selected_2"~}}
+    {{{ snippet "skip-notApplicable_AppComplete" }}}
+    {{~#ifMatchesRegexStr v_registrationMethod "Student Self Registers"~}}
+        {{~#not registeredInSystem~}}
+        {{~else~}}
+        {{sendSkip cause="not applicable"}}
+        {{~/not~}}
+    {{~else~}}
+        {{sendSkip cause="not applicable"}}
+    {{~/ifMatchesRegexStr~}}
+        {{{ snippet "trx-ll_selected_2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appstarted1"~}}
+    {{{ snippet "trx-appstart_1 v2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appstarted2"~}}
+    {{{ snippet "trx-sms_appstart_2 v2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-rfi1"~}}
+    {{{ snippet "trx-sms_rfi_1" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-rfi2"~}}
+    {{{ snippet "trx-sms_rfi_2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-reg_noll"~}}
+    {{{ snippet "trx-reg_missing-ll" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-reg_code"~}}
+    {{{ snippet "trx-reg_code" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-reg_code_perm"~}}
+    {{~#ifMatchesRegexStr v_schoolDirectedPermissionType ".*Podium.*"~}}
+    {{~else~}}
+        {{sendSkip cause="Ineligible School Directed Permission Type"}}
+    {{~/ifMatchesRegexStr~}}
+    {{{ snippet "trx-permissiontoregister" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-appsubmit_1"~}}
+    {{{ snippet "trx-appsubmit_1" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-reghold1"~}}
+    {{{ snippet "trx-registrationhold" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-ite1"~}}
+    {{{ snippet "trx-sms_ras_1 v2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-ite2"~}}
+    {{{ snippet "trx-sms_ras_2 v2" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-llSelect_schoolInitiated_noReg"~}}
+    {{{ snippet "trx-ll_selected_school_initiated_no_reg" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-llSelect_regOpenStudentSelfReg"~}}
+    {{{ snippet "trx-ll_selected_self_reg_open_reg" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-llSelect_regClosedStudentSelfReg"~}}
+    {{{ snippet "trx-ll_selected_reg_not_open" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-selfRegPush"~}}
+    {{{ snippet "trx-self-reg-push" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-extend_selfRegDeadline"~}}
+    {{{ snippet "trx-extension-self-reg-deadline" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-extend_appCommitDeadline"~}}
+    {{{ snippet "trx-extension-app-commit-deadline" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-extend_appStartDeadline"~}}
+    {{{ snippet "trx-extension-app-start-deadline" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-deadline_lastWeek"~}}
+    {{{ snippet "deadline-push-last-week-term selector" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-deadline_lastCall"~}}
+    {{{ snippet "deadline-push-last-call-term selector" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-deadline_finalDays"~}}
+    {{{ snippet "deadline-push-final-days-term selector" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-applicationCommitted1"~}}
+    {{{ snippet "trx-app_committed_1" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-self_reg_open_after_mkt_launch"~}}
+    {{{ snippet "trx-self_reg_open_after_mkt_launch" }}}
+{{~/ifMatchesRegexStr~}}
+{{~#ifMatchesRegexStr system_trx_sms_messageid "trx-full_reg_open_after_mkt_launch"~}}
+    {{{ snippet "trx-full_reg_open_after_mkt_launch" }}}
+{{~/ifMatchesRegexStr~}}

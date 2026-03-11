@@ -1,0 +1,1 @@
+{{#ifEq scenario "2"}}https://www.untapped.io/app/dashboard{{else}}{{{changePasswordURL}}}{{/ifEq}}

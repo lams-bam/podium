@@ -1,0 +1,1 @@
+{{#if changePasswordURL}}{{#ifEq changePasswordURL "null"}}https://hq.globaltech.org/{{else}}{{{changePasswordURL}}}{{/ifEq}}{{else}}https://hq.globaltech.org/{{/if}}

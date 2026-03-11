@@ -1,0 +1,17 @@
+{{~#if partnerTermOfferingId~}}
+  {{~#catalog "Term" partnerTermOfferingId as |term|~}}
+    {{~#assign "iorOwnerNameFirst"~}}{{term.iorOwnerNameFirst}}{{~/assign~}}
+    {{~#assign "iorOwnerNameLast"~}}{{term.iorOwnerNameLast}}{{~/assign~}}
+  {{~/catalog~}}
+{{~else~}}
+  {{~#if id_programEnrollment~}}
+    {{~#each allProgramEnrollments~}}
+      {{~#ifEq id_programEnrollment id~}}
+        {{~#catalog "Term" lookup_termCatalog as |term|~}}
+          {{~#assign "iorOwnerNameFirst"~}}{{term.iorOwnerNameFirst}}{{~/assign~}}
+          {{~#assign "iorOwnerNameLast"~}}{{term.iorOwnerNameLast}}{{~/assign~}}
+        {{~/catalog~}}
+      {{~/ifEq~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/if~}}

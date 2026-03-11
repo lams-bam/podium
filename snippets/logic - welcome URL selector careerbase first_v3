@@ -1,0 +1,6 @@
+{{!-- handles literal "null" first, then undefined/empty --}}
+{{#ifEq changePasswordURL "null"}}
+  https://www.untapped.io/app/dashboard
+{{else}}
+  {{{ defaultIfEmpty changePasswordURL "https://www.untapped.io/app/dashboard" }}}
+{{/ifEq}}

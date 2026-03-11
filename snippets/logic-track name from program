@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr program ".*Digital Marketing.*"}} {{v_TrackNameDM}}{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr program ".*Coding.*Web.*"}} {{v_TrackNameWD}}{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr program ".*Data Analytics.*"}} {{v_trackNameDA}}{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr program ".*Coding.*Data.*"}} {{v_TrackNameDC}}{{/ifMatchesRegexStr}}

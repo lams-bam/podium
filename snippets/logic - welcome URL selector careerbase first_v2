@@ -1,0 +1,1 @@
+{{#if changePasswordURL}}{{#ifEq changePasswordURL "null"}}https://www.globalcareeraccelerator.org/app/signup{{else}}{{{changePasswordURL}}}{{/ifEq}}{{else}}https://www.globalcareeraccelerator.org/app/signup{{/if}}

@@ -1,0 +1,19 @@
+{{#each allProgramEnrollments}}
+    {{#ifEq programEnrollmentId id}}
+        {{#ifMatchesRegexStr experimentGroup "Early Access"}}
+        	{{#if changePasswordURL}}
+        		{{#assign "scenario"}}3{{/assign}}
+        	{{else}}
+        		{{#assign "scenario"}}2{{/assign}}
+        	{{/if}}
+        {{else}}
+        	{{#ifMatchesRegexStr experimentGroup "NULL"}}
+        		{{#assign "scenario"}}1{{/assign}}
+        	{{else}}
+        		{{#not experimentGroup}}
+        			{{#assign "scenario"}}1{{/assign}}
+        		{{/not}}
+        	{{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifEq}}
+{{/each}}
