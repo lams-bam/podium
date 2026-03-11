@@ -1,0 +1,200 @@
+{{#if stage}}
+    {{#assign "v_stage"}}{{stage}}{{/assign}}
+{{else}}
+    {{#each opportunities}}
+        {{#if stage}}
+            {{#ifMatchesRegexStr stage ".*(Enrolled|Withdraw|Disqual|Register).*" }}
+            {{else}}
+                {{#assign "v_stage"}}{{stage}}{{/assign}}
+            {{/ifMatchesRegexStr}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+    
+{{! Non-ITE}}
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective|Interested|^$" }}{{! snippet "Email - CTA - Reserve a Seat" }}
+        <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_microsite}}}?{{{ snippet "utm_master" }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+          <a href="{{{v_microsite}}}?{{{ snippet "utm_master" }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Reserve a Spot ➤</span></a>
+              <!--[if mso]>
+            </center>
+          </v:roundrect>
+        <![endif]-->
+        </div>
+    {{/ifMatchesRegexStr}}
+
+{{! Reserved a Seat}}
+    {{#ifMatchesRegexStr v_stage "Reserved a Seat" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}{{! snippet "Email - CTA - Start New Application" }}
+            <div style="padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_startNewAppLink}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+              <a href="{{{v_startNewAppLink}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Complete Your Application ➤</span></a>                  
+              <!--[if mso]>
+                </center>
+              </v:roundrect>
+            <![endif]-->
+            </div>
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}{{! snippet "Email - CTA - Complete Registration Link" }}
+                    <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_registrationLink}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_registrationLink}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Complete Registration ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+                {{else}}{{! snippet "Email - CTA - Select Livelab" }}
+                    <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_llForm}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_llForm}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Select LiveLab Time ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+                {{/ifMatchesRegexStr}}
+            {{else}}{{! snippet "Email - CTA - Select Livelab" }}
+                        <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_llForm}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_llForm}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Select LiveLab Time ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Started}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}{{! snippet "Email - CTA- App Start" }}
+        <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{ v_continueApplicationLink }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+            <w:anchorlock/>
+            <center>
+            <![endif]-->
+          <a href="{{{ v_continueApplicationLink }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Complete Your Application ➤</span></a>
+              <!--[if mso]>
+            </center>
+          </v:roundrect>
+        <![endif]-->
+        </div>
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Submitted}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}{{! snippet "Email - CTA - App Submit" }}
+        <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{ v_continueApplicationLink }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+            <w:anchorlock/>
+            <center>
+            <![endif]-->
+          <a href="{{{ v_continueApplicationLink }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Confirm Now ➤</span></a>
+              <!--[if mso]>
+            </center>
+          </v:roundrect>
+        <![endif]-->
+        </div>
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Approved}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}{{! snippet "Email - CTA - Select Livelab" }}
+              <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_llForm}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_llForm}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Select LiveLab Time ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+        {{else}}{{! snippet "Email - CTA - App Approved" }}
+            <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{ v_continueApplicationLink }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                <w:anchorlock/>
+                <center>
+                <![endif]-->
+              <a href="{{{ v_continueApplicationLink }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">{{#ifMatchesRegexStr university "University of North Texas"}}Submit Payment{{else}}Confirm Now ➤{{/ifMatchesRegexStr}}</span></a>                  
+              <!--[if mso]>
+                </center>
+              </v:roundrect>
+            <![endif]-->
+            </div>
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Completed}}
+    {{#ifMatchesRegexStr v_stage "Application Completed" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}{{! snippet "Email - CTA - Select Livelab" }}
+                    <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_llForm}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_llForm}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Select LiveLab Time ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+        {{else}}{{! snippet "Email - CTA - Complete Registration Link" }}
+            <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_registrationLink}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_registrationLink}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Complete Registration ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{! LiveLab Selection}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*" }}{{! snippet "Email - CTA - Complete Registration Link" }}
+        <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_registrationLink}}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+                        <w:anchorlock/>
+                        <center>
+                        <![endif]-->
+                      <a href="{{{v_registrationLink}}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Complete Registration ➤</span></a> 
+                      <!--[if mso]>
+                        </center>
+                      </v:roundrect>
+                    <![endif]-->
+                    </div>
+    {{/ifMatchesRegexStr}}
+{{else}}{{! snippet "Email - CTA - Reserve a Seat" }}
+            <div style="min-width:60%;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:center"><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{v_microsite}}}?{{{ snippet "utm_master" }}}" style="v-text-anchor:middle;" arcsize="0%" stroke="f" fillcolor="{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}}">
+    <w:anchorlock/>
+    <center>
+    <![endif]-->
+          <a href="{{{v_microsite}}}?{{{ snippet "utm_master" }}}" style="min-width:60%;background-color:{{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};border-radius:5px;color:{{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};display:inline-block;font-family:arial;font-size:16px;font-weight:bold;line-height:28px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;"><span style="padding-left:10px;padding-right:10px;padding-bottom:10px;padding-top:10px;font-size:16px;display:inline-block;letter-spacing:normal">Reserve a Spot ➤</span></a>
+              <!--[if mso]>
+            </center>
+          </v:roundrect>
+        <![endif]-->
+        </div>
+{{/if}}
