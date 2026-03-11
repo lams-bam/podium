@@ -212,6 +212,19 @@ function App() {
 								</tbody></table>
 							</Sec>
 
+							{/* Sender */}
+							<Sec bg="#0d0f18" border="#1a1d3a" accent="#60a5fa" label="Sender">
+								<table className="w-full text-xs"><tbody>
+									<Rv l="From Name" v={vm.prog || "The Global Career Accelerator"} d />
+									<Rv l="From Email" v={vm.email || "advisor@globaltech.org"} d />
+									<Rv l="Reply-To" v={vm.email || "advisor@globaltech.org"} d />
+								</tbody></table>
+								<div className="mt-2 text-xs" style={{ fontFamily: "monospace", fontSize: 9, color: "#475569" }}>
+									<p>{"fromName: {{{defaultIfEmpty programName \"The Global Career Accelerator\"}}}"}</p>
+									<p>{"fromEmail: {{defaultIfEmpty paEmail \"advisor@globaltech.org\"}}"}</p>
+								</div>
+							</Sec>
+
 							{/* Subject Line */}
 							<Sec bg="#14120a" border="#2d2815" accent="#fbbf24" label="Subject Line">
 								<div className="text-xs font-semibold mb-2.5 px-2 py-1.5 rounded" style={{ color: "#fde68a", background: "#1f1a0d", border: "1px solid #3d3015" }}>
