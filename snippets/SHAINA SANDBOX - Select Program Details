@@ -1,0 +1,30 @@
+{{#assign "temp_copy"}}Select Program Details ➔{{/assign}}
+{{#assign "temp_dest"}}{{{v_llForm}}}{{/assign}}
+
+{{#if plainTextEmail}}
+<a rel="noopener" target="_blank" href="{{{temp_dest}}}">{{{temp_copy}}}</a>
+{{else}}
+<div style="margin: 15px auto; width: 310px; padding: 15px; text-align: center;">
+  <a rel="noopener" target="_blank" href="{{{temp_dest}}}"
+     style="background-color: {{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#000000{{/if}};
+            font-size: 16px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 14px 20px;
+            color: {{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}};
+            border-radius: 5px;
+            display: inline-block;
+            mso-padding-alt: 0;">
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+    <![endif]-->
+    <span style="mso-text-raise: 15pt; font-size:16px; display:inline-block; letter-spacing:normal;">
+      &nbsp;&nbsp;{{{temp_copy}}}&nbsp;&nbsp;
+    </span>
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%;">&nbsp;</i>
+    <![endif]-->
+  </a>
+</div>
+{{/if}}

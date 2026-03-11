@@ -1,0 +1,90 @@
+{{#if v_stage}}
+{{else}}
+    {{#each opportunities}}
+        {{#if active}}
+            {{#if stage}}
+                {{#ifMatchesRegexStr stage ".*(Enrolled|Withdraw|Disqual|Register).*" }}
+                {{else}}
+                    {{#assign "v_stage"}}{{stage}}{{/assign}}
+                {{/ifMatchesRegexStr}}
+            {{/if}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+    
+{{! Non-ITE}}
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective^$" }}
+        {{{ snippet "Email - CTA - Reserve a Seat - Finish Enrollment" }}}
+    {{/ifMatchesRegexStr}}
+
+{{! Reserved a Seat}}
+    {{#ifMatchesRegexStr v_stage ".*(Reserved a Seat|Interested|Lead).*" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}
+            {{{ snippet "Email - CTA - Start New Application v2" }}}
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}
+                    {{{ snippet "Email - CTA - Complete Registration Link" }}}
+                {{else}}
+                    {{{ snippet "SHAINA SANDBOX - Select Program Details" }}}
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                {{{ snippet "SHAINA SANDBOX - Select Program Details" }}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Started}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}
+        {{{ snippet "Email - CTA- App Start v2" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Submitted}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}
+        {{{ snippet "Email - CTA - App Submit" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Approved}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr university "San Diego State University" }}
+            {{{ snippet "Email - CTA - Complete Registration Link v2" }}}
+        {{else}}
+            {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}
+                {{{ snippet "SHAINA SANDBOX - Select Program Details" }}}
+            {{else}}
+                {{{ snippet "Email - CTA - App Approved" }}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+     {{! Application Committed}}
+{{#ifMatchesRegexStr v_stage "Application Committed" }}
+  {{#if v_is_no_reg}}
+{{{ snippet "SHAINA SANDBOX - Select Program Details" }}}  {{else}}
+    {{#if v_is_student_reg}}
+      {{{ snippet "Email - CTA - Complete Registration Link v2" }}}
+    {{else}}
+      {{{ snippet "SHAINA SANDBOX - Select Program Details" }}} 
+    {{/if}}
+  {{/if}}
+{{/ifMatchesRegexStr}}
+
+    
+    {{! Application Completed}}
+{{#ifMatchesRegexStr v_stage "Application Completed" }}
+  {{#if v_is_no_reg}}
+{{{ snippet "SHAINA SANDBOX - Select Program Details" }}}
+{{else}}
+    {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}
+      {{{ snippet "SHAINA SANDBOX - Select Program Details" }}} 
+    {{else}}
+      {{{ snippet "SHAINA SANDBOX - Select Program Details" }}} 
+    {{/ifMatchesRegexStr}}
+  {{/if}}
+{{/ifMatchesRegexStr}}
+
+  
+{{else}}
+    {{{ snippet "Email - CTA - Reserve a Seat - Finish Enrollment" }}}
+{{/if}}

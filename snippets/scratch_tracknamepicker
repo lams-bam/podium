@@ -1,0 +1,4 @@
+{{~#catalog "Partner" lookup_partnerCatalogs as |part|~}}
+  {{~#unless (eq part.trackNameDA "N/A") ~}}&bull; {{part.trackNameDA}}
+  {{~/unless~}}
+{{~/catalog~}}

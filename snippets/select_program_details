@@ -1,0 +1,1 @@
+{{#and (eq v_liveLabSelectionType "Podium Form") (not liveLabSelected)}}<p style="font-size:14px;">In the meantime, you can <a href="{{{defaultIfEmpty liveLabFormURL v_llForm}}}">select your program details</a>.</p>{{/and}}
