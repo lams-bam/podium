@@ -1,0 +1,51 @@
+<!-- ========================================================= -->
+<!-- TEMP: FULL STEP LISTS SHOWN FOR BOTH PRODUCTS              -->
+<!-- TODO: Replace labels with productLine conditionals         -->
+<!-- ========================================================= -->
+
+<!-- ========================= -->
+<!-- CDE STEPS (Placeholder)   -->
+<!-- ========================= -->
+
+{{!-- Whitespace-safe URL + date compare helpers (Iterable-safe) --}}
+{{#assign "e_url"}}{{defaultIfEmpty e_hqPartURL "https://hq.globaltech.org"}}{{/assign}}
+{{#assign "d_now"}}{{{ now format="yyyyMMddHHmmss" }}}{{/assign}}
+{{#assign "d_ll"}}{{#if v_firstLiveLabTime}}{{{ dateFormat v_firstLiveLabTime "yyyyMMddHHmmss" }}}{{/if}}{{/assign}}
+
+<ol style="margin:0; padding-left:20px;">
+
+  <li style="margin:0 0 14px 0;">
+    <b>Start Here</b> –
+    <a href="{{{ snippet "Product - CDE - Program Login Students" }}}" style="text-decoration:underline;">
+      <b>Log in to {{{ snippet "Program - CDE - Name" }}}</b>
+    </a>
+
+    <div style="margin-top:4px;">
+      → <b>Use this email:</b> <b>{{email}}</b><br/>
+      <span style="font-size:14px; line-height:20px; color:#555555;">
+        <em>(This is your course and Zoom login ID that you’ll use all term.)</em>
+      </span>
+    </div>
+  </li>
+
+  <li style="margin:0 0 14px 0;">
+    <b>On your {{{ snippet "Product - CDE - LMS Name" }}} Dashboard</b>, click the
+    <a href="{{{e_url}}}" style="text-decoration:underline;">
+      <b>{{#if e_courseName}}{{{e_courseName}}}{{else}}your course{{/if}}</b></a>
+    tile and take the tour.
+  </li>
+
+  <li style="margin:0 0 14px 0;">
+    Check <b>Announcements</b> for key info and reminders from your {{{ snippet "Product - CDE - Instructor" }}}.
+  </li>
+
+  {{!-- Step 4: ONLY show if first LiveLab exists AND has passed --}}
+  {{#if v_firstLiveLabTime}}
+    {{#ifGt d_now d_ll}}
+      <li style="margin:0;">
+        <b>Watch the LiveLab recording</b> in the Media Gallery to get all caught up!
+      </li>
+    {{/ifGt}}
+  {{/if}}
+
+</ol>

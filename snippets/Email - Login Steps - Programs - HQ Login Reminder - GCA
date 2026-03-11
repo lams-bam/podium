@@ -1,0 +1,72 @@
+<!-- ========================================================= -->
+<!-- TEMP: FULL STEP LISTS SHOWN FOR BOTH PRODUCTS              -->
+<!-- TODO: Replace labels with productLine conditionals         -->
+<!-- ========================================================= -->
+
+<!-- ========================= -->
+<!-- GCA STEPS (Placeholder)   -->
+<!-- ========================= -->
+
+{{!-- Whitespace-safe URL + date compare helpers (Iterable-safe) --}}
+{{#assign "e_url"}}{{defaultIfEmpty e_hqPartURL "https://hq.globaltech.org"}}{{/assign}}
+{{~#assign "d_now"~}}{{{now format="yyyyMMddHHmm" tz="UTC"}}}{{~/assign~}}
+{{~#assign "d_ll"~}}{{~#if v_firstLiveLabTime~}}{{{dateFormat v_firstLiveLabTime format="yyyyMMddHHmm" tz="UTC"}}}{{~/if~}}{{~/assign~}}
+
+<ol style="margin:0; padding-left:20px;">
+
+  <li style="margin:0 0 14px 0;">
+    <b>Start Here</b> –
+    <a href="https://globalcareeraccelerator.org/app/login" style="text-decoration:underline;">
+      <b>Log in to {{{ snippet "Program - GCA - Name" }}}</b>
+    </a>
+
+    <div style="margin-top:4px;">
+      → <b>Use this email:</b> <b>{{email}}</b><br/>
+      <span style="font-size:14px; line-height:20px; color:#555555;">
+        <em>(This is your course and Zoom login ID that you’ll use all term.)</em>
+      </span>
+    </div>
+  </li>
+
+  <li style="margin:0 0 14px 0;">
+    Click <b>{{{ snippet "Product - GCA - Career Network CTA" }}}</b> to access your course materials.
+    <div style="margin-top:8px; font-size:14px; line-height:20px; color:#555555;">
+      {{{ snippet "assign - welcomeImage by track" }}}{{{ snippet "render - welcomeImage block handlebars Copy Edit" }}}
+    </div>
+  </li>
+<li style="margin:0 0 16px 0;">
+  Once in {{ snippet "Product - GCA - LMS Name" }}:
+
+  <ul style="margin:8px 0 0 0; padding-left:18px; list-style-type:disc;">
+    <li style="margin-bottom:8px;">
+      Take the <b>{{ snippet "Product - GCA - LMS Name" }} Tour</b> when you first log in!
+      Click the {{{ snippet "Product - GCA - Student Chatbot Icon" }}} icon on the
+      bottom-right corner of {{ snippet "Product - GCA - LMS Name" }} for tips,
+      tools, and chat with your dedicated support team.
+    </li>
+
+    <li>
+      Catch up on the required {{ snippet "Product - GCA - Modules Label" }}s:
+      <ul style="margin:6px 0 0 0; padding-left:18px; list-style-type:circle;">
+        <li>{{{ snippet "Product - GCA - Module 1" }}}</li>
+        <li>{{{ snippet "Product - GCA - Module 2" }}}</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+
+  <li style="margin:0 0 14px 0;">
+    Check <b>Announcements</b> for key info and reminders from your {{{ snippet "Product - GCA - Instructor" }}}.
+  </li>
+
+  {{!-- Bullet 5: ONLY show if first LiveLab exists AND has passed --}}
+  {{#if v_firstLiveLabTime}}
+    {{#ifGt d_now d_ll}}
+      <li style="margin:0;">
+        <b>Watch the {{{ snippet "Product - GCA - Synchronous Session" }}} recording</b> in the Media Gallery to get all caught up!
+      </li>
+    {{/ifGt}}
+  {{/if}}
+
+</ol>

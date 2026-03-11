@@ -1,0 +1,77 @@
+<!-- ========================================================= -->
+<!-- TEMP: Late Adds Steps (matches Gmail-style email formatting) -->
+<!-- TODO: Replace with productLine logic when available:        -->
+<!--   productLine = GCA -> show GCA line only                   -->
+<!--   productLine = CDE -> show CDE line only                   -->
+<!-- ========================================================= -->
+
+<ol style="margin:0 0 16px 0; padding-left:20px;">
+
+  <li style="margin:0 0 10px 0;">
+    <b>Start Here</b> –
+    <span style="display:block; margin-top:6px;">
+
+      <!-- GCA -->
+      <span style="display:block; margin:0 0 10px 0;">
+        <span style="font-size:14px; color:#555555;">
+          <em>GCA (will show when productLine = GCA)</em>
+        </span><br/>
+
+        <a href="https://globalcareeraccelerator.org/app/login">
+          <b>Log in to [programName]</b>
+        </a>
+        and click <b>“Go to Course”</b>.
+
+        <div style="margin-top:4px;">
+          → Login email: <b>{{email}}</b>
+        </div>
+      </span>
+
+      <!-- CDE -->
+      <span style="display:block;">
+        <span style="font-size:14px; color:#555555;">
+          <em>CDE (will show when productLine = CDE)</em>
+        </span><br/>
+
+        <a href="https://hq.globaltech.org">
+          <b>Log in to [lmsName]</b>
+        </a>
+        for <b>{{programName}}</b>.
+
+        <div style="margin-top:4px;">
+          → Login email: <b>{{email}}</b>
+        </div>
+      </span>
+
+    </span>
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Catch Up in [lmsName]</b> – Click [courseName] and take the tour of [lmsName].
+    <div style="margin:6px 0 0 0;">
+      → 1. Finish <b>[module1]</b>, <b>[module2]</b> and complete your tool setup
+    </div>
+    <div style="margin:4px 0 0 0;">
+      → 2. Then watch the <b>[synchronousSession]</b> recording in the Media Gallery
+    </div>
+    <div style="margin:10px 0 0 0;">
+      {{{ snippet "HQ Part Tiles" }}}
+    </div>
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Stay Updated</b> – Check Announcements for key info and reminders, like which [module]s to finish before the next <b>{{synchronousSession}}</b>.
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Submit Work</b> – Find upcoming and previous assignment due dates on the <b>[grade]s</b> tab.
+    Missed a deadline? Request an extension in the [studentChatbot] within a week.
+  </li>
+
+  <li style="margin:0;">
+    <b>Plan Ahead</b> – Look on the
+    <a href="{{{ snippet "link - HQ Calendar" }}}">[calendar]</a>
+    to see <b>[synchronousSession]</b> dates and [assignmentName] deadlines.
+  </li>
+
+</ol>

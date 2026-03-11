@@ -1,0 +1,60 @@
+{{!-- Late Adds Steps (GCA only) --}}
+
+<ol style="margin:0 0 16px 0; padding-left:20px;">
+
+  <li style="margin:0 0 10px 0;">
+    <b>Start Here</b> –
+    <a href="https://hq.globaltech.org">
+      <b>Log in to {{{ snippet "Program - CDE - Name" }}}</b>
+    </a>
+    <div style="margin-top:4px;">
+      → Login email: <b>{{email}}</b>
+    </div>
+  </li>
+
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Catch Up in {{{ snippet "Product - CDE - LMS Name" }}}</b> – Click
+    <a href="{{e_url}}"
+       target="_blank"
+       style="color:#1a73e8; text-decoration:underline;">
+      <strong>{{#if e_courseName}}{{e_courseName}}{{else}}your course{{/if}}</strong>
+    </a>
+    and take the tour of {{{ snippet "Product - CDE - LMS Name" }}}.
+
+   <!-- Step 1 -->
+<div style="margin:6px 0 0 0;">
+  {{#ifEq is_live_session_not_livelab "true"}}
+    → Finish <i>{{{ snippet "Product - CDE - Module 1" }}}</i>
+  {{else}}
+    → 1. Finish <i>{{{ snippet "Product - CDE - Module 1" }}}</i>
+    and {{{ snippet "Product - CDE - Module 2" }}} {{{ snippet "Product - CDE - Modules Label" }}}s
+  {{/ifEq}}
+</div>
+
+<!-- Step 2 (ONLY when false) -->
+{{#ifEq is_live_session_not_livelab "false"}}
+  <div style="margin:4px 0 0 0;">
+    → 2. Then watch the LiveLab recording in the Media Gallery
+  </div>
+{{/ifEq}}
+
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Stay Updated</b> – Check Announcements for key info and reminders, like which {{{ snippet "Product - CDE - Modules Label" }}}s to finish before the next <b>{{{ snippet "Product - CDE - School Synchronous Session" }}}</b>.
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Submit Work</b> – Find upcoming and previous {{defaultIfEmpty v_assignmentName "assignment"}} due dates on the <b>{{{ snippet "Product - CDE - Grade" }}}s</b> tab.
+    Missed a deadline? Request an extension in the {{{ snippet "Product - CDE - Student Chatbot" }}} within a week.
+  </li>
+
+  <li style="margin:0;">
+    <b>Plan Ahead</b> – Look on the
+    <a href="{{{ snippet "Product - CDE - Calendar Link" }}}">{{{ snippet "Product - CDE - Calendar" }}}</a>
+    to see <b>{{{ snippet "Product - CDE - School Synchronous Session" }}}</b> dates and {{v_assignmentName}} deadlines.
+  </li>
+
+</ol>

@@ -1,0 +1,64 @@
+{{!-- Late Adds Steps (GCA only) --}}
+
+<ol style="margin:0 0 16px 0; padding-left:20px;">
+
+  <li style="margin:0 0 10px 0;">
+    <b>Start Here</b> –
+    <a href="{{{ snippet "Product - GCA - Program Login Students" }}}">
+      <b>Log in to {{{ snippet "Program - GCA - Name" }}}</b>
+    </a>
+    <div style="margin-top:4px;">
+      → Login email: <b>{{email}}</b>
+    </div>
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Click {{{ snippet "Product - CDE - Career Network CTA" }}}</b> to access your materials in {{{ snippet "Product - GCA - LMS Name" }}}
+ 
+    <div style="margin-top:10px;">
+      {{{ snippet "assign - welcomeImage by track" }}}
+      {{{ snippet "render - welcomeImage block handlebars Copy Edit" }}}
+    </div>
+  </li>
+
+<li style="margin:0 0 10px 0;">
+  <b>Catch Up in {{{ snippet "Product - GCA - LMS Name" }}}</b>
+
+  <div style="margin:6px 0 0 0;">
+    → 1. Take the tour of {{{ snippet "Product - GCA - LMS Name" }}} when you first log in
+  </div>
+
+  <div style="margin:4px 0 0 0;">
+    → 2. Finish <i>{{{ snippet "Product - GCA - Module 1" }}} and {{{ snippet "Product - GCA - Module 2" }}}</i>
+    {{{ snippet "Product - GCA - Modules Label" }}}s and complete your tool setup
+  </div>
+
+  <div style="margin:4px 0 0 0;">
+    → 3. Watch the <b>{{{ snippet "Product - GCA - Synchronous Session" }}}</b> recording in the Media Gallery
+  </div>
+
+  <div style="margin:10px 0 0 0;">
+    💡 <b>Pro Tip:</b> Click the {{{ snippet "Product - GCA - Student Chatbot Icon" }}} icon on the
+    bottom-right corner of {{{ snippet "Product - GCA - LMS Name" }}} for tips, tools,
+    and chat with your dedicated support team.
+  </div>
+</li>
+
+
+  <li style="margin:0 0 10px 0;">
+    <b>Stay Updated</b> – Check Announcements for key info and reminders, like which {{{ snippet "Product - GCA - Modules Label" }}}s to finish before the next <b>{{{ snippet "Product - GCA - Synchronous Session" }}}</b>.
+  </li>
+
+  <li style="margin:0 0 10px 0;">
+    <b>Submit Work</b> – Find upcoming and previous {{defaultIfEmpty v_assignmentName "assignment"}}
+ due dates on the <b>{{{ snippet "Product - GCA - Grade" }}}s</b> tab.
+    Missed a deadline? Request an extension in the {{{ snippet "Product - GCA - Student Chatbot" }}} within a week.
+  </li>
+
+  <li style="margin:0;">
+    <b>Plan Ahead</b> – Look on the
+    <a href="https://hq.globaltech.org/calendar">HQ Calendar</a>
+    to see <b>✅ LiveLab</b> dates and {{v_assignmentName}} deadlines.
+  </li>
+
+</ol>

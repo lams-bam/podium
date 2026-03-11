@@ -1,0 +1,41 @@
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+       style="background-image:url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+  <tr>
+    <td align="center" style="padding:30px;">
+
+      <div style="font-family:Arial,Helvetica,sans-serif;
+                  font-size:14px;
+                  line-height:20px;
+                  color:#555555;
+                  margin-bottom:8px;">
+      </div>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+          <td align="center">
+
+            <a href="{{{ snippet "Product - CDE - Program Login Students" }}}"
+               target="_blank"
+               style="text-decoration:none; display:inline-block;">
+              <img
+                src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/podium-program-logos/CDE-logo.png"
+                alt="{{{ snippet "Program - CDE - Name" }}}"
+                width="210"
+                style="display:block;margin:0 auto;max-width:210px;height:auto;border:0;" />
+            </a>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="font-size:1px;line-height:1px;border-top:1px solid #bbb;">
+      &nbsp;
+    </td>
+  </tr>
+</table>

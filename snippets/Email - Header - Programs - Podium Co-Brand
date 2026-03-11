@@ -1,0 +1,30 @@
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+       style="background-image:url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+  <tr>
+    <td align="center" style="padding:30px;">
+
+      <table role="presentation" cellpadding="0" cellspacing="0" align="center" width="600">
+        <tr>
+          <td align="center">
+
+            <a href="{{{ snippet "Product - GCA - Program Login Students" }}}"
+               target="_blank"
+               style="text-decoration:none; display:inline-block;">
+              <img alt="Powered by Podium" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/podium-program-logos/Icon_PoweredByPodium.png" style="display:block;margin:0 auto;max-width:200px;height:auto;border:0;" width="200" />
+            </a>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="font-size:1px;line-height:1px;border-top:1px solid #bbb;">
+      &nbsp;
+    </td>
+  </tr>
+</table>

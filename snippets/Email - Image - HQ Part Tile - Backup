@@ -1,0 +1,27 @@
+{{#assign "HQImage"}}{{#ifMatchesRegexStr v_nameTrack ".*Digital Marketing.*"}}https://library.iterable.com/3196/20921/c5547140186b4909a734b0a83d324850-dm1-hq-part-tile.png{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_nameTrack ".*Career Rotation.*"}}https://library.iterable.com/3196/20921/28c432142ea14d1caac63490e7d099b0-rt1-hq-part-tile.png{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_nameTrack ".*Coding for Data.*"}}https://library.iterable.com/3196/20921/e0062e842d08457cbf9ea468e1fc0120-dc1-hq-part-tile.png{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_nameTrack ".*Web Development.*"}}https://library.iterable.com/3196/20921/140e775b6f8f49af9e13cd7ee6da9c7a-wd1-hq-part-tile.png{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_nameTrack ".*Data Analytics.*"}}https://library.iterable.com/3196/20921/5b045dd4d5c042c19b860d86a02254c3-da1-hq-part-tile.png{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr v_nameTrack ".*Career Discovery Experience.*"}}https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Career%20Network%20Tiles/Data%20Analytics%20%281%29.png{{/ifMatchesRegexStr}}{{/assign}}
+
+<style type="text/css">
+  /* Mobile stacking */
+  @media screen and (max-width:480px){
+    .hq-stack{width:100% !important; max-width:600px !important;}
+    .hq-col{display:block !important; width:100% !important; padding-left:0 !important;}
+    .hq-img{margin:0 auto 12px auto !important;}
+    .hq-text{padding-top:0 !important;}
+  }
+</style>
+
+<table cellpadding="0" cellspacing="0" border="0" class="hq-stack" style="width:100%; max-width:600px;">
+  <tr>
+    <td class="hq-col" style="width:120px; vertical-align:middle;">
+      <a href="{{{ snippet "Product - GCA - Program Login Students" }}}">
+        <img class="hq-img" src="{{HQImage}}" width="120" style="display:block; max-width:120px; height:auto; border:0;">
+      </a>
+    </td>
+
+    <td class="hq-col hq-text" style="padding-left:20px; vertical-align:middle;">
+      <p style="margin:0; font-family:Arial, sans-serif; font-size:14px; line-height:1.5;">
+        💡 <strong>Pro Tip:</strong> Take the {{{ snippet "Product - GCA - LMS Name" }}} Tour when you first log in! Click the {{{ snippet "Product - GCA - Student Chatbot Icon" }}} icon on the bottom-right corner of {{{ snippet "Product - GCA - LMS Name" }}} for tips, tools, and chat with your dedicated support team.
+      </p>
+    </td>
+  </tr>
+</table>
