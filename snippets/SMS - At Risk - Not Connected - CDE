@@ -1,0 +1,5 @@
+Hi {{defaultIfEmpty nameFirst "there"}}, I just tried calling because it looks like you might be falling behind a bit. I want to help you get back on track! Check your email for next steps and a way to book time with me. You can also schedule some time to speak with me here: {{{v_coachCalendly}}}
+
+Need anything else? Text me directly at {{{ snippet "Program - CDE - Text Number" }}}, this is an automated message—replies here won't be seen.
+
+— {{{v_coachNameFirst}}}

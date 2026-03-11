@@ -1,0 +1,2 @@
+Hey {{nameFirst}}!
+Your first {{#ifEq is_live_session_not_livelab "true"}}{{{ snippet "Product - CDE - School Synchronous Session" }}}{{else}}{{{ snippet "Product - CDE - Synchronous Session" }}}{{/ifEq}} is today{{#if v_firstLiveLabTime}} at {{{ dateFormat v_firstLiveLabTime format="h:mma z" tz=timeZone }}}{{/if}}{{#ifEq is_late_start "true"}} — joining is optional this week{{/ifEq}}. I just sent you an email with the link and instructions to join. Let me know if you have any questions!

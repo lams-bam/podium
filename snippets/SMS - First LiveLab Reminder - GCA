@@ -1,0 +1,4 @@
+Hey {{nameFirst}}!
+Your first LiveLab is today{{#if v_firstLiveLabTime}} at {{dateFormat v_firstLiveLabTime format="h aaa (z)" tz=timeZone}}{{/if}}{{#ifEq is_late_start "true"}} — joining is optional this week{{/ifEq}}.
+Register below with {{email}}:
+{{{v_ZoomRoom}}}

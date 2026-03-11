@@ -1,0 +1,26 @@
+{{#ifContainsStr v_schoolType "App School"}}
+Hey {{ defaultIfEmpty nameFirst "there"}}, 
+Friendly reminder to complete your application for the {{{v_programName}}} as soon as possible. Follow the link below or in the email I just sent you. Looking forward to you joining us — I'm confident you'll find this to be a transformational experience. 
+{{{ snippet "SMS - Next Step Link" }}}
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+{{/ifContainsStr}}
+
+
+{{#ifContainsStr v_schoolType "No App School"}}
+    {{#ifContainsStr v_registrationMethod "Student"}}
+        {{#ifContainsStr v_liveLabSelectionType "Registration"}}
+Hi {{ defaultIfEmpty nameFirst "there"}} - Thanks for reserving a spot in the {{{v_programName}}}!  The last step is to register yourself in {{v_schoolSystemNameRegistration}} for:
+{{{ snippet "field-courseCodes" }}}
+
+{{{ snippet "SMS - Next Step Link" }}}
+
+I also sent you an email with the details. Feel free to text, call or email me any time. Always here to help!
+        {{else}}
+Hi, I just sent you an email with a link to select your LiveLab section time. Just pick the best time for your schedule. The sections fill up fast, so get your preferred time now. If you have any questions, I'm always here to help!
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+        {{/ifContainsStr}}
+    {{/ifContainsStr}}
+{{else}}
+Hi, I just sent you an email with a link to select your LiveLab section time. Just pick the best time for your schedule. The sections fill up fast, so get your preferred time now. If you have any questions, I'm always here to help!
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+{{/ifContainsStr}}
