@@ -1,0 +1,9 @@
+Hey {{nameFirst}} - 
+FINAL REMINDER: Your {{defaultIfEmpty v_programName "Global Career Accelerator"}} application deadline is TODAY. We've noticed you started but haven't completed your application yet! Is there anything I can assist with to help?
+
+Remember, this program is included at no additional cost with your regular tuition for summer. This is your last chance to join and gain the valuable experience and certifications that help you land an internship or early career position. 
+Complete your application today using the link below! 
+
+https://studyabroad.asu.edu/index.cfm?FuseAction=Security.AngLogin
+
+{{{ snippet "system - sms opt out logic" }}}

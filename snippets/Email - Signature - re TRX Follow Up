@@ -1,0 +1,5 @@
+__________<br/><br/>
+Nate Buttars<br/>
+{{#ifMatchesRegexStr university "Michigan State University"}}Program Advisor supporting Michigan State University{{else}}{{#ifMatchesRegexStr university "University of North Carolina"}}Program Coordinator{{else}}{{defaultIfEmpty v_paTitle "Program Advisor"}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}<br/>
+{{v_genericProgramName}}{{#ifMatchesRegexStr university "University of North Carolina"}}<br/>
+{{university}}{{/ifMatchesRegexStr}}

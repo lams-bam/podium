@@ -1,0 +1,6 @@
+{{#assign "e_termLookup"}}Spring 2025{{/assign}} {{#each allOpportunities as |opp|}}{{#eq opp.prospectiveTerm e_termLookup}}{{#assign "program"}}{{opp.program}}{{/assign}} {{/eq}}{{/each}}{{nameFirst}}, a friendly reminder: There's one final step to complete your enrollment in {{{v_programName}}}. Log in to {{v_schoolSystemNameRegistration}} and register for {{{ snippet "field-courseCodes" }}} here:
+
+{{{ snippet "logic-next step URL" }}}
+
+I've also sent you an email with instructions. Can't wait to have you join us!
+{{{ snippet "system - sms opt out logic" }}}

@@ -1,0 +1,6 @@
+{{nameFirst}}: You only have one more step to secure your place in {{v_genericProgramName}} for the upcoming {{lower v_prospectiveTerm}} term. Simply, visit the link below {{#ifMatchesRegexStr university "University of North Texas"}}and Submit Payment.{{else}}and hit “Commit”.{{/ifMatchesRegexStr}}
+
+- {{ownerNameFirst}}
+
+{{v_continueApplicationLink}}
+{{{ snippet "system - sms opt out logic" }}}

@@ -1,0 +1,17 @@
+Hey {{nameFirst}} - One more step! Lock in your spot for {{v_genericProgramName}} this fall term.
+
+Real projects (Intel, GRAMMYs), resume-boosting experience, and career support - all in one program.
+
+Finish in 2 mins:
+{{#ifEq university "George Mason University"~}}
+https://masonabroad.gmu.edu/index.cfm?FuseAction=Security.AngLogin
+{{else ifEq university "Florida International University"~}}
+https://abroad.fiu.edu/index.cfm?FuseAction=Security.AngLogin
+{{else ifEq university "Arizona State University"~}}
+https://studyabroad.asu.edu/index.cfm?FuseAction=Security.AngLogin
+{{else ifEq university "University of North Texas"~}}
+https://mystudyabroad.unt.edu/index.cfm?FuseAction=Security.AngLogin
+{{else~}}
+{{v_continueApplicationLinkSMS}}
+{{/ifEq}}
+{{{ snippet "system - sms opt out logic" }}}

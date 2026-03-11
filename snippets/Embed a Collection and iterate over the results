@@ -1,0 +1,7 @@
+<!-- embeds a collection in the tamplate -->
+{{#catalogCollection "YOUR_COLLECTION_NAME" as |COLLECTION_ALIAS|}}
+   <!-- iterate over each catalog item that the collection returns -->
+   {{#each COLLECTION_ALIAS as |CATALOG_ITEM_ALIAS|}}
+      <!-- do something here with the catalog item data -->
+   {{/each}}
+{{/catalogCollection}}

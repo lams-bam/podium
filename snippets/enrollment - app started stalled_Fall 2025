@@ -1,0 +1,5 @@
+Hey {{nameFirst}} - Take 2 minutes to finish your {{v_genericProgramName}} enrollment.Career-ready experience and personalized career support are all included!
+
+{{#ifMatchesRegexStr v_applicationType "Podi App"}}{{{v_continueApplicationLinkSMS}}}{{else}}{{{v_continueApplicationLink}}}{{/ifMatchesRegexStr}}
+
+{{{ snippet "system - sms opt out logic" }}}
