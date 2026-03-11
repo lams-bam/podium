@@ -1,0 +1,44 @@
+{{{ snippet "logic-set Podi App Link" }}}
+{{#if v_stage~}}
+    {{#ifMatchesRegexStr v_stage "Prospective|Interested|^$"~}}{{{v_microsite}}}?{{{ snippet "utm_master" }}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage "Reserved a Seat"~}}
+        {{#ifMatchesRegexStr v_schoolType "App School"~}}
+            {{#ifMatchesRegexStr v_podi ".*paperform.*"~}}{{v_podi}}?{{{ snippet "utm_master" }}}
+            {{else}}
+                {{#ifMatchesRegexStr prospectiveTerm "Summer.*"~}}
+                    {{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{enrollment.startNewApplicationLinkSummerSMS}}{{~/catalog~}}
+                {{else~}}
+                {{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{enrollment.startNewApplicationLinkSummerSMS}}{{~/catalog~}}
+                {{~/ifMatchesRegexStr~}}
+            {{~/ifMatchesRegexStr~}}
+        {{else~}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent"~}}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*"~}}{{{v_registrationLink}}}
+                {{~else~}}{{{v_llForm}}}?{{{ snippet "utm_master" }}}
+                {{~/ifMatchesRegexStr~}}
+            {{else~}}{{{v_llForm}}}?{{{ snippet "utm_master" }}}
+            {{/ifMatchesRegexStr~}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage "Application Started"~}}
+        {{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{enrollment.continueApplicationLinkSMS}}{{~/catalog~}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted"~}}
+        {{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{enrollment.continueApplicationLinkSMS}}{{~/catalog~}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage "Application Approved"~}}
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"~}}{{{v_llForm}}}?{{{ snippet "utm_master" }}}
+        {{else~}}
+            {{#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|}}{{enrollment.continueApplicationLinkSMS}}{{~/catalog~}}
+        {{/ifMatchesRegexStr~}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage "Application Completed"~}}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*"~}}{{{v_llForm}}}?{{{ snippet "utm_master" }}}
+        {{else~}}{{{v_registrationLink}}}
+        {{/ifMatchesRegexStr~}}
+    {{/ifMatchesRegexStr~}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*"~}}{{{v_registrationLink}}}
+    {{/ifMatchesRegexStr~}}
+{{else~}}{{{v_microsite}}}?{{{ snippet "utm_master" }}}
+{{/if~}}

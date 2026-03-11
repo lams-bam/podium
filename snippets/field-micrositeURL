@@ -1,0 +1,31 @@
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective|Interested|^$" }}{{{v_microsite}}}?{{{ snippet "utm_master" }}}{{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Reserved a Seat" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}{{{v_startNewAppLink}}}
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}{{{v_registrationLink}}}
+                {{else}}{{{v_llForm}}}
+                {{/ifMatchesRegexStr}}
+            {{else}}{{{v_llForm}}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}{{{ v_continueApplicationLink }}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}{{{ v_continueApplicationLink }}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}{{{v_llForm}}}
+        {{else}}{{{ v_continueApplicationLink }}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Completed" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}{{{v_llForm}}}
+        {{else}}{{{v_registrationLink}}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*" }}{{{v_registrationLink}}}
+    {{/ifMatchesRegexStr}}
+{{else}}{{{v_microsite}}}?{{{ snippet "utm_master" }}}
+{{/if}}

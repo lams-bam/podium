@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr prospectiveTerm "Summer.*"}}summer{{else}}{{#ifMatchesRegexStr prospectiveTerm "Fall.*"}}fall{{else}}{{#ifMatchesRegexStr prospectiveTerm "Spring.*"}}spring{{else}}upcoming term{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}

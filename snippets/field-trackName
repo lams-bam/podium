@@ -1,0 +1,31 @@
+{{#ifMatchesRegexStr program "Digital.*Marketing.*"}}
+    {{#ifMatchesRegexStr v_schoolSystemNameSetup ".*Two Part Name.*"}}
+        {{v_courseNameDM1}} --- {{v_courseNameDM2}}
+    {{else}}
+        {{v_courseNameDMProgram}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{#ifMatchesRegexStr program "Data.*Analytic.*"}}
+    {{#ifMatchesRegexStr v_schoolSystemNameSetup ".*Two Part Name.*"}}
+        {{v_courseNameDA1}} --- {{v_courseNameDA2}}
+    {{else}}
+        {{v_courseNameDAProgram}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{#ifMatchesRegexStr program "Coding.*Data.*"}}
+    {{#ifMatchesRegexStr v_schoolSystemNameSetup ".*Two Part Name.*"}}
+        {{v_courseNameDC1}} --- {{v_courseNameDC2}}
+    {{else}}
+        {{v_courseNameDCProgram}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{#ifMatchesRegexStr program "Web.*Dev.*"}}
+    {{#ifMatchesRegexStr v_schoolSystemNameSetup ".*Two Part Name.*"}}
+        {{v_courseNameWD1}} --- {{v_courseNameWD2}}
+    {{else}}
+        {{v_courseNameWDProgram}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

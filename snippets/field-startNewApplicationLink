@@ -1,0 +1,13 @@
+{{#ifContainsStr prospectiveTerm "Spring"}}
+    {{#catalogCollection "Enrollment" as |enrollment|}}{{{enrollment.[0].startNewApplicationLinkSpring}}}{{/catalogCollection}}
+{{else}}
+    {{#ifContainsStr prospectiveTerm "Fall"}}
+        {{#catalogCollection "Enrollment" as |enrollment|}}{{{enrollment.[0].startNewApplicationLinkFall}}}{{/catalogCollection}}
+    {{else}}
+        {{#ifContainsStr prospectiveTerm "Summer"}}
+            {{#catalogCollection "Enrollment" as |enrollment|}}{{{enrollment.[0].startNewApplicationLinkSummer}}}{{/catalogCollection}}
+        {{else}}
+            {{#catalogCollection "Enrollment" as |enrollment|}}{{{enrollment.[0].startNewApplicationLinkPodiApp}}}{{/catalogCollection}}
+        {{/ifContainsStr}}
+    {{/ifContainsStr}}
+{{/ifContainsStr}}

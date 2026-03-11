@@ -1,0 +1,34 @@
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective|Interested|^$" }}Reserve a Spot ➔
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Reserved a Seat" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}Complete Your Application ➔
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}Complete Registration ➔
+                {{else}}Select LiveLab Time ➔
+                {{/ifMatchesRegexStr}}
+            {{else}}Select LiveLab Time ➔
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}Complete Your Application ➔
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}Confirm Now ➔
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}Select LiveLab Time ➔
+        {{else}}
+            {{#ifMatchesRegexStr university "University of North Texas"}}Submit Payment{{else}}Confirm Now ➔
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Completed" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}Select LiveLab Time ➔
+        {{else}}Complete Registration ➔
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*" }}Complete Registration ➔
+    {{/ifMatchesRegexStr}}
+{{else}}Reserve a Spot ➔
+{{/if}}

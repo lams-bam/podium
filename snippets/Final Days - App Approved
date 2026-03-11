@@ -1,0 +1,4 @@
+Heads up, this {{dateFormat v_deadlineAppStart format="EEEE" tz=timeZone}} is the deadline to participate in the {{v_programName}} during the upcoming {{prospectiveTerm}} term!
+
+You can confirm your enrollment here:
+{{v_continueApplicationLink~}}

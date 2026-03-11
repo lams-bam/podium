@@ -1,0 +1,6 @@
+{{nameFirst}} - Heads up, this {{dateFormat v_deadlineAppStart format="EEEE" tz=timeZone}} is the deadline to participate in the {{v_programName}} during the upcoming {{prospectiveTerm}} term!
+
+Additional info is in your email inbox or simply reply here for help!
+
+You can finish your application here:
+{{v_continueApplicationLink~}}
