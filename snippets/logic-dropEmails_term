@@ -1,0 +1,1 @@
+{{#assign "e_term"}}{{#ifMatchesRegexStr university "(Wayne State|University of Michigan).*"}}Summer 2025{{else}}Summer 2025{{/ifMatchesRegexStr}}{{/assign}}

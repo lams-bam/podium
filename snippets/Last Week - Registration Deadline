@@ -1,0 +1,7 @@
+{{nameFirst}}, you have one week left to register for the {{v_programName}} for {{prospectiveTerm}}. I just sent you an email with the next steps or you can follow the link below.
+
+Let me know if you have questions!
+{{ownerNameFirst}}, {{v_paTitle}}
+
+You can confirm your enrollment here:
+{{{v_registrationLink}}}

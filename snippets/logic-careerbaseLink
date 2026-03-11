@@ -1,0 +1,1 @@
+{{#if changePasswordURL}}{{{changePasswordURL}}}{{else}}https://www.untapped.io/app/sign-in?login_type=auth0{{/if}}

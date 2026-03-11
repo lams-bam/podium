@@ -1,0 +1,13 @@
+{{#ifMatchesRegexStr v_liveLabName ".*Fall 2024.*Wave 2.*"}}
+  {{#ifLt (now format="yyyyMMdd" tz=timeZone) 20240829}}
+    {{#ifLte (dateFormat v_firstLiveLabDate format="yyyyMMddHH" tz=timeZone) (now format="yyyyMMddHH" tz=timeZone)}}
+      {{dateMath v_firstLiveLabDate "+7d" format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone}}
+      {{else}}
+        {{dateFormat v_firstLiveLabDate format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone}}
+    {{/ifLte}}
+    {{else}}
+      {{dateFormat v_firstLiveLabDate format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone}}
+  {{/ifLt}}
+{{else}}
+{{dateFormat v_firstLiveLabDate format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone}}
+{{/ifMatchesRegexStr}}

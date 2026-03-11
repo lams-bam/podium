@@ -1,0 +1,11 @@
+{{#unless (eq university "University of California, Riverside")}}
+  <b>Need to change your program details?</b><br/>
+  {{#if v_llSelectionDeadline}}
+    You have through {{dateFormat v_llSelectionDeadline format="MMMM d, YYYY" tz=timeZone}},
+    to make a change to your selection(s),
+    <a href="{{{v_llForm}}}">resubmit this form</a>.
+    <i>Note that the form may take a few seconds to load your information.</i>
+  {{else}}
+    Reach out to your program advisor.
+  {{/if}}
+{{/unless}}

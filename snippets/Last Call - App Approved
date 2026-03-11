@@ -1,0 +1,3 @@
+Hi {{nameFirst}}, 
+Quick reminder today is the last day to confirm your enrollment for the {{{v_programName}}} - click below and hit "Commit"
+{{{ v_continueApplicationLink }}}
