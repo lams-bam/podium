@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr e_courseCodes "PPOL 4398"}}srollers@utdallas.edu{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr e_courseCodes "BA4[vV]98"}}courtney.graves@utdallas.edu{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr e_courseCodes "EPPS 4337"}}srollers@utdallas.edu{{/ifMatchesRegexStr}}{{#ifMatchesRegexStr e_courseCodes "EPPS 6[Vv]97"}}alex.gutierrez@utdallas.edu{{/ifMatchesRegexStr}}

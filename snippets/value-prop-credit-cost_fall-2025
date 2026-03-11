@@ -1,0 +1,36 @@
+{{{ snippet "universal-variables" }}}
+
+{{#ifMatchesRegexStr university "Arizona State University"}}
+{{else}}
+  {{#ifMatchesRegexStr university "George Mason University"}}
+  {{else}}
+    {{#ifMatchesRegexStr university "University of Arizona"}}
+    {{else}}
+      {{#ifMatchesRegexStr university "University of North Texas"}}
+      {{else}}
+        {{#ifMatchesRegexStr university "Appalachian State University"}}
+        {{else}}
+          {{#ifMatchesRegexStr university "University of South Florida"}}
+           <b>Choose 1 to 6 internship credits</b>, which are exempt from the excess credit rule.
+
+          {{else}}
+            {{#ifMatchesRegexStr university "Texas State University"}}
+            {{else}}
+              {{#ifMatchesRegexStr university "University of Memphis"}}
+              {{else}}
+                {{#ifMatchesRegexStr university "The University of Texas at Austin"}}
+                {{else}}
+                  {{#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                  {{else}}
+                    {{#ifMatchesRegexStr v_costStructure "Tuition"}}
+                    {{/ifMatchesRegexStr}}
+                  {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+              {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+          {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+      {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+  {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

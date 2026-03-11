@@ -1,0 +1,46 @@
+{{{ snippet "universal-variables" }}}
+
+{{#ifMatchesRegexStr university "Arizona State University"}}
+  <b>Plus real value - Only $3,444, including 6 credits of tuition.</b> More affordable than most summer classes, and no extra fees. Choose business, engineering, or general elective credit.
+{{else}}
+  {{#ifMatchesRegexStr university "George Mason University"}}
+    <b>Plus real value - </b>Can be covered by your regular tuition, depending on the credit you choose.
+  {{else}}
+    {{#ifMatchesRegexStr university "University of Arizona"}}
+      <b>Plus real value - </b>No extra cost - 6 credits of your current Arizona tuition.
+    {{else}}
+      {{#ifMatchesRegexStr university "University of North Texas"}}
+        <b>Plus real value - Just $1,300 all-in—including your $100 commitment fee.</b> One simple price, no hidden costs, and a high-impact experience.
+      {{else}}
+        {{#ifMatchesRegexStr university "Appalachian State University"}}
+          <b>Plus real value - </b> $1,800 total—including 6 credits of tuition.</b> That's way cheaper than standard summer tuition.
+        {{else}}
+          {{#ifMatchesRegexStr university "University of South Florida"}}
+            <b>Plus real value - </b>Select <b>1 to 6 internship credits</b>—no extra charges, no excess credit.
+
+          {{else}}
+            {{#ifMatchesRegexStr university "Texas State University"}}
+              <b>Plus real value - </b>Earn 3 credits your way: Business, Mass Comm, Psychology, or Physics - major or internship credits, depending on your field.
+            {{else}}
+              {{#ifMatchesRegexStr university "University of Memphis"}}
+                <b>Plus real value - </b>UofM 3+3 Scholarship Eligible: Take 2 classes, get 1 free! Accelerator = 6 credits + $1,600 fee. If you have under 40 credits, 2.5+ GPA, and are enrolled Spring 2025, 3 credits tuition is covered!
+              {{else}}
+                {{#ifMatchesRegexStr university "The University of Texas at Austin"}}
+                  <b>Plus real value - </b>Get a special lower tuition rate this summer- and with 6 credits, you'll be eligible for financial aid!
+                {{else}}
+                  {{#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                    <b>Plus real value - </b>Choose 1 to 6 internship credits to fit your schedule. And don't worry - these credits are exempt from excess credit!
+                  {{else}}
+                    {{#ifMatchesRegexStr v_costStructure "Tuition"}}
+                      <b>Plus real value - </b> Included in your regular tuition! No extra fees, just enroll and you're in.
+                    {{/ifMatchesRegexStr}}
+                  {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+              {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+          {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+      {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+  {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

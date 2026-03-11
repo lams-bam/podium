@@ -1,0 +1,65 @@
+{{~#ifMatchesRegexStr university "Arizona State University"}}
+
+Worth the Investment: Only $3,444 for 6 credits, no extra fees. More affordable than most summer classes. Choose business, engineering, or electives!
+  
+{{else~}}
+  {{~#ifMatchesRegexStr university "George Mason University"}}
+    
+Worth the Investment: May be covered by your regular tuition, depending on your credit choice.
+    
+  {{else~}}
+    {{~#ifMatchesRegexStr university "University of Arizona"}}
+      
+Worth the Investment: 6 credits of your current Arizona tuition, No extra cost
+      
+{{else~}}
+      {{~#ifMatchesRegexStr university "University of North Texas"}}
+        
+Worth the Investment: Just $1,300 total includes 6 credits
+        
+      {{else~}}
+        {{~#ifMatchesRegexStr university "Appalachian State University"}}
+          
+Worth the Investment: $1,800 total for 6 credits, way more affordable than regular summer tuition!
+          
+        {{else~}}
+          {{~#ifMatchesRegexStr university "University of South Florida"}}
+            
+Worth the Investment: Pick 1–6 internship credits, no excess credit 
+            
+          {{else~}}
+            {{~#ifMatchesRegexStr university "Texas State University"}}
+              
+Worth the Investment: Earn 3 credits your way, Business, Mass Comm, Psych, or Physics. Major or internship credit, depending on your field
+              
+            {{else~}}
+              {{~#ifMatchesRegexStr university "University of Memphis"}}
+              
+Worth the Investment: UofM 3+3 Scholarship Eligible: Take 2 classes, get 1 free! Accelerator = 6 credits + $1,600 fee. If you have under 40 credits, 2.5+ GPA, and are enrolled Spring 2025, 3 credits tuition is covered!
+              
+              {{else~}}
+                {{~#ifMatchesRegexStr university "The University of Texas at Austin"}}
+                
+Worth the Investment: Score lower summer tuition, 6 credits plus financial aid eligible!
+                  
+                {{else~}}
+                  {{~#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                  
+Worth the Investment: Pick 1–6 internship credits to fit your schedule — no excess credit 
+
+                  {{else~}}
+                    {{~#ifMatchesRegexStr v_costStructure "Tuition"}}
+                    
+Worth the Investment: This experience is already covered by your regular tuition. That means no extra fees, just enroll and you’re in.
+                      
+                    {{/ifMatchesRegexStr~}}
+                  {{~/ifMatchesRegexStr~}}
+                {{~/ifMatchesRegexStr~}}
+              {{~/ifMatchesRegexStr~}}
+            {{~/ifMatchesRegexStr~}}
+          {{~/ifMatchesRegexStr~}}
+        {{~/ifMatchesRegexStr~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr~}}

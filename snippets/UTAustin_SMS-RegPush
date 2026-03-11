@@ -1,0 +1,9 @@
+{{defaultIfEmpty nameFirst "Hello"}}, I sent you an email, but I wanted to follow up as the priority  registration deadline is today.
+
+You have been accepted to the {{v_programName}} but you have not completed your registration. Registering at the prioroty deadline helps ensure your spot for the fall term.
+
+You can complete your registration through the link below using course code: LA 321
+
+Can't wait for you to join us this fall!
+
+https://my.utexas.edu/ 
