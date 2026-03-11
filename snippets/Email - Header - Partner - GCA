@@ -1,0 +1,4 @@
+<div style="padding: 30px 30px 15px 30px  ;text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/ca93d1a2-15c8-4dba-b10a-ca6349c6a6d1/ap-podiumeducation/White%20Background%20Images/whitebackground21.jpg');">
+
+   <a href="{{v_microsite}}/accelerator?{{{ snippet "utm_master" }}}"> <img width="{{v_branding_logowidth}}" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/ca93d1a2-15c8-4dba-b10a-ca6349c6a6d1/ap-podiumeducation/School%20Dynamic%20Logos/{{v_branding_logoimage}}" /></a>
+</div>
