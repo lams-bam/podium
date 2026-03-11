@@ -1,0 +1,1 @@
+{{#assign "lk_track"}}{{#each allCourseConnections}}{{#ifMatchesRegexStr partSequence "1"}}{{#catalog "LiveLab" lookup_livelabCatalog as |livelab|}}{{#ifMatchesRegexStr livelab.partSequence "1"}}{{{livelab.lookupProgramTrack}}}{{/ifMatchesRegexStr}}{{/catalog}}{{/ifMatchesRegexStr}}{{/each}}{{/assign}}

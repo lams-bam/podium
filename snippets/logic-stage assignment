@@ -1,0 +1,26 @@
+{{~#if stage~}}
+    {{~#assign "v_stage"~}}{{stage}}{{~/assign~}}
+    {{~#assign "v_nextStepUrl"~}}{{{nextStepURL}}}{{~/assign~}}
+    {{~#assign "v_nextStepCTA"~}}{{{nextStepCTA}}}{{~/assign~}}
+{{~else~}}
+    {{~#each allOpportunities~}}
+        {{~#if active~}}
+            {{~#ifGte (dateFormat deadlineApplicationStart format="yyyyMMdd" tz=timeZone) (dateMath "now" "-30d" format="yyyyMMdd" tz=timeZone)~}}
+                    {{~#assign "v_stage"~}}{{stage}}{{~/assign~}}
+                    {{~#assign "prospectiveTerm"~}}{{prospectiveTerm}}{{~/assign~}}
+                    {{~#assign "program"~}}{{program}}{{~/assign~}}
+                    {{~#assign "v_schoolPermissionStatus"~}}{{schoolPermissionStatus}}{{~/assign~}}
+                    {{~#assign "v_nextStepUrl"~}}{{{nextStepURL}}}{{~/assign~}}
+                    {{~#assign "v_nextStepCTA"~}}{{nextStepCTA}}{{~/assign~}}
+                    {{~#if schoolCourseID~}}{{~#assign "schoolCourseID"~}}{{schoolCourseID}}{{~/assign~}}{{~/if~}}
+                    {{~#if schoolCourseIDPart2~}}{{~#assign "schoolCourseIDPart2"~}}{{schoolCourseIDPart2}}{{schoolCourseID}}{{~/assign~}}{{~/if~}}
+                    {{~#if regHoldReason~}}{{~#assign "v_regHoldReason"~}}{{regHoldReason}}{{~/assign~}}{{~/if~}}
+                    {{~#assign "lookup_termCatalog"~}}{{lookup_termCatalog}}{{~/assign~}}
+                    {{~#if regHoldStatus~}}{{~#assign "v_regHoldStatus"~}}{{regHoldStatus}}{{~/assign~}}{{~/if~}}
+                    {{~#if regHoldReason~}}{{~#assign "v_regHoldReason"~}}{{regHoldReason}}{{~/assign~}}{{~/if~}}
+            {{~else~}}
+                    {{~#assign "v_stage"~}}Prospective Student{{~/assign~}}
+            {{~/ifGte~}}
+        {{~/if~}}
+    {{~/each~}}
+{{~/if~}}

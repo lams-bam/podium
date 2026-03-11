@@ -1,0 +1,7 @@
+{{~#ifMatchesRegexStr v_applicationType ".*Podi.*"~}}
+  {{~#assign "v_podi"~}}
+    {{~#catalog "Enrollment" lookup_enrollmentProcess as |enrollment|~}}
+      {{enrollment.startNewApplicationLinkPodiApp}}
+    {{~/catalog~}}
+  {{~/assign~}}
+{{~/ifMatchesRegexStr~}}

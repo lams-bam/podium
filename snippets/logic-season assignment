@@ -1,0 +1,8 @@
+{{#if prospectiveTerm}}
+{{else}}
+    {{#each allOpportunities}}
+        {{#if active}}
+            {{#assign "prospectiveTerm"}}{{prospectiveTerm}}{{/assign}}
+        {{/if}}
+    {{/each}}
+{{/if}}

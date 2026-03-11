@@ -1,0 +1,23 @@
+{{#assign "welcomeImage"}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Digital Marketing.*"}}
+    https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Welcome/gca_dm.png
+  {{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Career Rotation.*"}}
+    https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Welcome/gca_rt.png
+  {{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Coding for Data.*"}}
+    https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Welcome/gca_dc.png
+  {{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Web Development.*"}}
+    https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Welcome/gca_wd.png
+  {{/ifMatchesRegexStr}} 
+  {{#ifMatchesRegexStr v_nameTrack ".*Data Analytics.*"}}
+    https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/Welcome/gca_da.png
+  {{/ifMatchesRegexStr}} 
+{{/assign}}
+
+<div style="padding: 15px 30px 15px 30px; text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+  <a href="{{{ snippet "logic - welcome URL selector" }}}">
+    <img width="100%" src="{{welcomeImage}}" alt="Track Welcome Image" />
+  </a>
+</div>

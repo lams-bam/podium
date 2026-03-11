@@ -1,0 +1,63 @@
+{{#ifEq nextStep "Start Application"}}
+    <p style="font-size:14px;">Your next step is to <b><a href="{{nextStepURL}}">{{{replace nextStepCTA "Enrollment" "Your Enrollment"}}}</a></b> — it will only take 2 minutes.</p>
+{{/ifEq}}
+{{#ifEq nextStep "Submit Application"}}
+    <p style="font-size:14px;">Your next step is to <b><a href="{{nextStepURL}}">{{{replace nextStepCTA "Enrollment" "Your Enrollment"}}}</a></b> — it will only take 2 minutes.</p>
+{{/ifEq}}
+{{#ifEq nextStep "Complete Application"}}
+    <p style="font-size:14px;">Your next step is to <b><a href="{{nextStepURL}}">{{{replace nextStepCTA "Enrollment" "Your Enrollment"}}}</a></b> — it will only take 2 minutes.</p>
+{{/ifEq}}
+{{#ifEq nextStep "Wait for Application Approval"}}
+    <p style="font-size:14px;">Our team will review your information and let you know if you've been accepted as soon as possible.<p>{{#unless liveLabSelected}}
+    {{{ snippet "select_program_details" }}}{{/unless}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}
+{{#ifMatchesRegexStr nextStep "Hit.*Commit.*"}}
+    <p style="font-size:14px;">Your next step is to confirm your application by <a href="{{{nextStepURL}}}">logging in</a> and pressing the "Commit" button.</p>
+{{/ifMatchesRegexStr}}
+{{#ifEq nextStep "Complete Registration"}}
+    <p style="font-size:14px;">Your next step is to <b>{{{replace nextStepCTA "Registration" "Your Registration"}}}</b>{{#ifEq university "New York University"}}.{{else}} in <a href="{{{nextStepURL}}}">{{{v_schoolSystemNameRegistration}}}</a> using the following course code(s):</p>
+    <p align="center" style="text-align:center;font-size:14px;"><b>{{{ snippet "logic-course_code" }}}</b>{{/ifEq}}{{#if registrationPermissionCode}}<br/>
+    Permission Code: {{{registrationPermissionCode}}}{{/if}}</p>
+    {{#assign "e_showRegAssist"}}true{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "Select Program Details"}}
+    <p style="font-size:14px;">Your next step is to <b><a href="{{{nextStepURL}}}">{{{replace nextStepCTA "Program" "Your Program"}}}</a></b>.</p>
+{{/ifEq}}
+{{#ifEq nextStep "Wait for Reg to Open to Register"}}
+    <p style="font-size:14px;">Your next step will be to register for your courses once registration is open. Hang tight for now, and we'll follow up. Once you receive that email, you'll log into <a href="{{{nextStepURL}}}">{{{v_schoolSystemNameRegistration}}}</a> using the following course code(s):</p>
+    <p align="center" style="text-align:center;font-size:14px;"><b>{{{ snippet "logic-course_code" }}}</b></p>
+    {{#unless liveLabSelected}}
+    <p style="font-size:14px;">{{{ snippet "select_program_details" }}}</p>{{/unless}}
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "Wait to Be Registered"}}
+    <p style="font-size:14px;">Hang tight! We will register you and send you a confirmation email once that is completed.</p>
+    {{#unless liveLabSelected}}
+    <br/><br/>
+    {{{ snippet "select_program_details" }}}{{/unless}}
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "Wait to Be Permissioned"}}
+    <p style="font-size:14px;">Be on the lookout for an email with instructions and course codes to complete your registration. After registering, we'll send you a confirmation.</p>
+    {{#unless liveLabSelected}}
+    {{{ snippet "select_program_details" }}}{{/unless}}
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "Resolve Registration Hold"}}
+    <p style="font-size:14px;">According to our records, you currently have a{{#ifMatchesRegexStr regHoldReason "(A|E|I|O|U).*"}}n{{/ifMatchesRegexStr }} {{#ifMatchesRegexStr regHoldReason "[Oo]ther"}}{{else}}{{lower regHoldReason}} {{/ifMatchesRegexStr }}registration {{{ snippet "logic-replace-regHold" }}} that is preventing you from being registered in the {{v_programName}}.</p>
+    <p style="font-size:14px;">*You must resolve this {{{ snippet "logic-replace-regHold" }}} by {{#ifMatchesRegexStr v_programRegHoldResolutionDate ".*[0-9].*"}}{{dateFormat v_programRegHoldResolutionDate format="full"}}{{else}}by the registration resolution date{{/ifMatchesRegexStr }}.</p>
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "Explore Career Network"}}
+    <p style="font-size:14px;">You're all set, in the meantime visit <a href="{{{nextStepURL}}}">career network</a> for exclusive career tips.</p>
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+{{/ifEq}}
+{{#ifEq nextStep "None"}}
+    {{#assign "e_showRegAssist"}}false{{/assign}}
+    {{#assign "e_hideCTA"}}true{{/assign}}
+{{/ifEq}}

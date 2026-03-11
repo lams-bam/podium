@@ -1,0 +1,1 @@
+{{#ifMatchesRegexStr v_stage "(Reserved a Seat|Interested|Lead)" }}{{{v_startNewAppLink}}}{{else}}{{{v_continueApplicationLink}}}{{/ifMatchesRegexStr}}
