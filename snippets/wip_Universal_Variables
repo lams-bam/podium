@@ -1,0 +1,680 @@
+{{{ snippet "logic-set current message medium" }}}{{{ snippet "logic-stage assignment" }}}{{{ snippet "logic-lookup catalog Livelab to Track" }}}{{{ snippet "logic-set Podi App Link" }}}{{{ snippet "system - field translation" }}}
+
+<!-- Assign fixed end date -->
+{{~#assign "e_endDate"~}}20241105{{~/assign~}}
+
+<!-- ================================ -->
+<!--         CATALOG LOOKUPS         -->
+<!-- ================================ -->
+
+<!-- Term catalog: Livelab —>
+
+{{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+  {{~#assign "v_term"~}}{{livelab.term}}{{~/assign~}}
+{{~/catalog~}}
+<!-- Partner catalog -->
+{{~#catalog "Partner" lookup_partnerCatalogs as |part|~}}
+  {{~#assign "v_regHoldResponsibility"~}}{{{regHoldResponsibility}}}{{~/assign~}}
+  {{~#assign "v_genericProgramName"~}}{{{genericProgramName}}}{{~/assign~}}
+  {{~#assign "v_schoolAbbreviation"~}}{{{part.abbreviation}}}{{~/assign~}}
+  {{~#assign "v_digitalCredentials"~}}{{{part.digitalCredentials}}}{{~/assign~}}
+  {{~#assign "v_schoolAbbreviationExternal"~}}{{{part.abbreviationExternal}}}{{~/assign~}}
+  {{~#assign "v_schoolType"~}}{{part.schoolType}}{{~/assign~}}
+
+  {{~#assign "v_paTitle"~}}
+    {{~#ifMatchesRegexStr university "Middle Tennessee State University"~}}
+      Program Coordinator
+    {{~else~}}
+      {{part.paTitle}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/assign~}}
+
+  {{~#assign "v_paPhone"~}}{{part.phone}}{{~/assign~}}
+  {{~#assign "v_financialAidLink"~}}{{{part.financialAidResource}}}{{~/assign~}}
+  {{~#assign "v_tuitionAndFeesPolicy"~}}
+    {{~#if tuitionAndFeesPolicy~}}
+      {{tuitionAndFeesPolicy}}
+    {{~else~}}
+      {{part.tuitionAndFeesPolicy}}
+    {{~/if~}}
+  {{~/assign~}}
+ <!-- Calendly assignment with fallback and formatting -->
+  {{~#assign "v_paCalendlyLink_wip"~}}
+    {{~#if ownerCalendly~}}
+      {{ownerCalendly}}?sfid={{userId}}&utm_content={{{university}}}
+    {{~else~}}
+      {{{part.calendlyLink}}}?sfid={{userId}}&utm_content={{{university}}}
+    {{~/if~}}
+  {{~/assign~}}
+  
+  {{~#assign "v_paCalendlyLink"~}}
+    {{~#ifContainsStr v_paCalendlyLink_wip "http" ~}}
+      {{{v_paCalendlyLink_wip}}}
+    {{~else~}}
+      https://{{{v_paCalendlyLink_wip}}}
+    {{~/ifContainsStr~}}
+  {{~/assign~}}
+
+  {{~#assign "v_paEmail"~}}
+    {{~#if paEmail~}}{{paEmail}}{{~else~}}{{part.email}}{{~/if~}}
+  {{~/assign~}}
+
+{{~#assign "v_llForm"~}}
+    {{~#if liveLabFormURL~}}
+      {{{liveLabFormURL}}}
+    {{~else~}}
+      {{{part.livelabForm}}}?{{{ snippet "utm_master" }}}
+    {{~/if~}}
+  {{~/assign~}}
+
+  {{~#assign "v_microsite"~}}
+    {{~#ifMatchesRegexStr part.microsite "http.*"~}}
+      {{{part.microsite}}}
+    {{~else~}}
+      https://{{{part.microsite}}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/assign~}}
+
+  {{~#assign "v_activeSeason"~}}{{replace part.activeSeasons "  " " "}}{{~/assign~}}
+  {{~#assign "v_programName"~}}{{~#if programName~}}{{{programName}}}{{~else~}}{{{part.programName}}}{{~/if~}}{{~/assign~}}
+  {{~#assign "v_applicationType"~}}{{~#if applicationType~}}{{applicationType}}{{~else~}}{{part.applicationType}}{{~/if~}}{{~/assign~}}
+  {{~#assign "v_infoSession"~}}{{part.calendlyLink}}?sfid={{userId}}&utm_content={{{university}}}{{~/assign~}}
+  {{~#assign "v_courseCodesSetup"~}}{{part.courseCodesSetup}}{{~/assign~}}
+
+  {{~#if timeZone~}}{{~else~}}{{~#assign "timeZone"~}}{{part.timezone}}{{~/assign~}}{{~/if~}}
+
+  {{~#assign "v_financialAid"~}}{{part.financialAidResource}}{{~/assign~}}
+  
+    <!-- Track Slugs & Names (manually assigned for Iterable compatibility) -->
+  {{~#assign "v_trackSlugDA"~}}{{part.trackSlugDA}}{{~/assign~}}
+  {{~#assign "v_trackSlugDM"~}}{{part.trackSlugDM}}{{~/assign~}}
+  {{~#assign "v_trackSlugDC"~}}{{part.trackSlugDC}}{{~/assign~}}
+  {{~#assign "v_trackSlugWD"~}}{{part.trackSlugWD}}{{~/assign~}}
+  {{~#assign "v_trackSlugRT"~}}{{part.trackSlugRT}}{{~/assign~}}
+
+  {{~#assign "v_TrackNameDA"~}}{{part.trackNameDA}}{{~/assign~}}
+  {{~#assign "v_TrackNameDM"~}}{{part.trackNameDM}}{{~/assign~}}
+  {{~#assign "v_TrackNameDC"~}}{{part.trackNameDC}}{{~/assign~}}
+  {{~#assign "v_TrackNameWD"~}}{{part.trackNameWD}}{{~/assign~}}
+  {{~#assign "v_TrackNameRT"~}}{{part.trackNameRT}}{{~/assign~}}
+
+  {{~#assign "v_TrackTrailerSMSDA"~}}{{part.trackTrailerDASMS}}{{~/assign~}}
+  {{~#assign "v_TrackTrailerSMSDM"~}}{{part.trackTrailerDMSMS}}{{~/assign~}}
+  {{~#assign "v_TrackTrailerSMSDC"~}}{{part.trackTrailerDCSMS}}{{~/assign~}}
+  {{~#assign "v_TrackTrailerSMSWD"~}}{{part.trackTrailerWDSMS}}{{~/assign~}}
+  {{~#assign "v_TrackTrailerSMSRT"~}}{{part.trackTrailerRTSMS}}{{~/assign~}}
+{{~/catalog~}}
+
+<!-- Track catalog (if present) -->
+{{~#if lookup_trackCatalog~}}
+  {{~#catalog "Track" lookup_trackCatalog as |track|~}}
+    {{~#assign "v_projectOrganizations"~}}{{track.projectOrganizations}}{{~/assign~}}
+    {{~#assign "v_trackName"~}}{{track.name}}{{~/assign~}}
+    {{~#assign "v_trackCertifications"~}}{{track.certifications}}{{~/assign~}}
+    {{~#assign "v_industryTools"~}}{{track.industryTools}}{{~/assign~}}
+    {{~#assign "headofLiveNameFirst"~}}{{track.headofLiveNameFirst}}{{~/assign~}}
+    {{~#assign "v_headofLiveNameLast"~}}{{track.headofLiveNameLast}}{{~/assign~}}
+    {{~#assign "v_headofTrackNameFirst"~}}{{track.headofTrackNameFirst}}{{~/assign~}}
+    {{~#assign "v_headofTrackNameLast"~}}{{track.headofTrackNameLast}}{{~/assign~}}
+    {{~#assign "v_welcomeTrackVideo"~}}{{track.welcomeTrackVideo}}{{~/assign~}}
+    {{~#assign "v_trailer_gif"~}}{{track.trailer_gif}}{{~/assign~}}
+    {{~#assign "v_sneakpeek_url"~}}{{track.sneakpeek_url}}{{~/assign~}}
+  {{~/catalog~}}
+{{~/if~}}
+
+<!-- Partner Branding -->
+{{~#catalog "PartnerBranding" lookup_partnerCatalogs as |partb|~}}
+  {{~#assign "v_schoolAddress"~}}{{partb.schoolFullAddress}}{{~/assign~}}
+  {{~#assign "v_branding_buttonColor"~}}{{partb.buttonColor}}{{~/assign~}}
+  {{~#assign "v_branding_primaryColor"~}}{{partb.primaryBrandColor}}{{~/assign~}}
+  {{~#assign "v_branding_secondaryColor"~}}{{partb.secondaryBrandColor}}{{~/assign~}}
+  {{~#assign "v_branding_buttonText"~}}{{partb.buttonTextColor}}{{~/assign~}}
+  {{~#assign "v_branding_logowidth"~}}{{partb.logoWidth}}{{~/assign~}}
+  {{~#assign "v_branding_logoimage"~}}{{partb.logo}}{{~/assign~}}
+{{~/catalog~}}
+
+<!-- Enrollment Catalog -->
+{{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+  {{~#assign "v_registrationMethod"~}}{{enrollment.registrationMethod}}{{~/assign~}}
+  {{~#assign "v_liveLabRequirement"~}}{{enrollment.liveLabRequirements}}{{~/assign~}}
+  {{~#assign "v_schoolDirectedPermissionType"~}}{{enrollment.schoolDirectedPermissionType}}{{~/assign~}}
+  {{~#assign "v_appProcessCommit"~}}{{enrollment.appProcessCommit}}{{~/assign~}}
+  {{~#assign "v_liveLabSelectionType"~}}{{enrollment.liveLabSelectionType}}{{~/assign~}}
+
+<!-- Manually assign Course Codes and System Names by track and part -->
+  {{~#assign "v_courseCodeDM1"~}}{{enrollment.courseCodesDMPart1}}{{~/assign~}}
+  {{~#assign "v_courseCodeDM2"~}}{{enrollment.courseCodesDMPart2}}{{~/assign~}}
+  {{~#assign "v_courseCodeDMProgram"~}}{{enrollment.courseCodesDMProgram}}{{~/assign~}}
+  {{~#assign "v_courseNameDM1"~}}{{enrollment.systemNameDMPart1}}{{~/assign~}}
+  {{~#assign "v_courseNameDM2"~}}{{enrollment.systemNameDMPart2}}{{~/assign~}}
+  {{~#assign "v_courseNameDMProgram"~}}{{enrollment.systemNameDMProgram}}{{~/assign~}}
+
+  {{~#assign "v_courseCodeRT1"~}}{{enrollment.courseCodesRTPart1}}{{~/assign~}}
+  {{~#assign "v_courseCodeRT2"~}}{{enrollment.courseCodesRTPart2}}{{~/assign~}}
+  {{~#assign "v_courseCodeRTProgram"~}}{{enrollment.courseCodesRTProgram}}{{~/assign~}}
+  {{~#assign "v_courseNameRT1"~}}{{enrollment.systemNameRTPart1}}{{~/assign~}}
+  {{~#assign "v_courseNameRT2"~}}{{enrollment.systemNameRTPart2}}{{~/assign~}}
+  {{~#assign "v_courseNameRTProgram"~}}{{enrollment.systemNameRTProgram}}{{~/assign~}}
+
+  {{~#assign "v_courseCodeDA1"~}}{{enrollment.courseCodesDAPart1}}{{~/assign~}}
+  {{~#assign "v_courseCodeDA2"~}}{{enrollment.courseCodesDAPart2}}{{~/assign~}}
+  {{~#assign "v_courseCodeDAProgram"~}}{{enrollment.courseCodesDAProgram}}{{~/assign~}}
+  {{~#assign "v_courseNameDA1"~}}{{enrollment.systemNameDAPart1}}{{~/assign~}}
+  {{~#assign "v_courseNameDA2"~}}{{enrollment.systemNameDAPart2}}{{~/assign~}}
+  {{~#assign "v_courseNameDAProgram"~}}{{enrollment.systemNameDAProgram}}{{~/assign~}}
+
+  {{~#assign "v_courseCodeDC1"~}}{{enrollment.courseCodesDCPart1}}{{~/assign~}}
+  {{~#assign "v_courseCodeDC2"~}}{{enrollment.courseCodesDCPart2}}{{~/assign~}}
+  {{~#assign "v_courseCodeDCProgram"~}}{{enrollment.courseCodesDCProgram}}{{~/assign~}}
+  {{~#assign "v_courseNameDC1"~}}{{enrollment.systemNameDCPart1}}{{~/assign~}}
+  {{~#assign "v_courseNameDC2"~}}{{enrollment.systemNameDCPart2}}{{~/assign~}}
+  {{~#assign "v_courseNameDCProgram"~}}{{enrollment.systemNameDCProgram}}{{~/assign~}}
+
+  {{~#assign "v_courseCodeWD1"~}}{{enrollment.courseCodesWDPart1}}{{~/assign~}}
+  {{~#assign "v_courseCodeWD2"~}}{{enrollment.courseCodesWDPart2}}{{~/assign~}}
+  {{~#assign "v_courseCodeWDProgram"~}}{{enrollment.courseCodesWDProgram}}{{~/assign~}}
+  {{~#assign "v_courseNameWD1"~}}{{enrollment.systemNameWDPart1}}{{~/assign~}}
+  {{~#assign "v_courseNameWD2"~}}{{enrollment.systemNameWDPart2}}{{~/assign~}}
+  {{~#assign "v_courseNameWDProgram"~}}{{enrollment.systemNameWDProgram}}{{~/assign~}}
+
+  {{~#assign "v_schoolSystemNameSetup"~}}{{enrollment.schoolSystemNameSetup}}{{~/assign~}}
+  {{~#assign "v_schoolSystemNameApplication"~}}{{enrollment.schoolSystemNameApplication}}{{~/assign~}}
+  
+    <!-- Special case override -->
+  {{~#assign "v_schoolSystemNameRegistration"~}}
+    {{~#ifMatchesRegexStr university "University of Louisville"~}}
+      {{~#ifMatchesRegexStr cohort "Undergrad Student"~}}
+        {{~#ifMatchesRegexStr prospectiveTerm "Summer 2025"~}}Texas OneStop{{~else~}}UEX portal{{~/ifMatchesRegexStr~}}
+      {{~else~}}UEX portal{{~/ifMatchesRegexStr~}}
+    {{~else~}}{{{enrollment.schoolSystemNameRegistration}}}{{~/ifMatchesRegexStr~}}
+  {{~/assign~}}
+{{~/catalog~}}
+
+<!-- End Catalog Lookups -->
+
+<!-- ================================ -->
+<!--        COACH & COURSE INFO      -->
+<!-- ================================ -->
+
+<!-- Assign coach names (within date range) -->
+{{~#assign "v_cc_coachNameFirst"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) e_endDate~}}
+        {{coachNameFirst}}
+      {{~/ifLte~}}
+    {{~/ifGte~}}
+  {{~/each~}}
+{{~/assign~}}
+
+{{~#assign "v_cc_coachNameLast"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) e_endDate~}}
+        {{coachNameLast}}
+      {{~/ifLte~}}
+    {{~/ifGte~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Assign coach Calendly for part 1 enrolled students -->
+{{~#assign "v_coachCalendly"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifMatchesRegexStr status "Enrolled"~}}
+      {{~#ifMatchesRegexStr partSequence "1"~}}
+        {{coachCalendly}}?sfid={{userId}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- In-flight coach name and Calendly from matching LiveLabId -->
+{{~#each allCourseConnections as |acc|~}}
+  {{~#ifMatchesRegexStr acc.lookup_livelabCatalog liveLabId~}}
+    {{~#assign "v_coachCalendly_inFlight"~}}{{acc.coachCalendly}}?sfid={{userId}}{{~/assign~}}
+    {{~#assign "v_coachNameFirst_inFlight"~}}{{acc.coachNameFirst}}{{~/assign~}}
+    {{~#assign "v_coachNameLast_inFlight"~}}{{acc.coachNameLast}}{{~/assign~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/each~}}
+
+<!-- Assign LiveLab metadata (part 1) -->
+{{~#each allCourseConnections~}}
+  {{~#ifMatchesRegexStr partSequence "1"~}}
+    {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+      {{~#ifMatchesRegexStr livelab.partSequence "1"~}}
+        {{~#assign "v_ll_term"~}}{{{livelab.term}}}{{~/assign~}}
+        {{~#assign "v_ll_section"~}}{{{livelab.section}}}{{~/assign~}}
+        {{~#assign "v_ll_part1StartDate"~}}{{{livelab.part1StartDate}}}{{~/assign~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/catalog~}}
+  {{~/ifMatchesRegexStr~}}
+  {{~#assign "v_ll_lastLiveLabDate"~}}{{{livelab.lastLiveLabDate}}}{{~/assign~}}
+{{~/each~}}
+
+<!-- Assign LiveLab metadata (part 2) -->
+{{~#each allCourseConnections~}}
+  {{~#ifMatchesRegexStr partSequence "2"~}}
+    {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+      {{~#ifMatchesRegexStr livelab.partSequence "2"~}}
+        {{~#assign "v_ll_mursionDate"~}}{{{livelab.mursionDate}}}{{~/assign~}}
+        {{~#assign "v_ll_mursionZoomRoom"~}}{{{livelab.mursionZoomRoom}}}{{~/assign~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/catalog~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/each~}}
+
+<!-- Assign career day from part 1 connections -->
+{{~#assign "v_cc_careerDay"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifMatchesRegexStr partSequence "1"~}}
+      {{careerDay}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Disable fallback coach name fields for display -->
+{{~#each allCourseConnections~}}
+  {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+    {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+45d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#assign "v_cc_coachNameFirst_disabled"~}}{{coachNameFirst}}{{~/assign~}}
+      {{~#assign "v_cc_coachNameLast_disabled"~}}{{coachNameLast}}{{~/assign~}}
+    {{~/ifLte~}}
+  {{~/ifGte~}}
+{{~/each~}}
+
+<!-- End Coach & Course Info -->
+
+<!-- ================================ -->
+<!--    DEADLINE / TIME-BASED LOGIC  -->
+<!-- ================================ -->
+
+<!-- Shared date range limits -->
+{{~#assign "nowYMD"~}}{{now format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+{{~#assign "nowPlus30"~}}{{dateMath "now" "+30d" format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+{{~#assign "nowMinus1"~}}{{dateMath "now" "-1d" format="yyyyMMdd" tz=timeZone}}{{~/assign~}} 
+
+<!-- Application Start Deadline -->
+{{~#assign "v_deadlineAppStart"~}} 
+  {{~#each allOpportunities~}}
+    {{~#if deadlineExtApplicationStart~}} 
+      {{~#assign "formattedDeadline"~}}{{dateFormat deadlineExtApplicationStart format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedDeadline nowYMD) (lte formattedDeadline nowPlus30))~}}
+        {{deadlineExtApplicationStart}}
+      {{~/if~}}
+    {{~else if deadlineApplicationStart~}}
+      {{~#assign "formattedDeadline"~}}{{dateFormat deadlineApplicationStart format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedDeadline nowYMD) (lte formattedDeadline nowPlus30))~}}
+        {{deadlineApplicationStart}}
+      {{~/if~}}
+    {{~/if~}}
+  {{~/each~}} 
+{{~/assign~}}
+
+<!-- Extended value (if needed separately) -->
+{{~#assign "v_deadlineAppStartExt"~}}{{v_deadlineAppStart}}{{~/assign~}}
+
+<!-- Application Commit Deadline -->
+{{~#assign "v_deadlineAppCommit"~}} 
+  {{~#each allOpportunities~}}
+    {{~#if deadlineExtApplicationCommit~}} 
+      {{~#assign "formattedCommit"~}}{{dateFormat deadlineExtApplicationCommit format="yyyyMMddHH" tz=timeZone}}{{~/assign~}}
+      {{~#assign "formattedCommitDay"~}}{{dateFormat deadlineExtApplicationCommit format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedCommitDay nowYMD) (lte formattedCommit (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)))~}}
+        {{deadlineExtApplicationCommit}}
+      {{~/if~}}
+    {{~else if deadlineApplicationCommit~}}
+      {{~#assign "formattedCommit"~}}{{dateFormat deadlineApplicationCommit format="yyyyMMddHH" tz=timeZone}}{{~/assign~}}
+      {{~#assign "formattedCommitDay"~}}{{dateFormat deadlineApplicationCommit format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedCommitDay nowYMD) (lte formattedCommit (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)))~}}
+        {{deadlineApplicationCommit}}
+      {{~/if~}}
+    {{~/if~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Application Submit Deadline -->
+{{~#assign "v_deadlineApplicationSubmit"~}} 
+  {{~#each allOpportunities~}} 
+    {{~#if deadlineExtApplicationSubmit~}} 
+      {{~#ifLte (dateFormat deadlineExtApplicationSubmit format="yyyyMMdd" tz=timeZone) nowPlus30~}}
+        {{~#ifGte (dateFormat deadlineExtApplicationSubmit format="yyyyMMdd" tz=timeZone) nowYMD~}}
+          {{deadlineExtApplicationSubmit}}
+        {{~/ifGte~}}
+      {{~/ifLte~}}
+    {{~else~}}
+     {{~#if deadlineApplicationSubmit~}}
+      {{~#ifLte (dateFormat deadlineApplicationSubmit format="yyyyMMdd" tz=timeZone) nowPlus30~}}
+        {{~#ifGte (dateFormat deadlineApplicationSubmit format="yyyyMMdd" tz=timeZone) nowYMD~}}
+          {{deadlineApplicationSubmit}}
+        {{~/ifGte~}}
+      {{~/ifLte~}}
+     {{~/if}}
+    {{~/if~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Registration Close Deadline -->
+{{~#assign "v_deadlineRegistrationClose"~}} 
+  {{~#if deadlineProgramRegistrationClose~}} 
+    {{deadlineProgramRegistrationClose~}}
+  {{~else~}} 
+    {{~#each allOpportunities~}} 
+      {{~#if deadlineProgramRegistrationClose~}} 
+        {{~#ifLte (dateFormat deadlineProgramRegistrationClose format="yyyyMMdd" tz=timeZone) nowPlus30~}}
+          {{~#ifGte (dateFormat deadlineProgramRegistrationClose format="yyyyMMdd" tz=timeZone) nowMinus1~}}
+            {{deadlineProgramRegistrationClose~}}
+          {{~/ifGte~}}
+        {{~/ifLte~}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- RAS Deadline -->
+{{~#assign "v_deadlineRas"~}}
+  {{~#each campaignMembers~}}
+    {{~#if extUpcomingApplicationStartDeadline~}} 
+      {{~#assign "formattedRas"~}}{{dateFormat extUpcomingApplicationStartDeadline format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedRas nowYMD) (lte formattedRas nowPlus30))~}}
+        {{extUpcomingApplicationStartDeadline}}
+      {{~/if~}}
+    {{~else if upcomingApplicationStartDeadline~}}
+      {{~#assign "formattedRas"~}}{{dateFormat upcomingApplicationStartDeadline format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+      {{~#if (and (gte formattedRas nowYMD) (lte formattedRas nowPlus30))~}}
+        {{upcomingApplicationStartDeadline}}
+      {{~/if~}}
+    {{~/if~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Program Registration Hold Resolution Deadline -->
+{{~#assign "v_deadlineProgramRegHoldResolution"~}} 
+  {{~#if deadlineProgramRegHoldResolution~}} 
+    {{deadlineProgramRegHoldResolution~}}
+  {{~else~}} 
+    {{~#each allOpportunities~}} 
+      {{~#if deadlineProgramRegHoldResolution~}} 
+        {{~#ifLte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMddHH" tz=timeZone) (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)~}}
+          {{~#ifGte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMdd" tz=timeZone) nowYMD~}}
+            {{deadlineProgramRegHoldResolution}}
+          {{~/ifGte~}}
+        {{~/ifLte~}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- LiveLab Selection Deadline -->
+{{~#assign "v_deadlineLiveLabSelection"~}} 
+  {{~#if deadlineLiveLabSelection~}} 
+    {{deadlineLiveLabSelection}}
+  {{~else~}} 
+    {{~#each allOpportunities~}} 
+      {{~#if deadlineLiveLabSelection~}} 
+        {{~#ifLte (dateFormat deadlineLiveLabSelection format="yyyyMMddHH" tz=timeZone) (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)~}}
+          {{~#ifGte (dateFormat deadlineLiveLabSelection format="yyyyMMdd" tz=timeZone) nowYMD~}}
+            {{deadlineLiveLabSelection}}
+          {{~/ifGte~}}
+        {{~/ifLte~}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Program Registration Hold Reason -->
+{{~#assign "v_regHoldReason"~}} 
+  {{~#if regHoldReason~}} 
+    {{regHoldReason}}
+  {{~else~}} 
+    {{~#each allOpportunities~}} 
+      {{~#if deadlineProgramRegHoldResolution~}} 
+        {{~#ifLte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMdd" tz=timeZone) (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)}}
+          {{~#ifGte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMdd" tz=timeZone) nowYMD~}}
+            {{regHoldReason}}
+          {{~/ifGte~}}
+        {{~/ifLte~}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Program Registration Hold Status -->
+{{~#assign "v_regHoldStatus"~}} 
+  {{~#if regHoldStatus~}} 
+    {{regHoldStatus}}
+  {{~else~}} 
+    {{~#each allOpportunities~}} 
+      {{~#if deadlineProgramRegHoldResolution~}} 
+        {{~#ifLte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMdd" tz=timeZone) (dateMath "now" "+30d" format="yyyyMMddHH" tz=timeZone)~}}
+          {{~#ifGte (dateFormat deadlineProgramRegHoldResolution format="yyyyMMdd" tz=timeZone) nowYMD~}}
+            {{regHoldStatus}}
+          {{~/ifGte~}}
+        {{~/ifLte~}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- End Deadline / Time-Based Logic -->
+
+<!-- ================================ -->
+<!--       REGISTRATION & LINKS      -->
+<!-- ================================ -->
+
+<!-- Determine registration link based on university and cohort -->
+{{~#assign "v_registrationLink_wip"~}}
+  {{~#ifMatchesRegexStr university "Pacific Lutheran University"~}}
+    {{~#ifMatchesRegexStr cohort "Undergrad Student"~}}
+      {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+        {{{enrollment.registrationLink}}}
+      {{~/catalog~}}
+    {{~else~}}
+      https://www.campusce.net/pacificlutheran/course/course.aspx?catId=86
+    {{~/ifMatchesRegexStr~}}
+  {{~else~}}
+    {{~#ifMatchesRegexStr university "The University of Texas at Austin"~}}
+      {{~#ifMatchesRegexStr cohort "Undergrad Student"~}}
+        {{~#ifMatchesRegexStr prospectiveTerm "Summer 2025"~}}
+          https://extension.utexas.edu/summer-2025-internship-registration
+        {{~else~}}
+          https://onestop.utexas.edu/registration-and-degree-planning/registering-for-classes/
+        {{~/ifMatchesRegexStr~}}
+      {{~else~}}
+        {{~#ifMatchesRegexStr cohort "Admitted Student.*International"~}}
+          https://extension.utexas.edu/summer-2025-internship-registration
+        {{~/ifMatchesRegexStr~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~else~}}
+      {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+        {{{enrollment.registrationLink}}}
+      {{~/catalog~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/assign~}}
+
+<!-- Format registration link -->
+{{~#assign "v_registrationLink"~}}
+  {{~#ifContainsStr v_registrationLink_wip "http"~}}
+    {{{v_registrationLink_wip}}}
+  {{~else~}}
+    https://{{v_registrationLink_wip}}
+  {{~/ifContainsStr~}}
+{{~/assign~}}
+
+<!-- Start New Application Link -->
+{{~#assign "v_startNewAppLink"~}}
+  {{~#if startNewApplicationLink~}}
+    {{{startNewApplicationLink}}}
+  {{~else~}}
+    {{~#ifMatchesRegexStr v_podi ".*paperform.*"~}}
+      {{{v_podi}}}?sid={{userId}}&term={{#urlEncode}}{{prospectiveTerm}}{{/urlEncode}}
+    {{~else~}}
+      {{~#ifMatchesRegexStr prospectiveTerm "Summer.*"~}}
+        {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+          {{{enrollment.startNewApplicationLinkSummer}}}
+        {{~/catalog~}}
+      {{~else~}}
+        {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+          {{{enrollment.startNewApplicationLinkFall}}}
+        {{~/catalog~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Start New Application Link (SMS) -->
+{{~#assign "v_startNewAppLinkSMS"~}}
+  {{~#if startNewApplicationLinkSMS~}}
+    {{{startNewApplicationLinkSMS}}}
+  {{~else~}}
+    {{~#ifMatchesRegexStr v_podi ".*paperform.*"~}}
+      {{{v_podi}}}?sid={{userId}}&term={{#urlEncode}}{{prospectiveTerm}}{{/urlEncode}}
+    {{~else~}}
+      {{~#ifMatchesRegexStr prospectiveTerm "Summer.*"~}}
+        {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+          {{{enrollment.startNewApplicationLinkSummerSMS}}}
+        {{~/catalog~}}
+      {{~else~}}
+        {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+          {{{enrollment.startNewApplicationLinkFallSMS}}}
+        {{~/catalog~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Continue Application Link -->
+{{~#assign "v_continueApplicationLink"~}}
+  {{~#if continueApplicationLink~}}
+    {{{continueApplicationLink}}}
+  {{~else~}}
+    {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+      {{{enrollment.continueApplicationLink}}}
+      {{~#ifMatchesRegexStr enrollment.continueApplicationLink ".*paperform.*"~}}
+        ?{{{ snippet "utm_master" }}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/catalog~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Continue Application Link (SMS) -->
+{{~#assign "v_continueApplicationLinkSMS"~}}
+  {{~#if continueApplicationLinkSMS~}}
+    {{{continueApplicationLinkSMS}}}
+  {{~else~}}
+    {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+      {{{enrollment.continueApplicationLinkSMS}}}
+      {{~#ifMatchesRegexStr enrollment.continueApplicationLinkSMS ".*paperform.*"~}}
+        ?sid={{userId}}&term={{#urlEncode}}{{prospectiveTerm}}{{/urlEncode}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/catalog~}}
+  {{~/if~}}
+{{~/assign~}}
+
+<!-- Program Credits Info -->
+{{~#assign "v_programCreditCount"~}}
+  {{~#if lookup_enrollmentProcessCatalog~}}
+    {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+      {{enrollment.activeProgramCredit}}
+    {{~/catalog~}}
+  {{~else~}}
+    {{~#each allOpportunities as |opp|~}}
+      {{~#if opp.lookup_enrollmentProcessCatalog~}}
+        {{opp.activeProgramCredit}}
+      {{~/if~}}
+    {{~/each~}}
+  {{~/if~}}
+{{~/assign~}}
+
+{{~#assign "v_programCreditType"~}}
+  {{~#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enrollment|~}}
+    {{enrollment.activeCreditType}}
+  {{~/catalog~}}
+{{~/assign~}}
+
+<!-- End Registration & Links -->
+
+<!-- LiveLab Zoom Room (with fallback by date window) -->
+{{~#assign "v_ZoomRoom"~}}
+  {{~#each allCourseConnections~}}
+    {{~#if courseConnectionId~}}
+      {{~#ifEq id courseConnectionId~}}
+        {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+          {{{livelab.zoomRoom}}}
+        {{~/catalog~}}
+      {{~/ifEq~}}
+    {{~else~}}
+      {{~#if firstLiveLabDateTime~}}
+        {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-7d" format="yyyyMMdd" tz=timeZone)~}}
+          {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+7d" format="yyyyMMdd" tz=timeZone)~}}
+            {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+              {{{livelab.zoomRoom}}}
+            {{~/catalog~}}
+          {{~/ifLte~}}
+        {{~/ifGte~}}
+      {{~/if~}}
+    {{~/if~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- HQ Part URL within recent invite range -->
+{{~#assign "v_HQPartURL"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+21d" format="yyyyMMdd" tz=timeZone)~}}
+        {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+          {{{livelab.hqPartURL}}}
+        {{~/catalog~}}
+      {{~/ifLte~}}
+    {{~/ifGte~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- LiveLab Name (used in subject lines or headers) -->
+{{~#assign "v_liveLabName"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-7d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+45d" format="yyyyMMdd" tz=timeZone)~}}
+        {{livelabName}}
+      {{~/ifLte~}}
+    {{~/ifGte~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Head image gif based on track -->
+{{~#assign "v_headPicture"~}}
+  {{~#each allCourseConnections~}}
+    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+      {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) (dateMath "now" "+45d" format="yyyyMMdd" tz=timeZone)~}}
+        {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+          {{~#catalog "Track" lookupProgramTrack as |track|~}}
+            {{track.welcomeTrackGif}}
+          {{~/catalog~}}
+        {{~/catalog~}}
+      {{~/ifLte~}}
+    {{~/ifGte~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Track name from LiveLab and Track catalogs -->
+{{~#assign "v_ll_trackName"~}}
+  {{~#each allCourseConnections~}}
+    {{~#assign "llDate"~}}{{dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone}}{{~/assign~}}
+    {{~#if (and (gte llDate (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)) (lte llDate (dateMath "now" "+45d" format="yyyyMMdd" tz=timeZone)))~}}
+      {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+        {{~#catalog "Track" lookupProgramTrack as |track|~}}
+          {{track.name}}
+        {{~/catalog~}}
+      {{~/catalog~}}
+    {{~/if~}}
+  {{~/each~}}
+{{~/assign~}}
+
+<!-- Explicit course-level track name (fallback) -->
+{{~#assign "v_cc_trackName"~}}
+  {{~#catalog "Track" lk_track as |track|~}}
+    {{{track.name}}}
+  {{~/catalog~}}
+{{~/assign~}}
+
+<!-- End LiveLab / Misc Lookups -->
