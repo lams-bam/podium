@@ -1,0 +1,49 @@
+{{! Non-ITE}}
+{{#ifMatchesRegexStr stage "Prospective|Interested|^$" }}
+    <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can reserve your seat <strong><a href="{{v_microsite}}/reserve-a-seat">here.</a></strong></span></div>
+{{/ifMatchesRegexStr}}
+
+{{! Reserved a Seat}}
+{{#ifMatchesRegexStr stage "Reserved a Seat" }}
+    {{#ifMatchesRegexStr v_schoolType "App School" }}
+        <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can submit your application <strong><a href="{{v_startNewAppLink}}">here.</a></strong></span></div>
+    {{else}}
+    {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}
+             <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">Complete your registration for {{{ snippet "field-courseCodes" }}} in {{v_schoolSystemNameRegistration}}<strong><a href="{{{v_registrationLink}}}">here.</a></strong></span></div>
+                {{else}}
+                    <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can complete your application <strong><a href="{{{v_llForm}}}">here.</a></strong></span></div>
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can complete your application <strong><a href="{{{v_llForm}}}">here.</a></strong></span></div>
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{! Application Started}}
+{{#ifMatchesRegexStr stage "Application Started" }}
+    <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can continue your application <strong><a href="{{{v_continueApplicationLink}}}">here.</a></strong></span></div>
+{{/ifMatchesRegexStr}}
+
+{{! Application Submitted}}
+{{#ifMatchesRegexStr stage "Application Submitted" }}
+     <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can complete your application <strong><a href="{{{v_continueApplicationLink}}}">here.</a></strong></span></div>
+{{/ifMatchesRegexStr}}
+
+{{! Application Approved}}
+{{#ifMatchesRegexStr stage "Application Approved" }}
+    <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can complete your application <strong><a href="{{{v_continueApplicationLink}}}">here.</a></strong></span></div>
+{{/ifMatchesRegexStr}}
+
+{{! Application Completed}}
+{{#ifMatchesRegexStr stage "Application Completed" }}
+    {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}
+        <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">You can complete your application <strong><a href="{{{v_llForm}}}">here.</a></strong></span></div>
+    {{else}}
+        <div class="txtTinyMce-wrapper"><span style="font-size: 16px; color: #000000;">Complete your registration for {{{ snippet "field-courseCodes" }}} in {{v_schoolSystemNameRegistration}}<strong><a href="{{{v_registrationLink}}}">here.</a></strong></span></div>
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}
+
+{{! LiveLab Selection}}
+{{#ifMatchesRegexStr stage "LiveLab Selection" }}
+{{/ifMatchesRegexStr}}

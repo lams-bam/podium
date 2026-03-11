@@ -1,0 +1,70 @@
+{{{ snippet "universal-variables" }}}{{#if stage}}
+    {{#assign "v_stage"}}{{stage}}{{/assign}}
+{{else}}
+    {{#each opportunities}}
+        {{#if stage}}
+            {{#ifMatchesRegexStr stage ".*(Enrolled|Withdraw|Disqual|Register).*" }}
+            {{else}}
+                {{#assign "v_stage"}}{{stage}}{{/assign}}
+            {{/ifMatchesRegexStr}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+    
+{{! Non-ITE}}
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective^$" }}
+        {{{ snippet "Email - CTA - Reserve a Seat" }}}
+    {{/ifMatchesRegexStr}}
+
+{{! Reserved a Seat}}
+    {{#ifMatchesRegexStr v_stage ".*(Reserved a Seat|Interested).*" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}
+            {{{ snippet "Email - CTA - Start New Application" }}}
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}
+                    {{{ snippet "Email - CTA - Complete Registration Link" }}}
+                {{else}}
+                    {{{ snippet "Email - CTA - Select Livelab" }}}
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                {{{ snippet "Email - CTA - Select Livelab" }}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Started}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}
+        {{{ snippet "Email - CTA- App Start" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Submitted}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}
+        {{{ snippet "Email - CTA - App Submit" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Approved}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}
+            {{{ snippet "Email - CTA - Select Livelab" }}}
+        {{else}}
+            {{{ snippet "Email - CTA - App Approved" }}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Completed}}
+    {{#ifMatchesRegexStr v_stage "Application Completed" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}
+            {{{ snippet "Email - CTA - Select Livelab" }}}
+        {{else}}
+            {{{ snippet "Email - CTA - Complete Registration Link" }}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{! LiveLab Selection}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*" }}
+        {{{ snippet "Email - CTA - Complete Registration Link" }}}
+    {{/ifMatchesRegexStr}}
+{{else}}
+    {{{ snippet "Email - CTA - Reserve a Seat" }}}
+{{/if}}

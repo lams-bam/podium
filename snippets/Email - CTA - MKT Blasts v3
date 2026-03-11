@@ -1,0 +1,68 @@
+{{! Non-ITE}}
+{{#if v_stage}}
+    {{#ifMatchesRegexStr v_stage "Prospective^$" }}
+        {{{ snippet "Email - CTA - Reserve a Seat - Finish Enrollment" }}}
+    {{/ifMatchesRegexStr}}
+
+{{! Reserved a Seat}}
+    {{#ifMatchesRegexStr v_stage ".*(Reserved a Seat|Interested|Lead).*" }}
+        {{#ifMatchesRegexStr v_schoolType "App School" }}
+            {{{ snippet "Email - CTA - Start New Application v2" }}}
+        {{else}}
+            {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+                {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*" }}
+                    {{{ snippet "Email - CTA - Complete Registration Link" }}}
+                {{else}}
+                    {{{ snippet "Email - CTA - Select Livelab v2" }}}
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                {{{ snippet "Email - CTA - Select Livelab v2" }}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Started}}
+    {{#ifMatchesRegexStr v_stage "Application Started" }}
+        {{{ snippet "Email - CTA- App Start v2" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Submitted}}
+    {{#ifMatchesRegexStr v_stage "Application Submitted" }}
+        {{{ snippet "Email - CTA - App Submit" }}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Approved}}
+    {{#ifMatchesRegexStr v_stage "Application Approved" }}
+        {{#ifMatchesRegexStr university "San Diego State University" }}
+            {{{ snippet "Email - CTA - Complete Registration Link v2" }}}
+        {{else}}
+            {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}
+                {{{ snippet "Email - CTA - Select Livelab v2" }}}
+            {{else}}
+                {{{ snippet "Email - CTA - App Approved" }}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    
+    {{! Application Completed}}
+    {{#ifMatchesRegexStr v_stage "Application Completed" }}
+        {{#ifMatchesRegexStr v_liveLabSelectionType ".*[Pp]odium.*" }}
+            {{{ snippet "Email - CTA - Select Livelab v2" }}}
+        {{else}}
+            {{{ snippet "Email - CTA - Complete Registration Link v2" }}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{#ifMatchesRegexStr v_stage "Application Committed" }}
+        {{#ifMatchesRegexStr v_registrationMethod "[Ss]tudent" }}
+            {{{ snippet "Email - CTA - Complete Registration Link v2" }}}
+        {{else}}
+            {{{ snippet "Email - CTA - Select Livelab v2" }}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+    {{! LiveLab Selection}}
+    {{#ifMatchesRegexStr v_stage ".*LiveLab.*" }}
+        {{{ snippet "Email - CTA - Complete Registration Link" }}}
+    {{/ifMatchesRegexStr}}
+{{else}}
+    {{{ snippet "Email - CTA - Reserve a Seat - Finish Enrollment" }}}
+{{/if}}
