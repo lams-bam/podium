@@ -1,0 +1,8 @@
+{{~#each allProgramEnrollments~}}
+  {{~#ifEq id id_programEnrollment~}}
+    {{~#assign "v_coachNameFirst_inFlight"}}{{{coachNameFirst}}}{{~/assign~}}
+    {{~#assign "v_coachNameLast_inFlight"}}{{{coachNameLast}}}{{~/assign~}}
+    {{~#catalog "Track" lookup_trackCatalog as |track|~}}
+    {{~/catalog~}}
+  {{~/ifEq~}}
+{{~/each~}}

@@ -1,0 +1,83 @@
+{{~#if v_coachNameFirst~}}
+    {{~else~}}
+    {{~#assign "v_coachNameFirst"~}}
+        {{~#if liveLabId}}
+            {{~#each allCourseConnections as |acc|~}}
+                {{~#if stop_coachNameFirstLoop~}}
+                {{~else~}}
+                        {{~#ifMatchesRegexStr acc.lookup_livelabCatalog liveLabId~}}
+                            {{acc.coachNameFirst}}
+                            {{~#assign "v_coachNameFirst_inFlight"~}}{{acc.coachNameFirst}}{{~/assign~}}
+                            {{~#assign "stop_coachNameFirstLoop"~}}true{{~/assign~}}
+                        {{~/ifMatchesRegexStr~}}
+                {{~/if~}}
+            {{~/each~}}
+        {{~else~}}
+            {{~#if courseConnectionId~}}
+                {{~#each allCourseConnections~}}
+                    {{~#ifEq id courseConnectionId~}}
+                        {{coachNameFirst}}
+                        {{~#assign "v_cc_coachNameFirst"~}}{{coachNameFirst}}{{~/assign~}}
+                    {{~/ifEq}}
+                {{~/each~}}
+            {{~else~}}
+                {{~#each allCourseConnections~}}
+                    {{~#assign "e_endDate"~}}
+                        {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+                            {{livelab.waveEndDate}}
+                        {{~/catalog}}
+                    {{~/assign~}}
+                    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) 
+                      (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+                        {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) e_endDate~}}
+                        {{coachNameFirst}}
+                        {{~#assign "v_cc_coachNameFirst"~}}{{coachNameFirst}}{{~/assign~}}
+                        {{~/ifLte~}}
+                    {{~/ifGte~}}
+                {{~/each~}}
+            {{~/if~}}
+        {{~/if~}}
+    {{~/assign~}}
+{{~/if}}
+
+{{~#if v_coachNameLast~}}
+    {{~else~}}
+    {{~#assign "v_coachNameLast"~}}
+        {{~#if liveLabId}}
+            {{~#each allCourseConnections as |acc|~}}
+                {{~#if stop_coachNameLastLoop~}}
+                {{~else~}}
+                    {{~#ifMatchesRegexStr acc.lookup_livelabCatalog liveLabId~}}
+                        {{acc.coachNameLast}}
+                        {{~#assign "v_coachNameLast_inFlight"~}}{{acc.coachNameLast}}{{~/assign~}}
+                        {{~#assign "stop_coachNameLastLoop"~}}true{{~/assign~}}
+                    {{~/ifMatchesRegexStr~}}
+                {{~/if~}}
+            {{~/each~}}
+        {{~else~}}
+            {{~#if courseConnectionId~}}
+                {{~#each allCourseConnections~}}
+                    {{~#ifEq id courseConnectionId~}}
+                        {{coachNameLast}}
+                        {{~#assign "v_cc_coachNameLast"~}}{{coachNameLast}}{{~/assign~}}
+                    {{~/ifEq}}
+                {{~/each}}
+            {{~else~}}
+                {{~#each allCourseConnections~}}
+                    {{~#assign "e_endDate"~}}
+                        {{~#catalog "LiveLab" lookup_livelabCatalog as |livelab|~}}
+                            {{livelab.waveEndDate}}
+                        {{~/catalog}}
+                    {{~/assign~}}
+                    {{~#ifGte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) 
+                      (dateMath "now" "-14d" format="yyyyMMdd" tz=timeZone)~}}
+                        {{~#ifLte (dateFormat firstLiveLabDateTime format="yyyyMMdd" tz=timeZone) e_endDate~}}
+                        {{coachNameLast}}
+                        {{~#assign "v_cc_coachNameLast"~}}{{coachNameLast}}{{~/assign~}}
+                        {{~/ifLte~}}
+                    {{~/ifGte~}}
+                {{~/each~}}
+            {{~/if}}
+        {{~/if~}}
+    {{~/assign}}
+{{~/if}}
