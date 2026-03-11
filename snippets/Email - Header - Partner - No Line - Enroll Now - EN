@@ -1,0 +1,4 @@
+<div style="padding: 30px 30px 20px 30px  ;text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+
+  <a href="{{v_microsite}}/en?{{{ snippet "utm_master" }}}"> <img width="{{v_branding_logowidth}}" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/{{v_branding_logoimage}}" /></a>
+</div>
