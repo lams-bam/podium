@@ -1,0 +1,7 @@
+        {{#assign "e_disable_onboardingSession"}}true{{/assign}}
+        {{allProgramEnrollments.[0].coachNameFirst}} {{allProgramEnrollments.[0].coachNameLast}}<br/>
+        <b>Success Coach</b><br/>
+        {{{v_genericProgramName}}}<br/>
+        Call: <a href="tel:{{#catalogCollection "GlobalTech" as | gtech |}}{{gtech.[0].phoneNumber}}{{/catalogCollection}}">{{#catalogCollection "GlobalTech" as | gtech |}}{{gtech.[0].phoneNumber}}{{/catalogCollection}}</a><br>Text: <a href="sms:+18556840070">855-684-0070</a><br><a href="mailto:{{{ snippet "Address - Email - Coach" }}}">{{{ snippet "Address - Email - Coach" }}}</a>
+        {{#ifEq e_disable_onboardingSession "true"}}{{else}}<br/>
+        <a href="https://go-onboarding-session.paperform.co?sid={{userId}}">Join us for an onboarding session!</a>{{/ifEq}}

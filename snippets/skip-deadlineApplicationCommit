@@ -1,0 +1,12 @@
+{{#if override_skip}}{{else}}
+    {{#assign "system_deadlineSkipActive"}}{{{ snippet "system - disable deadline send skip" }}}{{/assign}}
+    {{#ifMatchesRegexStr system_deadlineSkipActive "True"}}{{#ifMatchesRegexStr email ".*podiumeducation.com"}}{{else}}
+    {{#each allOpportunities}}
+        {{#ifEq Opportunityid id}}
+            {{#ifLt (dateFormat deadlineApplicationCommit format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")}}
+                {{sendSkip cause="deadline passed"}}
+            {{/ifLt}}
+        {{/ifEq}}
+    {{/each}}
+    {{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}
+{{/if}}

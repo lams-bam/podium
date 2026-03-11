@@ -1,0 +1,22 @@
+{{#if override_skip}}{{else}}
+    {{#assign "system_deadlineSkipActive"}}{{{ snippet "system - disable deadline send skip" }}}{{/assign}}
+    {{#ifMatchesRegexStr system_deadlineSkipActive "True"}}
+        {{#ifMatchesRegexStr email ".*podiumeducation.com"}}{{else}}
+            {{#catalog "Term" lookup_termCatalog as |term|}}
+                {{#if term.date_extApplicationCommitmentDeadline}}
+                    {{#gt (dateFormat term.date_extApplicationCommitmentDeadline format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")}}
+                    {{else}}
+                        {{sendSkip cause="ext app commit deadline within 7 days"}}
+                    {{/gt}}
+                {{else}}
+                    {{#if term.date_applicationCommitmentDeadline}}
+                        {{#gt (dateFormat term.date_applicationCommitmentDeadline format="yyyyMMdd" tz="UTC") (dateMath "now" "+7d" format="yyyyMMdd" tz="UTC")}}
+                        {{else}}
+                            {{sendSkip cause="app commit deadline within 7 days"}}
+                        {{/gt}}
+                    {{/if}}
+                {{/if}}
+            {{/catalog}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+{{/if}}

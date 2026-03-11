@@ -1,0 +1,6 @@
+{{~#ifEq university "Georgetown University"}} Click "Continue with Georgetown University".
+{{~else ifEq university "Adelphi University"}} Click "Continue with Adelphi". 
+{{~else ifEq university "Denison University"}} Click "Continue with Denison".
+{{~else ifEq university "Columbia University"}} Click "Continue with Columbia University".
+{{~else ifEq university "University of South Dakota"}} Click "Continue with University of South Dakota".
+{{~/ifEq~}}
