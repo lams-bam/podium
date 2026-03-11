@@ -1,0 +1,64 @@
+{{!-- ========================================================= --}}
+{{!-- TEMPORARY: SHOW BOTH CTA BUTTONS                           --}}
+{{!-- TODO: Replace with productLine logic when available       --}}
+{{!-- productLine = GCA  -> show purple button only              --}}
+{{!-- productLine = CDE  -> show blue button only                --}}
+{{!-- ========================================================= --}}
+
+<!-- ================= GCA BUTTON ================= -->
+
+<!-- Desktop -->
+<div class="mobile_hide" style="min-width:60%;padding:0 10px;text-align:center;">
+  <!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      href="https://hq.globaltech.org/calendar"
+      style="v-text-anchor:middle;"
+      arcsize="8%"
+      stroke="f"
+      <w:anchorlock/>
+      <center>
+  <![endif]-->
+    <a href="{{e_url}}"
+      style="min-width:60%;background-color:{{{ snippet "Brand - GCA - Button Color" }}};border-radius:5px;
+      color:{{{ snippet "Brand - GCA - Button Text Color" }}};display:inline-block;font-family:Arial,Helvetica,sans-serif;
+      font-size:16px;font-weight:bold;line-height:28px;text-align:center;
+      text-decoration:none;-webkit-text-size-adjust:none;">
+      <span style="display:inline-block;padding:10px;">
+        Log In ➔
+      </span>
+    </a>
+  <!--[if mso]>
+      </center>
+    </v:roundrect>
+  <![endif]-->
+</div>
+
+<!-- Mobile -->
+<div class="desktop_hide"
+  style="align:center;min-width:100%;padding:0 10px;text-align:center;
+  mso-hide:all;display:none;max-height:0;overflow:hidden;">
+  <!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      href="https://hq.globaltech.org/calendar"
+      style="v-text-anchor:middle;"
+      arcsize="8%"
+      stroke="f"
+      <w:anchorlock/>
+      <center>
+  <![endif]-->
+    <a href="{{e_url}}"
+      style="min-width:100%;background-color:{{{ snippet "Brand - GCA - Button Color" }}};border-radius:5px;
+      color:{{{ snippet "Brand - GCA - Button Text Color" }}};display:inline-block;font-family:Arial,Helvetica,sans-serif;
+      font-size:16px;font-weight:bold;line-height:28px;text-align:center;
+      text-decoration:none;-webkit-text-size-adjust:none;">
+      <span style="display:inline-block;padding:10px;">
+        Log In ➔
+      </span>
+    </a>
+  <!--[if mso]>
+      </center>
+    </v:roundrect>
+  <![endif]-->
+</div>

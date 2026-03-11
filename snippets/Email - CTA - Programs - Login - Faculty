@@ -1,0 +1,50 @@
+<!-- ================= PROGRAM LOGIN CTA (single snippet) ================= -->
+<p style="margin:0;padding:0;line-height:0;font-size:0;text-align:center;">
+  <span style="display:block;margin:0;padding:0;line-height:0;font-size:0;text-align:center;">
+
+    <!-- Desktop -->
+    <span class="mobile_hide" style="display:block;min-width:60%;padding:0 10px;text-align:center;line-height:0;font-size:0;">
+      <a href="{{{ snippet "Product - Program Login Faculty" }}}"
+         style="min-width:60%;
+                background-color:{{#ifMatchesRegexStr productLine ".*CDE.*"}}{{{ snippet "Brand - CDE - Button Color" }}}{{else ifMatchesRegexStr productLine ".*GCA.*"}}{{{ snippet "Brand - GCA - Button Color" }}}{{else}}#4B4E63{{/ifMatchesRegexStr}};
+                border-radius:5px;
+                color:{{#ifMatchesRegexStr productLine ".*CDE.*"}}{{{ snippet "Brand - CDE - Button Text Color" }}}{{else ifMatchesRegexStr productLine ".*GCA.*"}}{{{ snippet "Brand - GCA - Button Text Color" }}}{{else}}#FFFFFF{{/ifMatchesRegexStr}};
+                display:inline-block;
+                vertical-align:top;
+                font-family:Arial,Helvetica,sans-serif;
+                font-size:16px;
+                font-weight:bold;
+                line-height:28px;
+                text-align:center;
+                text-decoration:none;
+                -webkit-text-size-adjust:none;
+                margin:0;">
+        <span style="display:block;padding:10px;line-height:28px;">Log In ➔</span>
+      </a>
+    </span>
+
+    <!-- Mobile -->
+    <span class="desktop_hide"
+          style="align:center;min-width:100%;padding:0 10px;text-align:center;
+                 mso-hide:all;display:none;max-height:0;overflow:hidden;line-height:0;font-size:0;">
+      <a href="{{#ifMatchesRegexStr productLine ".*CDE.*"}}{{{ snippet "Product - CDE - Program Login Students" }}}{{else ifMatchesRegexStr productLine ".*GCA.*"}}{{{ snippet "Product - GCA - Program Login Students" }}}{{else}}https://hq.globaltech.org{{/ifMatchesRegexStr}}"
+         style="min-width:100%;
+                background-color:{{#ifMatchesRegexStr productLine ".*CDE.*"}}{{{ snippet "Brand - CDE - Button Color" }}}{{else ifMatchesRegexStr productLine ".*GCA.*"}}{{{ snippet "Brand - GCA - Button Color" }}}{{else}}#4B4E63{{/ifMatchesRegexStr}};
+                border-radius:5px;
+                color:{{#ifMatchesRegexStr productLine ".*CDE.*"}}{{{ snippet "Brand - CDE - Button Text Color" }}}{{else ifMatchesRegexStr productLine ".*GCA.*"}}{{{ snippet "Brand - GCA - Button Text Color" }}}{{else}}#FFFFFF{{/ifMatchesRegexStr}};
+                display:inline-block;
+                vertical-align:top;
+                font-family:Arial,Helvetica,sans-serif;
+                font-size:16px;
+                font-weight:bold;
+                line-height:28px;
+                text-align:center;
+                text-decoration:none;
+                -webkit-text-size-adjust:none;
+                margin:0;">
+        <span style="display:block;padding:10px;line-height:28px;">Log In ➔</span>
+      </a>
+    </span>
+
+  </span>
+</p>

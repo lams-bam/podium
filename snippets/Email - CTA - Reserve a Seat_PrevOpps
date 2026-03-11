@@ -1,0 +1,14 @@
+{{#assign "s_alignButton"}}{{#if cta_alignButton}}{{cta_alignButton}}{{else}}center{{/if}}{{/assign}}
+{{#assign "s_link"}}{{#if cta_url}}{{cta_url}}{{else}}{{{v_microsite}}}/reserve-a-seat?{{{ snippet "utm_master" }}}{{/if}}{{/assign}}
+{{#assign "s_ctaCopy"}}{{#if cta_copy}}{{cta_copy}}{{else}}Enroll Now{{/if}}{{/assign}}
+<div style="margin-left: auto; margin-right: auto;width:310px;padding-bottom:0px;padding-top:0px;padding-right:10px;padding-left:10px;text-align:{{s_alignButton}}">
+<a rel="noopener" target="_blank" href="{{{s_link}}}" style="background-color: {{#if v_branding_buttonColor}}{{v_branding_buttonColor}}{{else}}#313547{{/if}}; font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; text-decoration: none; padding: 14px 20px; color: {{#if v_branding_buttonText}}{{v_branding_buttonText}}{{else}}#ffffff{{/if}}; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+    <![endif]-->
+    <span style="mso-text-raise: 15pt;padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:0px;font-size:16px;display:inline-block;letter-spacing:normal">&nbsp;&nbsp;{{{s_ctaCopy}}} ➔&nbsp;&nbsp;</span>
+    <!--[if mso]>
+    <i style="letter-spacing: 55px; mso-font-width: -100%;">&nbsp;</i>
+    <![endif]-->
+</a>
+</div>
