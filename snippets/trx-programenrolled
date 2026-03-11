@@ -1,0 +1,2 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+{{ defaultIfEmpty nameFirst "Hello"}}, congrats, you are fully enrolled in the {{{v_programName}}}! Next, you will start to hear from the Success Team, coach@globaltech.org. They'll be sharing resources and will be your main point of contact moving forward. Excited for you to have this experience, it will be like no other!

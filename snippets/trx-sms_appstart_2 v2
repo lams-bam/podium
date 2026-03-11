@@ -1,0 +1,6 @@
+{{#ifMatchesRegexStr v_schoolType "App School"}}Hey {{ defaultIfEmpty nameFirst "there"}},
+Friendly reminder to complete your enrollment. Looking forward to having you join us, I'm confident you're going to find so much value in this program!{{else}}{{sendSkip cause="not applicable schooltype" }}{{/ifMatchesRegexStr}}
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{{replace v_continueApplicationLink "&amp;" "&"}}}

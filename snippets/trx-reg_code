@@ -1,0 +1,6 @@
+[ACTION REQUIRED: {{{replace v_genericProgramName "The " ""}}}]
+Your permission code has been provisioned to complete your registration in the {{lower v_prospectiveTerm}} program.
+
+You need to log into {{v_schoolSystemNameRegistration}} for {{{ snippet "logic-course_code" }}} and use permission code: {{{registrationPermissionCode}}}
+
+{{{v_registrationLink}}}

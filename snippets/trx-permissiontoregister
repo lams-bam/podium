@@ -1,0 +1,7 @@
+[ACTION REQUIRED: {{{v_genericProgramName}}}]
+You have been granted permission to register for {{defaultIfEmpty (capitalizeFirst v_prospectiveTerm) "the upcoming"}}
+ {{{v_programName}}}. 
+
+Next, log into {{v_schoolSystemNameRegistration}} and register for {{{ snippet "logic-course_code" }}}.
+
+{{{v_registrationLink}}}

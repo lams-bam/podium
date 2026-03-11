@@ -1,0 +1,6 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Hey {{defaultIfEmpty nameFirst "there"}}! Great news! Registration is now open for the {{{v_programName}}}. I just sent you an email with the complete details.
+
+Once your registration window is open, you can register in {{{v_schoolSystemNameRegistration}}} for: {{{ snippet "logic-course_code" }}}
+
+{{{v_registrationLink}}}

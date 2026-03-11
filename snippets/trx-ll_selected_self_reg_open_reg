@@ -1,0 +1,3 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Hey {{ defaultIfEmpty nameFirst "there"}} 🎉 Thanks for selecting your {{{v_programName}}} program details! The last step is to register{{#ifEq university "New York University"}}{{else}} in {{{defaultIfEmpty v_schoolSystemNameRegistration "the registration system"}}} for {{{ snippet "logic-course_code" }}}. An email has also been sent with instructions{{/ifEq}}.
+{{{v_registrationLink}}}

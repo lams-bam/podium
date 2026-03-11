@@ -1,0 +1,3 @@
+{{{ snippet "SMS - GTX Prepend" }}} Your LiveLab selection came through, you're good to go.{{#unless registeredInSystem}}
+
+We'll handle all the registration on our side and confirm once it is done.{{/unless}}

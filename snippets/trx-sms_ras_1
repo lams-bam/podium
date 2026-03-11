@@ -1,0 +1,8 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+Thanks for starting the enrollment process, our team will reach out soon to discuss the program and how it might fit your goals.
+
+{{#ifMatchesRegexStr v_schoolType "App School"}}Your next step is to complete your Application. {{#ifMatchesRegexStr v_applicationType "Podi App"}}
+
+{{{startNewApplicationLinkSMS}}}{{else}}
+{{{startNewApplicationLink}}}{{/ifMatchesRegexStr}}{{else}}Your next step is to choose your LiveLab time. Follow the link in the email I just sent you.{{/ifMatchesRegexStr}}
+{{{ snippet "system - sms opt out logic" }}}

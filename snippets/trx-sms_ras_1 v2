@@ -1,0 +1,9 @@
+{{{ snippet "SMS - GTX Prepend" }}}
+You've started your enrollment! Our team will reach out soon to discuss the program and how it might fit your goals.
+
+{{#ifMatchesRegexStr v_schoolType "App School"}}You can now take your next step in enrollment! Complete your application using the link below.{{#ifMatchesRegexStr v_applicationType "Podi App"}}
+
+{{{replace v_startNewAppLink "&amp;" "&"}}}{{else}}
+{{{replace v_startNewAppLink "&amp;" "&"}}}{{/ifMatchesRegexStr}}{{else}} You can now take your next step in enrollment! Select your program details using the link below.
+
+{{v_llForm}}{{/ifMatchesRegexStr}}

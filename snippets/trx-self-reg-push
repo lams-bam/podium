@@ -1,0 +1,4 @@
+Hey {{nameFirst}},
+Deadline for the {{{v_programName}}} is approaching! You still need to finalize your registration for
+{{{ snippet "logic-course_code" }}}:
+{{{v_registrationLink}}}

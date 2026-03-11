@@ -1,0 +1,6 @@
+[ACTION REQUIRED: {{{v_genericProgramName}}}]
+You have a registration {{{ snippet "logic-replace-regHold" }}} preventing you from completing your registration. 
+
+You have until {{dateFormat v_programRegHoldResolutionDate format="full"}} to remove this registration {{{ snippet "logic-replace-regHold" }}}.
+
+Please work to remove this {{{ snippet "logic-replace-regHold" }}} ASAP and let us know once complete. We will give you a call soon to review.

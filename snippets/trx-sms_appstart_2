@@ -1,0 +1,6 @@
+{{#ifMatchesRegexStr v_schoolType "App School"}}Hey {{ defaultIfEmpty nameFirst "there"}},
+Friendly reminder to complete your enrollment for the {{{v_programName}}} as soon as possible. Looking forward to you joining us — I'm confident you'll find this to be a transformational experience.{{else}}Hi, I just sent you an email with a link to select your LiveLab section time. Just pick the best time for your schedule. The sections fill up fast, so get your preferred time now. If you have any questions, I'm always here to help!{{/ifMatchesRegexStr}}
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}
+
+{{#ifMatchesRegexStr v_applicationType "Podi App"}}{{{continueApplicationLinkSMS}}}{{else}}{{{continueApplicationLink}}}{{/ifMatchesRegexStr}}

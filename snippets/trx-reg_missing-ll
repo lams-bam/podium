@@ -1,0 +1,4 @@
+Hi {{ defaultIfEmpty nameFirst "there" }}, great to see you registered for the {{v_programName}}! Your next step is to select your program details so we can get you set up, and you can always adjust if needed. 
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+
+{{{v_llForm}}}
