@@ -1,0 +1,61 @@
+{{! Non-ITE}}
+{{~#if v_stage~}}{{~else~}}{{{v_microsite}}}?{{{ snippet "utm_master" }}}{{~/if~}}
+
+{{! Prospective | Interested | Reserved a Seat}}
+{{~#ifMatchesRegexStr v_stage "(Prospective|Interested|Reserved a Seat).*"~}}
+  {{~#ifMatchesRegexStr v_applicationType ".*Podi.*"~}}
+    {{{v_startNewAppLinkSMS}}}
+  {{~else~}}
+    {{{v_startNewAppLink}}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr~}}
+
+{{! Application Started}}
+{{~#ifMatchesRegexStr v_stage "Application Started"~}}
+  {{~#ifMatchesRegexStr v_applicationType ".*Podi.*"~}}
+    {{{v_continueApplicationLinkSMS}}}
+  {{~else~}}
+    {{{v_continueApplicationLink}}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr~}}
+
+{{! Application Submitted}}
+{{~#ifMatchesRegexStr v_stage "Application Submitted"~}}
+  {{{v_continueApplicationLink}}}
+{{~/ifMatchesRegexStr~}}
+
+{{! Application Approved}}
+{{~#ifMatchesRegexStr v_stage "Application Approved"~}}
+  {{{v_continueApplicationLink}}}
+{{~/ifMatchesRegexStr~}}
+
+{{! Application Completed}}
+{{~#ifMatchesRegexStr v_stage "Application Completed"~}}
+  {{~#ifEq v_registrationMethod "Student Self Registers"~}}
+    {{~#ifLte (dateFormat programRegistrationOpenDate format="yyyyMMddHHmm" tz="UTC") (now format="yyyyMMddHHmm" tz="UTC")~}}
+      {{{v_registrationLink}}}
+    {{~/ifLte~}}
+  {{~/ifEq~}}
+  {{~#ifEq v_registrationMethod "Student Self Registers - School Directed"~}}
+    {{~#ifGt (dateFormat programRegistrationOpenDate format="yyyyMMddHHmm" tz="UTC") (now format="yyyyMMddHHmm" tz="UTC")~}}
+      {{{v_llForm}}}?{{{ snippet "utm_master" }}}
+    {{~/ifGt~}}
+  {{~/ifEq~}}
+  {{~#ifEq v_registrationMethod "School Initiated"~}}
+    {{{v_llForm}}}?{{{ snippet "utm_master" }}}
+  {{~/ifEq~}}
+{{~/ifMatchesRegexStr~}}
+
+{{! LiveLab Selection}}
+{{~#ifMatchesRegexStr v_stage "LiveLab.*"~}}
+  {{~#ifEq v_registrationMethod "Student Self Registers"~}}
+    {{~#ifLte (dateFormat programRegistrationOpenDate format="yyyyMMddHHmm" tz="UTC") (now format="yyyyMMddHHmm" tz="UTC")~}}
+      {{{v_registrationLink}}}
+    {{~/ifLte~}}
+  {{~/ifEq~}}
+{{~/ifMatchesRegexStr~}}
+
+{{! Registered in System}}
+{{~#ifMatchesRegexStr v_stage "Registered in System"~}}
+  {{{v_llForm}}}?{{{ snippet "utm_master" }}}
+{{~/ifMatchesRegexStr~}}

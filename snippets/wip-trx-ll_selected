@@ -1,0 +1,8 @@
+[WIP] {{{ snippet "SMS - GTX Prepend" }}}{{#ifMatchesRegexStr v_registrationMethod ".*(School.*Initiated|No Registration).*"}}Your LiveLab selection came through, you're good to go.
+
+We'll handle all the registration on our side and confirm once it is done.{{else}}{{#ifMatchesRegexStr v_registrationMethod ".*(School.*Initiated|No Registration).*"}}Your LiveLab selection came through, you're good to go. Keep an eye on your inbox for a Permission to Register email. If you do not see the email within one week, please let us know.{{else}}{{#ifMatchesRegexStr university "The University of Texas at Austin"}}{{#ifMatchesRegexStr prospectiveTerm "Fall.*"}}Your LiveLab selection came through, you're good to go. Keep an eye on your inbox for a Permission to Register email.{{else}}Hey {{ defaultIfEmpty nameFirst "there"}} 🎉 Thanks for selecting your {{{v_programName}}} LiveLab Time! The last step is to register in {{{defaultIfEmpty v_schoolSystemNameSetup "the registration system"}}} for {{{ snippet "field-courseCodes" }}}. An email has also been sent with instructions.
+{{{v_registrationLink}}}
+{{/ifMatchesRegexStr}}{{else}}
+
+Hey {{ defaultIfEmpty nameFirst "there"}} 🎉 Thanks for selecting your {{{v_programName}}} LiveLab Time! The last step is to register in {{{defaultIfEmpty v_schoolSystemNameSetup "the registration system"}}} for {{{ snippet "field-courseCodes" }}}. An email has also been sent with instructions.
+{{{v_registrationLink}}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}{{/ifMatchesRegexStr}}

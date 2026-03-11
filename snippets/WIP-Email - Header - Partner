@@ -1,0 +1,7 @@
+<div style="padding: 30px 30px 15px 30px  ;text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+
+  <a href="{{v_microsite}}?{{{ snippet "utm_master" }}}"> <img width="{{v_branding_logowidth}}" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/{{v_branding_logoimage}}" /></a>
+</div>
+<div>
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td class="divider_inner" style="font-size:1px;line-height:1px;border-top:1px solid #bbb"><span>&hairsp;</span></td></tr></tbody></table>
+</div>
