@@ -1,0 +1,10 @@
+Hi {{nameFirst}},
+
+It's {{ defaultIfEmpty ownerNameFirst "Carla" }} with the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! Missed the deadline this summer? No worries - fall enrollment is now open! Perfect timing to gain experience and build a stacked resume before spring recruiting. 
+
+Real experience + credits + fully remote. Check your email for full details or apply using the link below. Let me know if you have any questions - I'm here to ensure you get a spot this fall!
+
+- {{ defaultIfEmpty ownerNameFirst "Carla" }} {{ defaultIfEmpty ownerNameLast "Martin" }}
+Program Advisor
+
+{{{ v_startNewAppLink }}}

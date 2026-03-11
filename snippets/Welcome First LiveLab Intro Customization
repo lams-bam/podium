@@ -1,0 +1,19 @@
+{{#ifEq university "Southern Illinois University Carbondale"}}
+Your first week of LiveLabs are optional, you can ignore your First LiveLab reminder and watch the recordings in the Media Gallery! Or if you'd like, come join us anyways! 🙂
+{{else}}{{#ifEq university "The University of Texas at Austin"}}
+Your first week of LiveLabs are optional, you can ignore your First LiveLab reminder and watch the recordings in the Media Gallery! Or if you'd like, come join us anyways! 🙂
+{{else}}{{#ifEq university "University of North Carolina Greensboro"}}
+  {{#ifEq livelab.section "A"}}
+Your first week of LiveLabs are optional, you can ignore your First LiveLab reminder and watch the recordings in the Media Gallery! Or if you'd like, come join us anyways! 🙂
+  {{else}}
+Show up for your first LiveLab {{{ dateFormat e_firstLiveLabDateTime format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone }}}.
+  {{/ifEq}}
+{{else}}{{#ifEq university "North Carolina State University"}}
+  {{#ifEq livelab.section "A"}}
+Your first week of LiveLabs are optional, you can ignore your First LiveLab reminder and watch the recordings in the Media Gallery! Or if you'd like, come join us anyways! 🙂
+  {{else}}
+Show up for your first LiveLab {{{ dateFormat e_firstLiveLabDateTime format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone }}}.
+  {{/ifEq}}
+{{else}}
+Show up for your first LiveLab {{{ dateFormat e_firstLiveLabDateTime format="EEEE, MMMM d, YYYY' at 'h aaa (z)" tz=timeZone }}}.
+{{/ifEq}}{{/ifEq}}{{/ifEq}}{{/ifEq}}

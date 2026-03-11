@@ -1,0 +1,7 @@
+{{{ snippet "universal-variables" }}} {{#each allCourseConnections}} {{#ifEq id courseConnectionId}} {{#assign "v_cc_coachNameFirst"}}{{coachNameFirst}}{{/assign}} {{#assign "v_cc_coachNameLast"}}{{coachNameLast}}{{/assign}} {{#assign "matchedSection"}}{{section}}{{/assign}} {{/ifEq}} {{/each}}Hi {{nameFirst}},
+
+Your first LiveLab is today at {{dateFormat firstLiveLabDateTime format="h aaa (z)" tz=timeZone}}.
+
+Join here 👉 {{{v_ZoomRoom}}} and register with {{{email}}} to be marked present. Next time, use the Zoom link from the LiveLab events on HQ's calendar – 👉{{e_hqPartURL}}.
+
+- {{{v_cc_coachNameFirst}}}, Success Coach

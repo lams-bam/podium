@@ -1,0 +1,19 @@
+{{#ifEq university "Southern Illinois University Carbondale"}}
+For all your LiveLabs, you can find the Zoom link in your HQ Calendar and register using {{email}}.
+{{else}}{{#ifEq university "The University of Texas at Austin"}}
+For all your LiveLabs, you can find the Zoom link in your HQ Calendar and register using {{email}}.
+{{else}}{{#ifEq university "University of North Carolina Greensboro"}}
+  {{#ifEq livelab.section "A"}}
+For all your LiveLabs, you can find the Zoom link in your HQ Calendar and register using {{email}}.
+  {{else}}
+Find the Zoom link in your HQ Calendar and register using {{email}}.
+  {{/ifEq}}
+{{else}}{{#ifEq university "North Carolina State University"}}
+  {{#ifEq livelab.section "A"}}
+For all your LiveLabs, you can find the Zoom link in your HQ Calendar and register using {{email}}.
+  {{else}}
+Find the Zoom link in your HQ Calendar and register using {{email}}.
+  {{/ifEq}}
+{{else}}
+Find the Zoom link in your HQ Calendar and register using {{email}}.
+{{/ifEq}}{{/ifEq}}{{/ifEq}}{{/ifEq}}

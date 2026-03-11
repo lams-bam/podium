@@ -1,0 +1,5 @@
+{{#if changePasswordURL}}
+  {{#assign "scenario"}}2{{/assign}}
+{{else}}
+  {{#assign "scenario"}}1{{/assign}}
+{{/if}}

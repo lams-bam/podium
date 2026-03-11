@@ -1,0 +1,3 @@
+Hi {{nameFirst}}! We are excited to see you in LiveLab this week. As a friendly reminder, please login to access your course materials prior to LiveLab. I just sent you an email with details and a link to join. If you have any questions or issues, let me know!
+
+-{{v_coachNameFirst_inFlight}}

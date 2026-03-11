@@ -1,0 +1,9 @@
+        <div style="padding: 30px 30px 15px 30px;text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+        
+          <a href="{{v_microsite}}?{{{ snippet "utm_master" }}}"> <img width="{{v_branding_logowidth}}" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/{{v_branding_logoimage}}" /></a>
+        </div>
+        <div style="text-align: center; background-color: #ffffff; font-size:30px;">X</div>
+        
+        <div align="center" style="padding: 20px 30px 30px 30px;text-align: center; background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/logo-school-dynamic-email/whitebackground21.jpg');">
+        <a href="{{v_microsite}}?{{{ snippet "utm_master" }}}"><img style="max-width: 210px;"src="https://d2axdqolvqmdvx.cloudfront.net/f9eadc87-682f-4957-b7e3-7af604eef9a6/GCAlogohorizontalgrey.png" style="display: block; height: auto; border: 0; width: 100%;" width="210"></a>
+        </div>
