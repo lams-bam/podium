@@ -1,0 +1,4 @@
+Great chatting{{#if nameFirst}}, {{nameFirst}}{{/if}}, I just sent you an email with more info on the program and easy links for your next step. Let me know if you have any questions as you're going through those.
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}, {{defaultIfEmpty v_paTitle "Program Coordinator"}}
+{{{ snippet "system - sms opt out logic" }}}

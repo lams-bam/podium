@@ -1,0 +1,2 @@
+Thanks for chatting{{#if nameFirst}}, {{nameFirst}}{{else}}{{/if}}!{{#if v_costCommunication}} {{{v_costCommunication}}}{{/if}} Let me know if you have additional questions about the program. - {{ defaultIfEmpty ownerNameFirst "Nate"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

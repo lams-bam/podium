@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}. I just tried connecting with you about the great news that you have been granted permission to enroll in the {{{v_programName}}}!
+
+Please let me know if you have any questions about this last step to complete your enrollment
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

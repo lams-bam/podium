@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}. I see that you have successfully registered for the {{{v_programName}}}. I just tried connecting with you about the final remaining step of selecting your program details for this upcoming term! Excited for you to finalize these last steps!
+
+Please let me know if you have any questions about selecting your program details!
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

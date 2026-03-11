@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}!  I just tried giving you a call. I wanted to welcome you to {{defaultIfEmpty programName "the program"}} and make sure you're all set for the first week! 
+
+Please give us a call back when you can. Your first step is checking your email for a message from coach@globaltech.org. Talk soon!
+
+-Success Team
+{{{ snippet "system - sms opt out logic" }}}

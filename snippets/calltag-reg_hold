@@ -1,0 +1,4 @@
+Hi {{defaultIfEmpty nameFirst "there"}}, this is {{{ snippet "retention - nameFirst" }}} from the {{{v_programName}}}. I just tried to connect with you regarding a registration hold impacting your enrollment in the {{{v_programName}}}. If you have a moment, I would love to chat just to check in regarding the hold and getting it resolved!
+
+- {{{ snippet "retention - nameFirst" }}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

@@ -1,0 +1,2 @@
+Great chatting{{#if nameFirst}}, {{nameFirst}}{{/if}},{{#catalog "Enrollment" lookup_enrollmentProcessCatalog as |enroll|}}{{#if enroll.groupInfoSessions}} here's the link to book an info session: {{{replace v_infoSession " " "%20"}}}{{else}} If you have any future questions or issues as you go through the process, feel free to call/text me.{{/if}}{{/catalog}}
+{{{ snippet "system - sms opt out logic" }}}

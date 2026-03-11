@@ -1,0 +1,84 @@
+{{#ifMatchesRegexStr v_stage ".*(Registration Hold|Program Enrolled|Disqualified|Withdrawn).*"}}
+{{else}}<p>{{#ifContainsStr templateName "Withdraw"}}Next Step:{{else}}<strong>Next Step:</strong>{{/ifContainsStr}}
+    {{#ifMatchesRegexStr v_stage "Prospective.*"}}
+            Thanks for chatting, per our conversation I recommend you review our program page and fill out the form to take the next step.</p>
+            <p><a href="{{{v_microsite}}}/"><b>Learn more about the {{v_programName}}</b></a></p>
+    {{else}}
+        {{#ifMatchesRegexStr v_stage "Interested"}}
+                your next step is to enroll as soon as possible.</p>
+                <p><a href="{{{v_startNewAppLink}}}?{{{ snippet "utm_master" }}}"><b>Enroll Now</b></a></p>
+        {{else}}
+            {{#ifMatchesRegexStr v_stage "Application Submitted"}}
+                {{#ifMatchesRegexStr v_schoolType "App School"}}
+                    Our team will review your information and will let you know as soon as possible if you are accepted.
+                {{/ifMatchesRegexStr}}
+            {{else}}
+                {{#ifMatchesRegexStr v_stage "Registered in System"}}
+                    Your next step is to select your LiveLab.</p>
+                    <p><b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b></p>
+                {{else}}
+                    As a reminder, your next step is to 
+                    {{#ifMatchesRegexStr v_stage ".*(Reserved a Seat|Lead).*"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            complete your application as soon as possible to make sure you are accepted.</p>
+                             <p><b><a href="{{{v_startNewAppLink}}}">Complete Application (2 min).</a></b></p>
+                         {{else}}
+                            {{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+                                select your LiveLab as soon as possible because they fill up fast - and I want to make sure you get a spot that works with your schedule. It will only take 1 minute. If it doesn&rsquo;t fit your schedule, give me a call today to discuss your options. In the meantime, let's get your preferred time locked in.<br /><br /></p>
+                                <p><b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b></p>
+                            {{else}}
+                                register for the program, it takes just a minute. If it doesn&rsquo;t fit your schedule, give me a call today to discuss your options. In the meantime, let's get you locked in before it fills up.</p>
+                                <p><b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.</p>
+                            {{/ifMatchesRegexStr}}
+                         {{/ifMatchesRegexStr}}
+                     {{/ifMatchesRegexStr}}
+                     {{#ifMatchesRegexStr v_stage "Application Started"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            complete your application as soon as possible to make sure you are accepted.</p>
+                            <p><b><a href="{{{v_continueApplicationLink}}}">Complete Application (2 min)</a></b>.</p>
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr v_stage "Application Approved"}}
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            Your next step is to hit commit on your application.</p>
+                            <p><b><a href="{{{v_continueApplicationLink}}}">Confirm Now (2 min)</a></b>.</p>
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr v_stage "Application Completed"}}
+                    {{#ifMatchesRegexStr v_registrationMethod "(No Registration|School Initiated)"}}
+                        {{#assign "e_appCompletedScenario"}}1{{/assign}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers - School Directed"}}
+                        {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                    {{/ifMatchesRegexStr}}
+                    {{#and (eq v_registrationMethod "Student Self Registers") (gt (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                        {{#assign "e_appCompletedScenario"}}3{{/assign}}
+                    {{/and}}
+                    {{#and (eq v_registrationMethod "Student Self Registers") (lte (dateFormat programRegistrationOpenDate format="yyyyMMdd" tz=timeZone) (now format="yyyyMMdd" tz=timeZone))}}
+                        {{#assign "e_appCompletedScenario"}}2{{/assign}}
+                    {{/and}}
+                    
+                        {{#ifMatchesRegexStr v_schoolType "App School"}}
+                            select your LiveLab as soon as possible because they fill up fast - and I want to make sure you get a spot that works with your schedule. It will only take 1 minute. If it doesn&rsquo;t fit your schedule, give me a call today to discuss your options. In the meantime, let's get your preferred time locked in.</p>
+                            <p><b><a href="{{{v_llForm}}}">Select your LiveLab (1 min)</a></b></p>
+                        {{else}}
+                            {{#ifMatchesRegexStr v_liveLabSelectionType ".*Registration.*"}}
+                                register for the program, it takes just a minute. If it doesn't fit your schedule, give me a call today to discuss your options. In the meantime, let's get you locked in before it fills up.</p>
+                                <p><b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.</p>
+                            {{/ifMatchesRegexStr}}
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                    {{#ifMatchesRegexStr v_stage ".*LiveLab.*"}}
+                        {{#ifMatchesRegexStr v_registrationMethod "Student Self Registers"}}
+                            your next step is to register in {{{defaultIfEmpty v_schoolSystemNameRegistration "the system"}}}.</p>
+                            <p><b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a> for {{{ snippet "field-courseCodes" }}}</b>.</p>
+                        {{/ifMatchesRegexStr}}
+                        {{#ifMatchesRegexStr v_registrationMethod ".*School Initiated.*"}}
+                            just hang tight! We will register you and send you a confirmation email once that is completed.</p>
+                        {{/ifMatchesRegexStr}}
+                    {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    {{/ifMatchesRegexStr}}
+{{/ifMatchesRegexStr}}

@@ -1,0 +1,2 @@
+{{ defaultIfEmpty nameFirst "Hi there"}}, thanks for taking the time to chat! As a next step, I recommend you connect with your academic advisor to see how the {{{v_programName}}} credit can work with your degree plan. I went ahead and sent an email with some additional info! - {{ defaultIfEmpty ownerNameFirst "Nate"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

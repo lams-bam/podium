@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}. I just tried connecting with you about the final steps to enroll in the {{{v_programName}}}. We are thrilled to have you join us this upcoming term!
+
+Please let me know if you have any questions about your final steps to enroll!
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

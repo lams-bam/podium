@@ -1,0 +1,3 @@
+Hi {{nameFirst}}! I just called to follow up about CareerBase, a platform you gain access to with {{{v_genericProgramName}}}. There you will find job postings, events, and communities to help with your career journey. Check for an email from Rebecca Richey to unlock your account. Reply here if you have any questions!
+
+-{{{ snippet "careerbase - from name first name" }}}

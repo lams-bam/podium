@@ -1,0 +1,4 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}! I just gave you a call to chat about the {{{v_programName}}}. What made you interested in the program? You can call/text back here.
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

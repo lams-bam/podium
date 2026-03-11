@@ -1,0 +1,6 @@
+Hi {{ defaultIfEmpty nameFirst "there"}}, I just tried giving you a call to check in and see if you have any questions to finish your enrollment for the {{{v_programName}}}? 
+
+Please let me know if there is anything I can help with!
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}

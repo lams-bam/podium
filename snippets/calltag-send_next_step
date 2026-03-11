@@ -1,0 +1,4 @@
+Great chatting{{#if nameFirst}}, {{nameFirst}}{{/if}}, {{#ifMatchesRegexStr v_stage "Program Enrolled"}}You are all set. Let me know if you have any other questions!{{else}}I just sent you an email with links for your next step. Let me know if you have any questions as you're going through those!{{/ifMatchesRegexStr}}
+
+- {{ defaultIfEmpty ownerNameFirst "Carla"}}, {{v_paTitle}}
+{{{ snippet "system - sms opt out logic" }}}
