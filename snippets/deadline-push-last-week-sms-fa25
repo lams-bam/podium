@@ -1,0 +1,71 @@
+{{~#ifMatchesRegexStr university "University of California, Riverside"}}
+{{defaultIfEmpty nameFirst "Hello"}}, This is {{ defaultIfEmpty ownerNameFirst "Nate"}} from the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! I noticed you haven't finished your enrollment for the summer program yet and I don't want you to miss out - enrollment closes soon. 
+
+This program is perfect for getting valuable career experience while earning {{v_programCreditCount}} credits. Plus you pay UC Riverside's low in-state tuition rate and it also fits into the tuition cap offering.
+If you have any questions, feel free to respond here or call. You can use the link below or in your inbox to complete your enrollment.
+{{else~}}
+  {{~#ifMatchesRegexStr university "Northern Arizona University"}}
+
+  {{else~}}
+    {{~#ifMatchesRegexStr university "University of Louisville"}}
+ 
+    {{else~}}
+      {{~#ifMatchesRegexStr university "University of North Texas"}}
+
+      {{else~}}
+      
+        {{~#ifMatchesRegexStr university "Kent State University"}}
+   
+        {{else~}}
+          {{~#ifMatchesRegexStr university "The University of Texas at San Antonio"}}
+         
+          {{else~}}
+            {{~#ifMatchesRegexStr university "Boise State University"}}
+          
+            {{else~}}
+              {{~#ifMatchesRegexStr university "The University of Texas at Dallas"}}
+              {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, FINAL WEEK DEADLINE: Summer enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Tuesday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek.  As your advisor, I can help you beat the deadline and enrolled! You can complete your steps by using the link below or in your inbox.
+              {{else~}}
+                {{~#ifMatchesRegexStr university "University of Texas Rio Grande Valley"}}
+
+                {{else~}}
+                  {{~#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                  {{else~}}
+
+                    {{else~}}
+                  {{~#ifMatchesRegexStr university "The University of Scranton"}}
+                  {{else~}}
+                    {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final week deadline! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes this Monday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                    {{else~}}
+                  {{~#ifMatchesRegexStr university "Cal Poly Pomona"}}
+                  {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final week deadline! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                  {{else~}}
+                   {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final week deadline! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                  {{else~}}
+                  {{~#ifMatchesRegexStr university "Southern Methodist University"}}
+{{defaultIfEmpty nameFirst "Hello"}}, final week deadline! I just emailed you but wanted to reach out directly so you don't miss the deadline! Enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday and you're close to being fully enrolled! This isn't just another course. In this program you'll get real-world experience, industry certifications, and {{v_programCreditCount}} credits, all at your standard tuition rate. Check your email or use the link below to enroll! 
+                  {{else~}}
+                  
+                   {{else~}}
+                  {{~#ifMatchesRegexStr university "The Ohio State University"}}
+                  {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, FINAL WEEK DEADLINE! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                  {{else~}}
+                {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, FINAL WEEK DEADLINE! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                            {{~/ifMatchesRegexStr~}}
+                         {{~/ifMatchesRegexStr~}}
+                        {{~/ifMatchesRegexStr~}}
+                     {{~/ifMatchesRegexStr~}}
+                  {{~/ifMatchesRegexStr~}}
+                {{~/ifMatchesRegexStr~}}
+              {{~/ifMatchesRegexStr~}}
+            {{~/ifMatchesRegexStr~}}
+          {{~/ifMatchesRegexStr~}}
+        {{~/ifMatchesRegexStr~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr}}
+
+- {{ defaultIfEmpty ownerNameFirst "Nate"}}, {{defaultIfEmpty v_paTitle "Program Coordinator"}}
+{{{ snippet "system - sms opt out logic" }}}
+{{{ snippet "WIP - SMS - Next Step Link" }}}

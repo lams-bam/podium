@@ -1,0 +1,3 @@
+<div>Questions? Please don't hesitate to reach out:<br/>
+Email: <a href="mailto:{{v_paEmail}}?subject=Questions about the {{{v_programName}}}.&amp;body=Hi I have questions about {{{v_programName}}}" rel="noopener" target="_blank" title="{{v_paEmail}}">{{v_paEmail}}</a><br/>
+Text or call: <a href="tel:{{v_paPhone}}" rel="noopener" target="_blank" title="tel:{{v_paPhone}}">{{v_paPhone}}</a>

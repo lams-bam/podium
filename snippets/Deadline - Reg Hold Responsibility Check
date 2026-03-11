@@ -1,0 +1,2 @@
+{{#ifEq v_regHoldResponsibility "Yes"}}{{else}}{{sendSkip cause="partner responsible"}}{{/ifEq}}
+{{#ifEq v_regHoldStatus "Partner Handles"}}{{sendSkip cause="partner handles"}}{{/ifEq}}

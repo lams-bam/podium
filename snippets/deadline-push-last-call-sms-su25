@@ -1,0 +1,108 @@
+{{~#ifMatchesRegexStr university "West Virginia University"}}
+{{defaultIfEmpty nameFirst "Hello"}} FINAL DAY ALERT: Today is the last day to enroll in The {{defaultIfEmpty v_programName "Global Career Accelerator"}}. Less than 1/3 of students secure opportunities that give experience! In the {{defaultIfEmpty v_programName "Global Career Accelerator"}} you'll earn real-world experience, college credit, and certifications this summer—all online. As your program advisor, I can help you secure your spot before the deadline. You can start by using the link below or in your inbox.
+{{else~}}
+{{~#ifMatchesRegexStr university "Texas Tech University"}}
+{{defaultIfEmpty nameFirst "Hello"}}, Reaching out to remind you that today is the last day to finish enrolling for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} this summer. 
+Here's why this program matters: only 29% of college students graduate with real career experience and this virtual program gets you that experience plus {{v_programCreditCount}} credits.
+Don't miss out - check your email or use the link below to finalize enrollment.
+{{else~}}
+{{~#ifMatchesRegexStr university "The University of Texas at Arlington"}}
+{{defaultIfEmpty nameFirst "Hello"}}, Today is the final day to finalize your summer enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! Reminder, there are scholarships available to help cover tuition costs for students that are eligible. Don't miss out on getting valuable career experience and {{v_programCreditCount}} credits. Check your email or use the link below to finalize enrollment. Our program advisors can help you understand if you qualify for scholarship opportunities with the program.
+{{else~}}
+{{~#ifMatchesRegexStr university "Southern Illinois University Carbondale"}}
+{{defaultIfEmpty nameFirst "Hello"}}, Reaching out to remind you that today is the last day to finish enrolling for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} this summer. 
+Here's why this program matters: only 29% of college students graduate with real career experience and this virtual program gets you that experience plus {{v_programCreditCount}} credits.
+Don't miss out - check your email or use the link below to finalize enrollment.
+{{else~}}
+{{~#ifMatchesRegexStr university "Case Western Reserve University"}}
+{{defaultIfEmpty nameFirst "Hello"}}, Reaching out because today is the final day to enroll for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! As a reminder, this program is the same standard cost of tuition as any other course.
+Here's why this program matters: only 29% of college students graduate with real career experience and this virtual program gets you that experience plus {{v_programCreditCount}} credits at your standard tuition. 
+As your program advisor I can help you complete your enrollment and beat the deadline. Use the link below or in your inbox to finalize your enrollment.
+{{else~}}
+{{~#ifMatchesRegexStr university "Adelphi University"}}
+{{{ snippet "universal-variables" }}}{{defaultIfEmpty nameFirst "Hello"}}, Reaching out because today is the final day to enroll for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! As a reminder, this program is the same standard cost of tuition as any other course.
+Here's why this program matters: only 29% of college students graduate with real career experience and this virtual program gets you that experience plus {{v_programCreditCount}} credits at your standard tuition. 
+As your program advisor I can help you complete your enrollment and beat the deadline. Use the link below or in your inbox to finalize your enrollment.
+{{else~}}
+{{~#ifMatchesRegexStr university "The University of Texas at Austin"}}
+{{defaultIfEmpty nameFirst "Hello"}}, It's the final hours to secure your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! As a reminder the program is offered this summer at an exclusive tuition and program fee rate! Now's your opportunity to enroll and earn {{v_programCreditCount}} credits plus gain the valuable career experience employers seek! As your advisor, I can help you beat the deadline! Use the link below or in your inbox to get enrolled.
+{{else~}}
+{{~#ifMatchesRegexStr university "American University"}}
+ {{defaultIfEmpty nameFirst "Hello"}}, it's the final few hours to enroll in the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! Like your other courses, you earn {{v_programCreditCount}} credits, PLUS you also get real-world experience and professional certifications all at the same cost as your normal tuition rate. Currently, only 29% of college students graduate with meaningful career experience. As your program advisor, I can help you get enrolled for summer and get experience. Secure your spot using the link below or in your inbox. 
+{{else~}}
+  {{~#ifMatchesRegexStr university "Northern Arizona University"}}
+  {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final reminder: the {{defaultIfEmpty v_programName "Global Career Accelerator"}} enrollment closes tonight! The best part? You pay the same standard tuition for {{v_programCreditCount}} credits and no additional cost. But unlike regular courses, you'll also earn industry certifications and gain real resume-building experience that employers actively seek. Currently, only 29% of college students graduate with meaningful career experience. I can help you join the successful minority by helping you finish your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} today! Take your next step by using the link below or in your inbox! 
+  {{else~}}
+    {{~#ifMatchesRegexStr university "University of Louisville"}}
+    {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final reminder: the {{defaultIfEmpty v_programName "Global Career Accelerator"}} enrollment closes tonight! The best part? You pay the same standard tuition for {{v_programCreditCount}} credits and no additional cost. But unlike regular courses, you'll also earn industry certifications and gain real resume-building experience that employers actively seek. Currently, only 29% of college students graduate with meaningful career experience. I can help you join the successful minority by helping you finish your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} today! Take your next step by using the link below or in your inbox!
+    {{else~}}
+      {{~#ifMatchesRegexStr university "University of North Texas"}}
+{{defaultIfEmpty nameFirst "Hello"}}, Last Call: ENROLLMENT CLOSES TONIGHT! The {{defaultIfEmpty v_programName "Global Career Accelerator"}} offers valuable real-world experience, college credit, and certifications—all online during your summer break. Only 29% of students secure meaningful career opportunities like this! As your program advisor, I'm here to help you enroll before the deadline. You can start by using the link below or in your inbox! 
+      {{else~}}
+      
+        {{~#ifMatchesRegexStr university "Kent State University"}}
+        {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final reminder: the {{defaultIfEmpty v_programName "Global Career Accelerator"}} enrollment closes tonight! The best part? You pay the same standard tuition for {{v_programCreditCount}} credits and no additional cost. But unlike regular courses, you'll also earn industry certifications and gain real resume-building experience that employers actively seek. Currently, only 29% of college students graduate with meaningful career experience. I can help you join the successful minority by helping you finish your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} today! Take your next step by using the link below or in your inbox!
+        {{else~}}
+          {{~#ifMatchesRegexStr university "The University of Texas at San Antonio"}}
+          {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final reminder: enrollment closes tonight! You're very close to finishing your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}}. Currently, only 29% of college students graduate with valuable workplace experience. I can help you join the successful minority by helping you finish your enrollment for the program today! Get ready to earn industry certifications and gain real resume-building experience that employers actively seek this summer. You can take your next step using the link below or in your inbox. 
+          {{else~}}
+            {{~#ifMatchesRegexStr university "Boise State University"}}
+            {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final reminder: the {{defaultIfEmpty v_programName "Global Career Accelerator"}} enrollment closes tonight! The best part? You pay the same standard tuition for {{v_programCreditCount}} credits and no additional cost. But unlike regular courses, you'll also earn industry certifications and gain real resume-building experience that employers actively seek. Currently, only 29% of college students graduate with meaningful career experience. I can help you join the successful minority by helping you finish your enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} today! Take your next step by using the link below or in your inbox!
+            {{else~}}
+              {{~#ifMatchesRegexStr university "The University of Texas at Dallas"}}
+              {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, FINAL WEEK DEADLINE: Summer enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Tuesday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek.  As your advisor, I can help you beat the deadline and enrolled! You can complete your steps by using the link below or in your inbox.
+              {{else~}}
+                {{~#ifMatchesRegexStr university "University of Texas Rio Grande Valley"}}
+                {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final Deadline: Summer enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes today and may be financial aid eligible for you! 
+You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+
+                {{else~}}
+                  {{~#ifMatchesRegexStr university "Florida Gulf Coast University"}}
+                  {{else~}}
+                    {{defaultIfEmpty nameFirst "Hello"}}, Last Call: ENROLLMENT CLOSES TONIGHT! The {{defaultIfEmpty v_programName "Global Career Accelerator"}} offers valuable real-world experience, college credit, and certifications—all online during your summer break. I'm here to help you enroll before the deadline. You can start by using the link below or in your inbox!
+                    {{else~}}
+                  {{~#ifMatchesRegexStr university "The University of Scranton"}}
+                  {{else~}}
+                    {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final week deadline! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes this Monday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                    {{else~}}
+                  {{~#ifMatchesRegexStr university "Cal Poly Pomona"}}
+                  {{else~}}
+                   {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, Final week deadline! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                  {{else~}}
+                  {{~#ifMatchesRegexStr university "Southern Methodist University"}}
+                  {{defaultIfEmpty nameFirst "Hello"}}, final few hours to enroll in the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! As a reminder this program is offered at your standard cost of tuition but gives you real-world experience, industry certifications, and {{v_programCreditCount}} credits. Currently, only 29% of college students graduate with meaningful career experience. As your program advisor I can help you complete your enrollment and beat the deadline. Use the link below or in your inbox to finalize your enrollment.
+                  {{else~}}
+                   {{defaultIfEmpty nameFirst "Hello"}}, final week deadline! I just emailed you but wanted to reach out directly so you don't miss the deadline! The {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday and you're close to being fully enrolled! This isn't just another course. In this program you'll get real-world experience, industry certifications, and {{v_programCreditCount}} credits, all at your standard tuition rate. Check your email or use the link below to enroll! 
+                   {{else~}}
+                  {{~#ifMatchesRegexStr university "The Ohio State University"}}
+                  {{else~}}
+                {{{ snippet "universal-variables" }}} {{defaultIfEmpty nameFirst "Hello"}}, FINAL WEEK DEADLINE! You can check out additional details in your email but enrollment for the {{defaultIfEmpty v_programName "Global Career Accelerator"}} closes next Thursday! You're close to being fully enrolled and I would hate for you to miss out on earning {{v_programCreditCount}} credits, industry certifications and gaining real resume-building experience that employers actively seek. As your advisor, I can help you beat the deadline and get enrolled! You can complete your steps by using the link below or in your inbox.
+                  {{~#ifMatchesRegexStr university "American University"}}
+                  {{else~}}
+               {{defaultIfEmpty nameFirst "Hello"}}, it's the final few hours to enroll in the {{defaultIfEmpty v_programName "Global Career Accelerator"}}! Like your other courses, you earn {{v_programCreditCount}} credits, PLUS you also get real-world experience and professional certifications all at the same cost as your normal tuition rate. Currently, only 29% of college students graduate with meaningful career experience. As your program advisor, I can help you get enrolled for summer and get experience. Secure your spot using the link below or in your inbox. 
+                                                                                                   {{~/ifMatchesRegexStr~}}
+
+                                                      {{~/ifMatchesRegexStr~}}
+                                                                                  {{~/ifMatchesRegexStr~}}
+
+                            {{~/ifMatchesRegexStr~}}
+                             {{~/ifMatchesRegexStr~}}
+                             {{~/ifMatchesRegexStr~}}
+                             {{~/ifMatchesRegexStr~}}
+                            {{~/ifMatchesRegexStr~}}
+                            {{~/ifMatchesRegexStr~}}
+                         {{~/ifMatchesRegexStr~}}
+                        {{~/ifMatchesRegexStr~}}
+                    {{~/ifMatchesRegexStr~}}
+                  {{~/ifMatchesRegexStr~}}
+                {{~/ifMatchesRegexStr~}}
+              {{~/ifMatchesRegexStr~}}
+            {{~/ifMatchesRegexStr~}}
+          {{~/ifMatchesRegexStr~}}
+        {{~/ifMatchesRegexStr~}}
+      {{~/ifMatchesRegexStr~}}
+    {{~/ifMatchesRegexStr~}}
+  {{~/ifMatchesRegexStr~}}
+{{~/ifMatchesRegexStr}}
+
+{{{ snippet "SMS - Signature - General - Next Steps Link" }}}
