@@ -1,0 +1,43 @@
+<p><strong>Steps to enroll in the {{{v_programName}}}:</strong></p>
+<p>&nbsp;</p>
+<p>✅&nbsp;&nbsp;<strong>Step 1:</strong> Reserve a Spot</p>
+<p>✅&nbsp;&nbsp;<strong>Step 2:</strong> Complete Application (2 mins)</p>
+<p>
+{{#ifContainsStr v_appProcessCommit "Manual"}}
+	{{#ifMatchesRegexStr university ".*University of North Texas.*"}}
+		✅&nbsp;&nbsp;<strong>Step 3:</strong> Submit Payment
+	{{else}}
+		✅&nbsp;&nbsp;<strong>Step 3:</strong> Commit & Confirm Application
+	{{/ifMatchesRegexStr}}
+{{/ifContainsStr}}
+{{#ifContainsStr v_appProcessCommit "Automatic"}}
+	{{#ifMatchesRegexStr university "University of New Haven|Central Michigan University"}}
+		☐&nbsp;&nbsp;<strong>Step 3:</strong> Complete Registration
+	{{else}}
+		☐&nbsp;&nbsp;<strong>Step 3:</strong> Select LiveLab Time
+	{{/ifMatchesRegexStr}}
+{{/ifContainsStr}}</p>
+
+{{#ifContainsStr v_appProcessCommit "Manual"}}
+	{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+		<p>&nbsp;☐&nbsp;<strong>Step 4:</strong> Select LiveLab Time</p>
+	{{/ifMatchesRegexStr}}
+{{/ifContainsStr}}
+
+{{#ifContainsStr v_registrationMethod "Student Self Registers"}}
+	{{#ifContainsStr v_liveLabSelectionType "Podium"}}
+	<p>☐&nbsp;&nbsp;<strong>Step 5:</strong> Complete Registration</p>
+	{{/ifContainsStr}}
+{{/ifContainsStr}}
+
+{{#ifContainsStr v_liveLabSelectionType "School"}}
+	{{#ifMatchesRegexStr university ".*Central Michigan University|University of New Haven.*"}}
+	{{else}}
+<p>☐&nbsp;&nbsp;<strong>Step 4:</strong> Complete Registration</p>
+	{{/ifMatchesRegexStr}}
+{{/ifContainsStr}}
+{{#ifContainsStr v_appProcessCommit "Automatic"}}
+	{{#ifContainsStr v_registrationMethod "Student Self Registers"}}
+		<p>☐&nbsp;&nbsp;<strong>Step 4:</strong> Complete Registration</p>
+	{{/ifContainsStr}}
+{{/ifContainsStr}}

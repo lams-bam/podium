@@ -1,0 +1,5 @@
+__________<br/>
+{{v_headofTrackNameFirst}} {{v_headofTrackNameLast}}<br/>
+{{{v_programName}}}<br/>
+<a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}">{{defaultIfEmpty coachEmail "coach@globaltech.org"}}</a><br/>Text: <a href="sms:+18556840070">+1 (855) 684-0070</a> | Call: 
+<a href="tel:{{coachtelephonenumber}}">{{coachtelephonenumber}}</a>

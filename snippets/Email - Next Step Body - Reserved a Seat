@@ -1,0 +1,29 @@
+{{#ifMatchesRegexStr v_schoolType "App School"}}
+    {{#ifContainsStr stage "Reserved a Seat"}}
+    If you'd like, you can complete your application now to make sure you are accepted, it only takes a couple of minutes.<br/><br/>
+    <b><a href="{{{v_startNewAppLink}}}">Complete Application (2 min)</a></b>.
+    {{/ifContainsStr}}
+    {{#ifContainsStr stage "Application Started"}}
+    If you'd like, you can complete your application now to make sure you are accepted, it only takes a couple of minutes.<br/><br/>
+    <b><a href="{{{v_continueApplicationLink}}}">Complete Application (2 min)</a></b>.
+    {{/ifContainsStr}}
+{{/ifMatchesRegexStr}}
+
+{{#ifContainsStr v_schoolType "No App School"}}
+    {{#ifContainsStr stage "Reserved a Seat"}}
+        {{#ifContainsStr v_liveLabSelectionType "Podium"}}
+        Really quickly, be sure to select your LiveLab as soon as possible because they fill up fast - and I want to make sure you get a spot that works with your schedule. It will only take 1 minute. If it doesn't fit your schedule, give me a call today to discuss your options. In the meantime, let's get your preferred time locked in.<br/><br/>
+        <b><a href="{{{ v_llForm }}}">Select your LiveLab (1 min)</a></b>.
+        {{/ifContainsStr}}
+        {{#ifContainsStr v_liveLabSelectionType "Registration"}}
+            Your next step is to register for the program, it takes just a minute. If it doesn't fit your schedule, give me a call today to discuss your options. In the meantime, let's get you locked in before it fills up.<br/><br/>
+            <b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.
+        {{/ifContainsStr}}
+    {{/ifContainsStr}}
+    {{#ifContainsStr stage "Application Completed"}}
+        {{#ifContainsStr v_liveLabSelectionType "Registration"}}
+        Your next step is to register for the program, it takes just a minute. If it doesn't fit your schedule, give me a call today to discuss your options. In the meantime, let's get you locked in before it fills up.<br/><br/>
+        <b><a href="{{{v_registrationLink}}}">You can register here (2 min)</a></b> for {{{ snippet "field-courseCodes" }}}.
+        {{/ifContainsStr}}
+    {{/ifContainsStr}}
+{{/ifContainsStr}}

@@ -1,0 +1,121 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; color:#000000;">
+
+  <ol style="margin:0; padding-left:20px; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly;">
+
+    {{!-- ========================================================= --}}
+    {{!-- STEP 1 (TEMP): SHOW BOTH VARIANTS INSIDE ONE "1."          --}}
+    {{!-- TODO: Replace with productLine logic when available:       --}}
+    {{!--   productLine = GCA -> show GCA block only                 --}}
+    {{!--   productLine = CDE -> show CDE block only                 --}}
+    {{!-- ========================================================= --}}
+    <li style="margin:0 0 16px 0; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; font-weight:700;">
+   
+
+      <div style="margin-top:8px; font-weight:400; line-height:24px; mso-line-height-rule:exactly;">
+
+        {{!-- GCA variant --}}
+        <div style="margin-bottom:16px;">
+          <div style="font-size:14px; line-height:20px; mso-line-height-rule:exactly; color:#555555;">
+            <em>GCA version (will show when productLine = GCA)</em>
+          </div>
+
+          <div style="margin-top:6px;">
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">Log in to [programName]</strong> and click "Go to course".
+          </div>
+
+          <div style="margin-top:6px;">
+            → Your login email is:<br/>
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{email}}</strong>
+          </div>
+
+          <div style="margin-top:10px;">
+            {{{ snippet "Email - CTA - Programs - Login" }}}
+          </div>
+
+          <div style="margin-top:10px;">
+            {{{ snippet "assign - welcomeImage by track" }}}
+            {{{ snippet "render - welcomeImage block handlebars Copy Edit" }}}
+          </div>
+        </div>
+
+        {{!-- CDE variant --}}
+        <div>
+          <div style="font-size:14px; line-height:20px; mso-line-height-rule:exactly; color:#555555;">
+            <em>CDE version (will show when productLine = CDE)</em>
+          </div>
+
+          <div style="margin-top:6px;">
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">Log in to [lmsName] for [programName].</strong>
+          </div>
+
+          <div style="margin-top:6px;">
+            → Your login email is:<br/>
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{email}}</strong>
+          </div>
+
+          <div style="margin-top:10px;">
+            {{{ snippet "Email - CTA - Programs - Login" }}}
+          </div>
+        </div>
+
+      </div>
+    </li>
+
+    {{!-- STEP 2 --}}
+    <li style="margin:0 0 16px 0; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; font-weight:700;">
+      Explore {{lmsName}} &amp; check out your course materials!
+
+      <div style="margin-top:8px; font-weight:400; line-height:24px; mso-line-height-rule:exactly;">
+        <strong style="line-height:24px; mso-line-height-rule:exactly;">Click the {{lmsName}} tile</strong> to find your course materials.
+
+        <div style="margin-top:4px;">
+            Start with
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{module1}}</strong>,
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{module2}}</strong>,
+            and try to finish them before
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{synchronousSession}}</strong>
+        </div>
+
+        <div style="margin-top:12px;">
+          {{{ snippet "HQ Part Tiles" }}}
+        </div>
+
+        <div style="margin-top:12px;">
+          💡 <strong style="line-height:24px; mso-line-height-rule:exactly;">Pro Tip:</strong>
+          Take the [lmsName] Tour when you first log in! Click the [studentChatbotIcon] icon on the bottom-right corner of [lmsName] for tips, tools, and chat with your dedicated support team.
+        </div>
+      </div>
+    </li>
+
+    {{!-- STEP 3 --}}
+    <li style="margin:0; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; font-weight:700;">
+      Join the first {{synchronousSession}} on
+      {{#if e_firstLiveLabDateTime}}
+        {{{ dateFormat e_firstLiveLabDateTime format="EEEE, MMMM d, YYYY' at 'h aaa (z)'" tz=timeZone }}}
+      {{else}}
+        (date/time coming soon)
+      {{/if}}
+
+      <div style="margin-top:8px; font-weight:400; line-height:24px; mso-line-height-rule:exactly;">
+        <ul style="margin:0; padding-left:18px; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly;">
+          <li style="margin:0 0 8px 0; line-height:24px; mso-line-height-rule:exactly;">
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">Find the Zoom link</strong> on the {{lmsName}} Calendar — click the 📆
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{synchronousSession}}</strong>.
+          </li>
+          <li style="margin:0; line-height:24px; mso-line-height-rule:exactly;">
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">Register with the login email:</strong>
+            <strong style="line-height:24px; mso-line-height-rule:exactly;">{{email}}</strong>
+            to be counted as present.
+          </li>
+        </ul>
+
+        <div style="margin-top:12px;">
+          <strong style="line-height:24px; mso-line-height-rule:exactly;">Note:</strong>
+          {{synchronousSession}} is required for [certifications] and is part of your [grade].
+        </div>
+      </div>
+    </li>
+
+  </ol>
+
+</div>

@@ -1,0 +1,12 @@
+<p style="line-height:0px;">--</p>
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0">
+<tr>
+    <td style="padding-left:0px; margin:0;padding-bottom:20px;"><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td style="padding-right:0px;"><img style="max-width:100px; display:inline-block; vertical-align:middle;" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/vCard/GCA-Logo-white_background-circle-01.png"></td></tr></table></td>
+        
+    <td style="padding-left:10px;padding-bottom:20px;"><table>
+    <tr>
+    <td style="padding-right:15px;">
+        <b>{{#if v_coachNameFirst_inFlight}}{{{v_coachNameFirst_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameFirst "Becky"}}}{{/if}} {{#if v_coachNameLast_inFlight}}{{{v_coachNameLast_inFlight}}}{{else}}{{{defaultIfEmpty v_cc_coachNameLast "Richey"}}}{{/if}}</b><br/>
+Success Coach<br/>
+<a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}" style="text-decoration: none; color: inherit;">{{defaultIfEmpty coachEmail "coach@globaltech.org"}}</a><br><b>Text:</b><a href="sms:+18556840070" style="text-decoration: none; color: inherit;"> +1 (855) 684-0070</a> | <b>Call:</b>
+<a href="tel:{{defaultIfEmpty coachtelephonenumber "(512) 271-4874"}}" style="text-decoration: none; color: inherit;">{{defaultIfEmpty coachtelephonenumber "(512) 271-4874"}}</a><br/></td></tr></table>

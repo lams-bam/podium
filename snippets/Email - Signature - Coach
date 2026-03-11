@@ -1,0 +1,23 @@
+<p style="line-height:20px">--<br/>
+
+<table class="fullWidth">
+    <tr>
+    <td style="padding-right:18px; border-right: 2px solid #323548;">
+        <b><span style="font-family: 'Georgia', serif; font-size: 18px; color:#323548;">{{defaultIfEmpty coachNameFirst "Bekah"}} {{defaultIfEmpty coachNameLast "Bonilla"}}</span></b><br/>
+        <span style="font-size:15px;">Success Coach</span><br/></td>
+
+    <td style="padding-left:10px; font-size:14px;">
+    <span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">em:</span>
+        <a href="mailto:{{defaultIfEmpty coachEmail "coach@globaltech.org"}}" style="color:#000;">{{defaultIfEmpty coachEmail "coach@globaltech.org"}}</a>{{#if coachtelephonenumber}}<br><span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">call: </span>
+        <a href="tel:{{coachtelephonenumber}}" style="color:#000;">{{coachtelephonenumber}}</a>{{/if}}<br><span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">txt: </span><a href="sms:+18556840070" style="color:#000;">+1 855-684-0070</a><br/>
+    </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center" width="100%" style="padding: 15px 15px;">
+            <div class="fullWidth" width="100%">
+            <img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/GCA-logo-horizontal-grey-outline.png" width="150" height="" /><br/></div>
+        </td>
+    </tr>
+
+</table>

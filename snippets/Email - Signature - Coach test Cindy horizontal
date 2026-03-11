@@ -1,0 +1,37 @@
+<p style="line-height:20px">--<br/>
+<table>
+<tr><td style="border-right: 2px solid #323548;padding-right:10px;"><table>
+    <tr>
+    <td style="padding-right:15px;">
+        <b><span style="font-family: 'Georgia', serif; font-size: 18px; color:#323548;">{{defaultIfEmpty coachNameFirst "Becky"}} {{defaultIfEmpty coachNameLast "Richey"}}</span></b><br/>
+        <span style="font-size:15px;">Senior Partner Success Manager</span><br/></td></tr>
+
+<tr><td style="padding-left:0px; font-size:14px;">
+    <span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">w:</span>
+<a href="https://www.podiumeducation.com/"style="color:#000;">podiumeducation.com</a>{{#if coachtelephonenumber}}<br><span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">call: </span>
+<a href="tel:{{coachtelephonenumber}}" style="color:#000;">{{coachtelephonenumber}}</a>{{/if}}<br><span style="font-family: 'Georgia', serif; color:#323548; font-weight:bold;">call: </span><a href="sms:+18556840070" style="color:#000;">+1 855-684-0070</a><br/></td></tr></table>
+</td>
+<td colspan="2" align="left" style="padding: 15px 15px;"><table>
+    <tr><td>
+<img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/GCA-logo-horizontal-grey-outline.png" width="140" height=""  /><br/></td></tr>
+<tr>
+<td>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; color: #333; margin: 0 auto;" width="">
+      <tr>
+<td style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%" align="center">
+<table border="0" cellpadding="0" cellspacing="0" class="html_block block-1" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="20%" align="center">
+<tbody>
+<tr>
+<td width="33%"><table role="presentation" align="center" width="20"><tr><td style="max-width:30px;align:center;"><a href="https://www.tiktok.com/@globalcareeraccelerator?{{{ snippet "utm_master" }}}"><img alt="GCA TikTok" height="auto" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/tiktok_icon_darkblue_.png" style="display: inline-block; height: auto; border: 0; width: 20px;" title="" width="20"></a></td></tr></table>
+</td>
+<td width="33%"><table role="presentation" align="center" width="30"><tr><td style="max-width:30px;"><a href="https://www.instagram.com/globalcareeraccelerator/?{{{ snippet "utm_master" }}}"><img alt="GCA Instagram" height="auto" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/instagram_icon_darkblue_.png" style="display: inline-block; height: auto; border: 0; width: 20px;" title="" width="20"></a></td></tr></table>
+</td>
+<td width="33%"><table role="presentation" align="center" width="20"><tr><td style="max-width:20px;"><a href="https://www.linkedin.com/company/global-career-accelerator/?{{{ snippet "utm_master" }}}"><img alt="GCA Linkedin" height="auto" src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/669d5713-9b6a-46bb-bd7e-c542cff6dd6a/bad0d961febe4f229536d370ebbb97ed/linkedin_icon_darkblue_.png" style="display: inline-block; height: auto; border: 0; width: 20px;" title="" width="20"></a></td></tr>
+      
+  </table> 
+    
+</td></tr>
+
+</td>
+</tr>
+</table>

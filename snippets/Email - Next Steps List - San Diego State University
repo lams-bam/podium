@@ -1,0 +1,83 @@
+<div><p><strong>Steps to enroll in the {{{ v_programName }}}:</strong></p>
+<p>✅&nbsp;&nbsp;<strong>Step 1:</strong> If you haven't already, complete the <a href="https://sdsu-sa.terradotta.com/index.cfm?FuseAction=Programs.ViewProgramAngular&id=12091">Global Education Portal Application</a><br/>
+    {{#ifMatchesRegexStr v_schoolType "App School"}}
+<!--App School-->
+    <!--Step 2-3 Primary split v_appProcessCommit-->
+		{{#ifMatchesRegexStr stage ".*(Approve|Complete|Live).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 2:</strong> {{#ifMatchesRegexStr stage ".*(Reserved a Seat|Started|Interested).*"}}{{/ifMatchesRegexStr}}Once accepted, you will receive registration instructions. Register for the appropriate course in <a href="{{{ v_registrationLink }}}">{{{v_schoolSystemNameRegistration}}}</a> to fully secure your spot in the program.{{#ifMatchesRegexStr stage ".*(Reserved a Seat|Started|Interested).*"}}</a>{{/ifMatchesRegexStr}}<br/>
+		
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Manual.*"}}
+        	{{#ifMatchesRegexStr university "University of North Texas"}}
+        		{{#ifMatchesRegexStr stage ".*(Complete|Live).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 3: </strong> Submit Payment<br/>
+        	{{else}}
+        	   {{#ifMatchesRegexStr university "Hawaii Pacific University|University of New Haven|Central Michigan University|"}}
+        	        ☐&nbsp;&nbsp;<strong>Step 3: </strong> Complete Registration<br/>
+        	   {{else}}
+               		{{#ifMatchesRegexStr stage ".*(Live|Complete).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 3: </strong> Commit & Confirm Application<br/>
+            	{{/ifMatchesRegexStr}}
+        	{{/ifMatchesRegexStr}}
+    	{{else}}
+        	{{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}
+        	    {{#ifMatchesRegexStr stage ".*(Live).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 3: </strong> {{#ifMatchesRegexStr stage ".*App.*(Submit|Complete|Approve).*"}}<a href="{{{v_llForm}}}" >{{/ifMatchesRegexStr}}Select LiveLab Time{{#ifMatchesRegexStr stage ".*App.*(Submit|Complete|Approved).*"}}</a>{{/ifMatchesRegexStr}}<br/>
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    <!--Step 4 Primary split v_appProcessCommit-->
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Automatic.*"}}
+            {{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}
+                {{#ifMatchesRegexStr university ".*University of New Haven.*"}}
+                {{else}}
+                ☐&nbsp;&nbsp;<strong>Step 4:</strong> Complete Registration<br/>
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+        {{else}}
+            {{#ifMatchesRegexStr v_appProcessCommit ".*Manual.*"}}
+            	{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+            		{{#ifMatchesRegexStr stage ".*(Live).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 4: </strong> Select LiveLab Time<br/>
+        		{{else}}
+        		    {{#ifMatchesRegexStr v_liveLabSelectionType ".*School.*"}}
+        		        {{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}
+        		            {{#ifMatchesRegexStr university ".*University of New Haven.*"}}
+        		            {{else}}
+        		                ☐&nbsp;&nbsp;<strong>Step 4:</strong> Complete Registration<br/>
+    		                {{/ifMatchesRegexStr}}
+		                {{/ifMatchesRegexStr}}
+	                {{/ifMatchesRegexStr}}
+                {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+    <!--Step 5 -->
+        {{#ifMatchesRegexStr v_appProcessCommit ".*Manual.*"}}
+        	{{#ifMatchesRegexStr v_liveLabSelectionType ".*Podium.*"}}
+            	{{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}
+        	    	☐&nbsp;&nbsp;<strong>Step 5:</strong> Complete Registration<br/>
+        	    {{/ifMatchesRegexStr}}
+            {{/ifMatchesRegexStr}}
+        {{/ifMatchesRegexStr}}
+            
+    {{/ifMatchesRegexStr}}
+<!--No App School-->
+    <!--Registration Method Student -->
+    <!--Step 2 -->
+	{{#ifMatchesRegexStr v_schoolType "No App School"}}
+		{{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}
+			{{#ifMatchesRegexStr v_liveLabSelectionType "Registration"}}
+			    ☐&nbsp;&nbsp;<strong>Step 2: </strong>Complete Registration<br/>
+			{{else}}
+			    {{#ifMatchesRegexStr stage ".*(Complete).*"}}✅{{else}}☐{{/ifMatchesRegexStr}}&nbsp;&nbsp;<strong>Step 2: </strong>Select LiveLab Time<br/>
+			{{/ifMatchesRegexStr}}
+    <!--Step 3 -->
+            {{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}
+				☐&nbsp;&nbsp;<strong>Step 3: </strong>Complete Registration<br/>
+			{{/ifMatchesRegexStr}}
+		{{else}}
+	<!--Registration Method Not Student -->
+	<!--Step 2 -->
+			{{#ifMatchesRegexStr v_liveLabSelectionType "Registration"}}Complete Registration
+			{{else}}
+			    ☐&nbsp;&nbsp;<strong>Step 2: </strong>Select LiveLab Time<br/>
+			    {{#ifMatchesRegexStr v_registrationMethod ".*Student.*"}}<p style="font-size:16px;">☐&nbsp;&nbsp;<strong>Step 3:</strong> Complete Registration</p>
+		        {{/ifMatchesRegexStr}}
+			{{/ifMatchesRegexStr}}
+		{{/ifMatchesRegexStr}}
+	{{/ifMatchesRegexStr}}
+</p>
+</div>

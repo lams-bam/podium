@@ -1,0 +1,98 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly; color:#000000;">
+
+  <ol style="margin:0; padding-left:20px; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; mso-line-height-rule:exactly;">
+
+    <!-- STEP 1 -->
+    <li style="margin:0 0 16px 0; font-weight:700;">
+      Log in to {{{ snippet "Program - GCA - Name" }}}
+
+      <div style="margin-top:8px; font-weight:400;">
+
+        <div style="margin-top:6px;">
+          → Your login email is:<br/>
+          <strong>{{email}}</strong>
+        </div>
+
+        <div style="margin-top:20px;">
+          {{{ snippet "Email - CTA - Programs - Login - GCA" }}}
+        </div>
+
+      </div>
+    </li>
+
+    <!-- STEP 2 -->
+    <li style="margin:0 0 16px 0;">
+      <strong>Click <i>{{{ snippet "Product - GCA - Career Network CTA" }}}</i></strong> to open the {{{ snippet "Product - GCA - LMS Name" }}} platform
+
+      <div style="margin-top:8px; font-weight:400;">
+        <div style="margin-top:10px;">
+          {{{ snippet "assign - welcomeImage by track" }}}
+          {{{ snippet "render - welcomeImage block handlebars Copy Edit" }}}
+        </div>
+      </div>
+    </li>
+
+    <!-- STEP 3 -->
+    <li style="margin:0 0 16px 0;">
+      <strong>Explore {{{ snippet "Product - GCA - LMS Name" }}}</strong> &amp; check out your course materials!
+
+      <div style="margin-top:8px; font-weight:400;">
+
+        <!-- Checklist -->
+        <ul style="margin:12px 0 0 0; padding-left:0; list-style:none;">
+          <li style="margin:0 0 10px 0;">
+          
+          </li>
+          <li style="margin:0 0 10px 0;">
+            ☐ Start with <i>{{{ snippet "Product - GCA - Module 1" }}}</i>,
+            <i>{{{ snippet "Product - GCA - Module 2" }}}</i>, try to finish before {{{ snippet "Product - GCA - Synchronous Session" }}}!
+          </li>
+        </ul>
+        <p>
+  💡 <strong>Pro Tip:</strong> Take the {{{ snippet "Product - GCA - LMS Name" }}} Tour when you first log in!
+  Click the {{{ snippet "Product - GCA - Student Chatbot Icon" }}} icon on the bottom-right corner of
+  {{{ snippet "Product - GCA - LMS Name" }}} for tips, tools, and to chat with your dedicated support team.
+</p>
+
+      </div>
+    </li>
+
+    <!-- STEP 4 -->
+    <li style="margin:0; font-weight:700;">
+      Join the first {{{ snippet "Product - GCA - Synchronous Session" }}} on
+     {{#if v_firstLiveLabTime}} {{{ dateFormat v_firstLiveLabTime format="EEEE, MMMM d, YYYY' at 'h:mm aaa (z)" tz=timeZone }}} {{else}} (date/time coming soon) {{/if}}
+
+      <div style="margin-top:8px; font-weight:400;">
+
+        <!-- Checklist -->
+        <ul style="margin:12px 0 0 0; padding-left:0; list-style:none;">
+          <li style="margin:0 0 10px 0;">
+            ☐ Find the Zoom link on the
+            <a href="https://hq.globaltech.org/calendar"
+               target="_blank"
+               style="color:#1a73e8; text-decoration:underline;">
+              {{{ snippet "Product - GCA - Calendar" }}}</a>, just click the {{{ snippet "Product - GCA - Synchronous Session - Emoji" }}} <strong>{{{ snippet "Product - GCA - Synchronous Session" }}}</strong> event.
+          </li>
+          <li style="margin:0;">
+            ☐ <strong>Register with the login email:</strong>
+            {{email}}
+            to be counted as present.
+          </li>
+        </ul>
+
+        <div style="margin-top:12px;">
+          <strong>Note:</strong>
+          {{{ snippet "Product - GCA - Synchronous Session" }}} participation is required for {{{ snippet "Product - GCA - Certifications" }}} and is part of your {{{lower (snippet "Product - GCA - Grade")}}}.
+        </div>
+
+      </div>
+    </li>
+{{#ifEq is_late_start "true"}}
+  <div style="margin-top:14px; font-weight:400;">
+    Since your home university's term starts after the first {{{ snippet "Product - GCA - Synchronous Session" }}}, the first session will be optional for you. Feel free to join live or catch up with the recording.
+  </div>
+{{/ifEq}}
+
+  </ol>
+
+</div>
