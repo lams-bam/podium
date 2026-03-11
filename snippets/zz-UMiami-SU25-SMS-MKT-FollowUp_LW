@@ -1,0 +1,12 @@
+{{defaultIfEmpty nameFirst "Hello"}}, I just emailed you about the {{defaultIfEmpty v_programName "Global Career Accelerator"}} and wanted to share here so you don't miss out on the opportunity since there's only one week left to apply!
+
+This {{lower (defaultIfEmpty v_activeSeason "summer")}}, earn {{v_schoolAbbreviationExternal}} credit and boost your degree with a fully virtual program designed to give you real-world experience. Work on projects for top companies like OpenAI, Intel, and The Grammys!
+
+Check out the program using the link below or in your email. Have questions? Reply here or via email—our advisors are happy to help!
+
+Looking forward to you joining us! I'm confident this will be an incredible experience for you.
+
+Carla Martin
+Program Director
+
+{{v_microsite}}?sid={{userId}}
