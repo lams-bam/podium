@@ -1,1 +1,80 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Call Tag Email Browser</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+:root { --bg: #0a0c10; --surface: #12151c; --border: #1e2330; --text: #c8cdd8; --text-dim: #6b7280; --accent: #3b82f6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); overflow:hidden; height:100vh; }
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:#2a2f3d; border-radius:3px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+window.PREVIEWS = {};
+</script>
+<script type="text/babel">
+const {useState, useRef, useEffect, useCallback} = React;
+const JOURNEYS = [
+	{name: "Call Tag - Interested Send Advisor", id: 458243, campaigns: [{ name: "CallTag-Advisor", id: 9134517, templateId: 12083254, labels: ["Outreach: EA"], subject: "Follow up for the {programName}" }]},
+	{name: "Call Tag - Interested Send Cost/Financial Aid", id: 458245, campaigns: [{ name: "CallTag-Cost_FinAid", id: 9134521, templateId: 12083261, labels: ["Outreach: EA"], subject: "Follow up: {programName}" }]},
+	{name: "Call Tag - Interested - Send General", id: 458284, campaigns: [{ name: "CallTag - Interested General (v3)", id: 17115846, templateId: 22282617, labels: [], subject: "{nameFirst}, great speaking with you" }]},
+	{name: "Call Tag - Interested - Send Next Step", id: 458241, campaigns: [{ name: "All - Interested Send Next Step (new)", id: 16331878, templateId: 21253819, labels: [], subject: "Your next step to enroll in the {programName}" }]},
+	{name: "Call Tag - Reg Hold", id: 864453, campaigns: [{ name: "Call Tag - Reg Hold - Attempted Not Connected", id: 16731389, templateId: 21777453, labels: ["Outreach: Retention"], subject: "Re: Action Required to enroll in {programName}" }]},
+	{name: "Triggered - Bad Number Journey", id: 815627, campaigns: [
+		{ name: "TRX-Bad Number Journey", id: 16066334, templateId: 20907292, labels: [], subject: "We'd love to say Hello!" },
+		{ name: "TrX - Invalid/Bad Number", id: 17114850, templateId: 22281052, labels: [], subject: "We'd love to say Hello!" },
+		{ name: "TrX - Invalid/Bad Number (personable/connect)", id: 17114910, templateId: 22281161, labels: [], subject: "{nameFirst}, I'd like to connect with you!" }
+	]}
+];
+const VM = {
+	ut_austin: { school: "UT Austin", university: "The University of Texas at Austin", type: "App School", reg: "Student Self Registers", color: "#BF5700", email: "advisor@go.global.utexas.edu", phone: "(737) 260-0897", programName: "UT Austin Global Career Accelerator" },
+	asu: { school: "ASU", university: "Arizona State University", type: "App School", reg: "School Initiated", color: "#FBC426", textColor: "#000", email: "advisor@globaltech.asu.edu", phone: "(480) 908-8182", programName: "ASU Global Career Accelerator" },
+	jmu: { school: "JMU", university: "James Madison University", type: "App School", reg: "Self Reg - School Directed", color: "#450084", email: "coordinator@globaltech.jmu.edu", phone: "(540) 555-0100", programName: "JMU Global Career Accelerator" }
+};
+const VARIATION_KEYS = Object.keys(VM);
+function getSubject(vKey, campaign) { const v = VM[vKey]; return campaign.subject.replace("{programName}", v.programName).replace("{nameFirst}", "Alex"); }
+function Pill({active, color, textColor, children, onClick}) { return React.createElement("button", { onClick, style: { background: active ? color : "transparent", border: `1.5px solid ${active ? color : "#2a2f3d"}`, color: active ? (textColor || "#fff") : "#9ca3af", padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 500, cursor: "pointer", transition: "all .15s", fontFamily: "'DM Sans',sans-serif", whiteSpace: "nowrap" } }, children); }
+function IdChip({label, value, href}) { const inner = React.createElement("span", { style: { userSelect: "all", fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#93c5fd" } }, value); return React.createElement("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, background: "#1a1f2e", padding: "3px 8px", borderRadius: 4, fontSize: 11 } }, React.createElement("span", { style: { color: "#6b7280", fontSize: 10, textTransform: "uppercase", letterSpacing: ".5px" } }, label), href ? React.createElement("a", { href, target: "_blank", style: { color: "#93c5fd", textDecoration: "none" } }, inner) : inner); }
+function DetailRow({label, value, mono}) { return React.createElement("div", { style: { display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #1a1f2e", fontSize: 13 } }, React.createElement("span", { style: { color: "#6b7280", fontWeight: 500 } }, label), React.createElement("span", { style: { color: "#e5e7eb", fontFamily: mono ? "'JetBrains Mono',monospace" : "inherit", fontSize: mono ? 12 : 13, textAlign: "right", maxWidth: "65%", wordBreak: "break-all" } }, value)); }
+function Card({title, accent, children}) { return React.createElement("div", { style: { background: "#12151c", borderRadius: 8, border: "1px solid #1e2330", borderLeft: `3px solid ${accent || "#3b82f6"}`, padding: "14px 16px", marginBottom: 12 } }, title && React.createElement("div", { style: { fontSize: 10, textTransform: "uppercase", letterSpacing: 1.2, color: accent || "#3b82f6", fontWeight: 700, marginBottom: 10 } }, title), children); }
+function App() {
+	const [jIdx, setJIdx] = useState(0); const [cIdx, setCIdx] = useState(0); const [vIdx, setVIdx] = useState(0); const [previewMode, setPreviewMode] = useState("desktop"); const [sidebarCollapsed, setSidebarCollapsed] = useState(false); const iframeRef = useRef(null);
+	const journey = JOURNEYS[jIdx]; const campaign = journey.campaigns[cIdx] || journey.campaigns[0]; const vKey = VARIATION_KEYS[vIdx]; const v = VM[vKey];
+	const previewKey = `${campaign.templateId}_${vKey}`;
+	const previewHtml = window.PREVIEWS[previewKey] || `<div style="padding:40px;font-family:sans-serif;color:#888;text-align:center"><h2>Preview not yet rendered</h2><p>Key: ${previewKey}</p></div>`;
+	const subject = getSubject(vKey, campaign);
+	useEffect(() => { if (iframeRef.current) { const doc = iframeRef.current.contentDocument; doc.open(); doc.write(`<!DOCTYPE html><html><head><style>body{margin:0;padding:16px;font-family:arial,sans-serif;font-size:14px;color:#000;background:#fff;}</style></head><body>${previewHtml}</body></html>`); doc.close(); const resizeIframe = () => { try { iframeRef.current.style.height = doc.documentElement.scrollHeight + "px"; } catch(e) {} }; iframeRef.current.onload = resizeIframe; setTimeout(resizeIframe, 200); } }, [previewHtml, previewMode]);
+	const sidebar = React.createElement("div", { style: { width: sidebarCollapsed ? 48 : 280, minWidth: sidebarCollapsed ? 48 : 280, background: "#0d1017", borderRight: "1px solid #1e2330", display: "flex", flexDirection: "column", transition: "width .2s", overflow: "hidden" } },
+		React.createElement("div", { style: { padding: "16px 14px", borderBottom: "1px solid #1e2330", display: "flex", alignItems: "center", justifyContent: "space-between" } }, !sidebarCollapsed && React.createElement("div", {}, React.createElement("div", { style: { fontSize: 13, fontWeight: 700, color: "#f3f4f6" } }, "Call Tag Emails"), React.createElement("div", { style: { fontSize: 10, color: "#6b7280", marginTop: 2 } }, `${JOURNEYS.length} journeys · ${JOURNEYS.reduce((a,j) => a + j.campaigns.length, 0)} campaigns`)), React.createElement("button", { onClick: () => setSidebarCollapsed(!sidebarCollapsed), style: { background: "none", border: "none", color: "#6b7280", cursor: "pointer", fontSize: 16, padding: 4 } }, sidebarCollapsed ? "▶" : "◀")),
+		!sidebarCollapsed && React.createElement("div", { style: { flex: 1, overflowY: "auto", padding: "8px 0" } }, JOURNEYS.map((j, ji) => React.createElement("div", { key: ji }, React.createElement("button", { onClick: () => { setJIdx(ji); setCIdx(0); }, style: { width: "100%", textAlign: "left", padding: "10px 14px", background: ji === jIdx ? "#1a1f2e" : "transparent", border: "none", borderLeft: ji === jIdx ? "2px solid #3b82f6" : "2px solid transparent", color: ji === jIdx ? "#f3f4f6" : "#9ca3af", cursor: "pointer", fontSize: 12, fontFamily: "'DM Sans',sans-serif", display: "flex", justifyContent: "space-between", alignItems: "center" } }, React.createElement("span", { style: { lineHeight: 1.4 } }, j.name), React.createElement("span", { style: { background: "#1e2330", color: "#6b7280", padding: "2px 6px", borderRadius: 10, fontSize: 10, fontWeight: 600, minWidth: 18, textAlign: "center" } }, j.campaigns.length)), ji === jIdx && j.campaigns.map((c, ci) => React.createElement("button", { key: ci, onClick: () => setCIdx(ci), style: { width: "100%", textAlign: "left", padding: "7px 14px 7px 28px", background: ci === cIdx ? "#141825" : "transparent", border: "none", color: ci === cIdx ? "#93c5fd" : "#6b7280", cursor: "pointer", fontSize: 11, fontFamily: "'DM Sans',sans-serif" } }, c.name)))))
+	);
+	const variationTabs = React.createElement("div", { style: { display: "flex", gap: 8, padding: "12px 20px", borderBottom: "1px solid #1e2330", background: "#0d1017", flexWrap: "wrap" } }, VARIATION_KEYS.map((vk, vi) => { const vm = VM[vk]; return React.createElement(Pill, { key: vk, active: vi === vIdx, color: vm.color, textColor: vm.textColor, onClick: () => setVIdx(vi) }, `${vm.school} · ${vm.type}`); }));
+	const details = React.createElement("div", { style: { width: 340, minWidth: 340, overflowY: "auto", padding: "16px", background: "#0f1219", borderRight: "1px solid #1e2330" } },
+		React.createElement(Card, { title: "IDs & Links", accent: "#3b82f6" }, React.createElement("div", { style: { display: "flex", flexWrap: "wrap", gap: 6 } }, React.createElement(IdChip, { label: "Journey", value: journey.id, href: `https://app.iterable.com/workflows/${journey.id}/edit` }), React.createElement(IdChip, { label: "Campaign", value: campaign.id }), React.createElement(IdChip, { label: "Template", value: campaign.templateId, href: `https://app.iterable.com/templates/email/${campaign.templateId}` }))),
+		React.createElement(Card, { title: "Example School", accent: v.color }, React.createElement(DetailRow, { label: "University", value: v.university }), React.createElement(DetailRow, { label: "Program", value: v.programName }), React.createElement(DetailRow, { label: "PA Email", value: v.email, mono: true }), React.createElement(DetailRow, { label: "Phone", value: v.phone })),
+		React.createElement(Card, { title: "Conditions", accent: "#a78bfa" }, React.createElement(DetailRow, { label: "School Type", value: v.type }), React.createElement(DetailRow, { label: "Reg Method", value: v.reg }), campaign.labels.length > 0 && React.createElement(DetailRow, { label: "Labels", value: campaign.labels.join(", ") })),
+		React.createElement(Card, { title: "Subject Line", accent: "#fbbf24" }, React.createElement("div", { style: { fontSize: 13, color: "#fde68a", fontWeight: 500, wordBreak: "break-word" } }, subject)),
+		React.createElement(Card, { title: "Sender", accent: "#34d399" }, React.createElement(DetailRow, { label: "From Name", value: "Jordan Rivera" }), React.createElement(DetailRow, { label: "From Email", value: v.email, mono: true }), React.createElement(DetailRow, { label: "Reply-To", value: v.email, mono: true }))
+	);
+	const previewWidth = previewMode === "desktop" ? 600 : 375;
+	const preview = React.createElement("div", { style: { flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" } },
+		React.createElement("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 20px", borderBottom: "1px solid #1e2330", background: "#0d1017" } }, React.createElement("div", { style: { fontSize: 13, fontWeight: 600, color: "#e5e7eb" } }, campaign.name), React.createElement("div", { style: { display: "flex", gap: 4 } }, React.createElement("button", { onClick: () => setPreviewMode("desktop"), style: { padding: "4px 12px", fontSize: 11, border: "1px solid #2a2f3d", borderRadius: 4, background: previewMode === "desktop" ? "#1e2330" : "transparent", color: previewMode === "desktop" ? "#f3f4f6" : "#6b7280", cursor: "pointer", fontFamily: "'DM Sans',sans-serif" } }, "Desktop"), React.createElement("button", { onClick: () => setPreviewMode("mobile"), style: { padding: "4px 12px", fontSize: 11, border: "1px solid #2a2f3d", borderRadius: 4, background: previewMode === "mobile" ? "#1e2330" : "transparent", color: previewMode === "mobile" ? "#f3f4f6" : "#6b7280", cursor: "pointer", fontFamily: "'DM Sans',sans-serif" } }, "Mobile"))),
+		React.createElement("div", { style: { flex: 1, overflowY: "auto", overflowX: "auto", display: "flex", justifyContent: "center", padding: "24px 20px", background: "#080a0e" } }, React.createElement("div", { style: { width: previewWidth, flexShrink: 0, background: "#fff", borderRadius: 8, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,.4)" } }, React.createElement("iframe", { ref: iframeRef, style: { width: "100%", border: "none", display: "block", minHeight: 200 }, scrolling: "no", title: "Email Preview" })))
+	);
+	return React.createElement("div", { style: { display: "flex", height: "100vh", overflow: "hidden" } }, sidebar, React.createElement("div", { style: { flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" } }, variationTabs, React.createElement("div", { style: { flex: 1, display: "flex", overflow: "hidden" } }, details, preview)));
+}
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+</script>
+</body>
+</html>
